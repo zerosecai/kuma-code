@@ -1,12 +1,12 @@
 ---
 title: "Custom Subagents"
-description: "Create and configure custom subagents in Kilo Code's CLI"
+description: "Create and configure custom subagents in Kuma Code's CLI"
 platform: new
 ---
 
 # Custom Subagents
 
-Kilo Code's CLI supports **custom subagents** — specialized AI assistants that can be invoked by primary agents or manually via `@` mentions. Subagents run in their own isolated sessions with tailored prompts, models, tool access, and permissions, enabling you to build purpose-built workflows for tasks like code review, documentation, security audits, and more.
+Kuma Code's CLI supports **custom subagents** — specialized AI assistants that can be invoked by primary agents or manually via `@` mentions. Subagents run in their own isolated sessions with tailored prompts, models, tool access, and permissions, enabling you to build purpose-built workflows for tasks like code review, documentation, security audits, and more.
 
 {% callout type="info" %}
 Custom subagents are currently configured through the config file (`kilo.jsonc`) or via markdown agent files. UI-based configuration is not yet available.
@@ -25,7 +25,7 @@ Key characteristics of subagents:
 
 ### Built-in Subagents
 
-Kilo Code includes two built-in subagents:
+Kuma Code includes two built-in subagents:
 
 | Name | Description |
 |---|---|

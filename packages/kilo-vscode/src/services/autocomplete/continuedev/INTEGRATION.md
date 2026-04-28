@@ -54,8 +54,8 @@ Since this library is fully integrated into Kilocode:
 1. **Clone Kilocode repository**:
 
    ```bash
-   git clone https://github.com/kilocode/kilocode.git
-   cd kilocode
+   git clone https://github.com/kuma-code/kuma-code.git
+   cd kuma-code
    ```
 
 2. **Install all dependencies**:

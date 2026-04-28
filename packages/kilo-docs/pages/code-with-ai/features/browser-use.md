@@ -1,11 +1,11 @@
 ---
 title: "Browser Use"
-description: "Using Kilo Code to interact with web browsers"
+description: "Using Kuma Code to interact with web browsers"
 ---
 
 # Browser Use
 
-Kilo Code provides browser automation capabilities that let you interact with websites directly from your coding workflow. This feature supports testing web applications, automating browser tasks, and capturing screenshots without leaving your editor.
+Kuma Code provides browser automation capabilities that let you interact with websites directly from your coding workflow. This feature supports testing web applications, automating browser tasks, and capturing screenshots without leaving your editor.
 
 {% callout type="info" title="Model Support Required" %}
 Browser Use requires an advanced agentic model. It is typically most reliable with recent high-capability models (for example Claude Sonnet 4 class models).
@@ -21,7 +21,7 @@ Browser automation is built into the extension and requires no manual setup. Ena
 {% /tab %}
 {% tab label="CLI" %}
 
-Kilo Code uses [Playwright](https://playwright.dev/) for browser automation. Add it to your `kilo.jsonc` configuration:
+Kuma Code uses [Playwright](https://playwright.dev/) for browser automation. Add it to your `kilo.jsonc` configuration:
 
 ```json
 {
@@ -39,7 +39,7 @@ Playwright downloads Chromium automatically on first use.
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-By default, Kilo Code uses a built-in browser that:
+By default, Kuma Code uses a built-in browser that:
 
 - Launches automatically when you ask Kilo to visit a website
 - Captures screenshots of web pages
@@ -63,7 +63,7 @@ A typical browser interaction follows this pattern:
 For example:
 
 - `Open the browser and view our site.`
-- `Can you check if my website at https://kilocode.ai is displaying correctly?`
+- `Can you check if my website at https://kuma-code.ai is displaying correctly?`
 - `Browse http://localhost:3000, scroll down to the bottom of the page and check if the footer information is displaying correctly.`
 
 ## How Browser Actions Work
@@ -155,7 +155,7 @@ Browser automation is configured in your `kilo.jsonc` file. No additional settin
 
 To change Browser / Computer Use settings in Kilo:
 
-1. Click the gear icon {% codicon name="gear" /%} in Kilo Code
+1. Click the gear icon {% codicon name="gear" /%} in Kuma Code
 2. Open `Browser / Computer Use`
 
 ### Enable/Disable Browser Use
@@ -168,7 +168,7 @@ To change this setting:
 
 ### Viewport Size
 
-**Purpose**: Determines the resolution of the browser session Kilo Code uses.
+**Purpose**: Determines the resolution of the browser session Kuma Code uses.
 
 **Tradeoff**: Higher values provide a larger viewport but increase token usage.
 

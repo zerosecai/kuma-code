@@ -7,7 +7,7 @@ description: "Manage conversation context to optimize token usage and maintain l
 
 ## Overview
 
-When working on complex tasks, conversations with Kilo Code can grow long and consume a significant portion of the AI model's context window. **Context Condensing** is a feature that intelligently summarizes your conversation history, reducing token usage while preserving the essential information needed to continue your work effectively.
+When working on complex tasks, conversations with Kuma Code can grow long and consume a significant portion of the AI model's context window. **Context Condensing** is a feature that intelligently summarizes your conversation history, reducing token usage while preserving the essential information needed to continue your work effectively.
 
 ## The Problem: Context Window Limits
 
@@ -22,7 +22,7 @@ Every AI model has a maximum context window — a limit on how much text it can 
 
 ## The Solution: Auto-Compaction
 
-Kilo Code uses a **Compaction** system to manage context automatically. When your conversation approaches the token limit, compaction kicks in and produces a structured summary that captures:
+Kuma Code uses a **Compaction** system to manage context automatically. When your conversation approaches the token limit, compaction kicks in and produces a structured summary that captures:
 
 - The overall goal of the session
 - Instructions given along the way
@@ -212,7 +212,7 @@ This summary replaces the detailed conversation history, freeing up context wind
 
 ### Automatic Triggering
 
-Kilo Code monitors your context usage and may suggest condensing when you approach the context window limit. You'll see a notification indicating that condensing is recommended.
+Kuma Code monitors your context usage and may suggest condensing when you approach the context window limit. You'll see a notification indicating that condensing is recommended.
 
 ### Manual Condensing
 
@@ -225,7 +225,7 @@ You can also trigger context condensing manually at any time using:
 
 When condensing is triggered:
 
-1. **Analysis**: Kilo Code analyzes the entire conversation history
+1. **Analysis**: Kuma Code analyzes the entire conversation history
 2. **Summarization**: A summary is generated using the configured API, capturing essential context
 3. **Replacement**: The detailed history is replaced with the condensed summary
 4. **Continuation**: You can continue working with the freed-up context space
@@ -259,7 +259,7 @@ If the condensed summary doesn't capture important details:
 
 - Consider condensing earlier, before the conversation becomes too long
 - Use clear, specific language when describing your tasks
-- Important context can be reinforced after condensing by reminding Kilo Code of key details
+- Important context can be reinforced after condensing by reminding Kuma Code of key details
 
 {% /tab %}
 {% /tabs %}

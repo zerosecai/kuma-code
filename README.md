@@ -1,9 +1,9 @@
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=kilocode.Kilo-Code"><img src="https://raster.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace" height="20"></a>
-  <a href="https://x.com/kilocode"><img src="https://raster.shields.io/badge/kilocode-000000?style=flat&logo=x&logoColor=white" alt="X (Twitter)" height="20"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kuma-code.Kuma-Code"><img src="https://raster.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace" height="20"></a>
+  <a href="https://x.com/kuma-code"><img src="https://raster.shields.io/badge/kuma-code-000000?style=flat&logo=x&logoColor=white" alt="X (Twitter)" height="20"></a>
   <a href="https://blog.kilo.ai"><img src="https://raster.shields.io/badge/Blog-555?style=flat&logo=substack&logoColor=white" alt="Substack Blog" height="20"></a>
   <a href="https://kilo.ai/discord"><img src="https://raster.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Discord" height="20"></a>
-  <a href="https://www.reddit.com/r/kilocode/"><img src="https://raster.shields.io/badge/Join%20r%2Fkilocode-D84315?style=flat&logo=reddit&logoColor=white" alt="Reddit" height="20"></a>
+  <a href="https://www.reddit.com/r/kuma-code/"><img src="https://raster.shields.io/badge/Join%20r%2Fkuma-code-D84315?style=flat&logo=reddit&logoColor=white" alt="Reddit" height="20"></a>
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 ## Quick Links
 
 - [VS Code Marketplace](https://kilo.ai/vscode-marketplace?utm_source=Readme) (download)
-- Install CLI: `npm install -g @kilocode/cli`
+- Install CLI: `npm install -g @kuma-code/cli`
 - [Official Kilo.ai Home page](https://kilo.ai) (learn more)
 
 ## Key Features
@@ -37,7 +37,7 @@
 
 ## Get Started in Visual Studio Code
 
-1. Install the Kilo Code extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kilocode.Kilo-Code).
+1. Install the Kuma Code extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kuma-code.Kuma-Code).
 2. Create your account to access 500+ cutting-edge AI models including Gemini 3.1 Pro, Claude 4.6 Sonnet & Opus, and GPT-5.4 – with transparent pricing that matches provider rates exactly.
 3. Start coding with AI that adapts to your workflow. Watch our quick-start guide to see Kilo in action:
 
@@ -47,28 +47,28 @@
 
 ```bash
 # npm
-npm install -g @kilocode/cli
+npm install -g @kuma-code/cli
 
 # Or run directly with npx
-npx @kilocode/cli
+npx @kuma-code/cli
 ```
 
 Then run `kilo` in any project directory to start.
 
-<!-- kilocode_change start -->
+<!-- kuma-code_change start -->
 
 ### npm Install Note: Hidden `.kilo` File
 
-On some systems and npm versions, installing `@kilocode/cli` can create a hidden `.kilo` file near the installed `kilo` command (for example in a global npm bin directory). This file is an npm-generated launcher helper, not project data.
+On some systems and npm versions, installing `@kuma-code/cli` can create a hidden `.kilo` file near the installed `kilo` command (for example in a global npm bin directory). This file is an npm-generated launcher helper, not project data.
 
 - Why it exists: npm may create helper artifacts while wiring CLI executables.
 - Size caveat: size can vary by platform, npm version, and install mode (symlink vs copied launcher), so a strict fixed size is not guaranteed.
-- Safety: it is safe to leave in place. Do not edit it manually. Use your package manager's uninstall (`npm uninstall -g @kilocode/cli`) to remove install artifacts cleanly.
-<!-- kilocode_change end -->
+- Safety: it is safe to leave in place. Do not edit it manually. Use your package manager's uninstall (`npm uninstall -g @kuma-code/cli`) to remove install artifacts cleanly.
+<!-- kuma-code_change end -->
 
 ### Install from GitHub Releases (Optional)
 
-Download the latest binary or source code from the [Releases page](https://github.com/Kilo-Org/kilocode/releases), use this quick guide:
+Download the latest binary or source code from the [Releases page](https://github.com/Kilo-Org/kuma-code/releases), use this quick guide:
 
 - `kilo-<os>-<arch>.zip` is the CLI binary for your OS and CPU architecture on Windows and macOS. (`kilo-linux-<arch>.tar.gz` for Linux)
 - `darwin` means macOS.

@@ -1,6 +1,6 @@
 ---
 title: "JetBrains Extension"
-description: "Using Kilo Code in JetBrains IDEs"
+description: "Using Kuma Code in JetBrains IDEs"
 ---
 
 # JetBrains Extension

@@ -1,11 +1,11 @@
 ---
 title: "VS Code Extension"
-description: "Using Kilo Code in Visual Studio Code"
+description: "Using Kuma Code in Visual Studio Code"
 ---
 
 # VS Code Extension
 
-Kilo Code is available as two VS Code extensions: the **VSCode (Legacy)** extension and the current **VSCode** version built on the Kilo CLI core.
+Kuma Code is available as two VS Code extensions: the **VSCode (Legacy)** extension and the current **VSCode** version built on the Kilo CLI core.
 
 {% tabs %}
 {% tab label="VSCode" %}
@@ -14,7 +14,7 @@ Kilo Code is available as two VS Code extensions: the **VSCode (Legacy)** extens
 
 1. Open VS Code
 2. Go to Extensions (`Ctrl+Shift+X` / `Cmd+Shift+X`)
-3. Search for "Kilo Code"
+3. Search for "Kuma Code"
 4. Click the dropdown arrow next to **Install** and select **Install Pre-Release Version**
 
 The extension bundles its own CLI binary and spawns `kilo serve` as a background process. All communication happens over HTTP + SSE.
@@ -53,7 +53,7 @@ The extension shares its configuration with the CLI. Settings in `~/.config/kilo
 - **[Autocomplete](/docs/code-with-ai/features/autocomplete)** — Inline code completions as you type
 - **[Code Actions](/docs/code-with-ai/features/code-actions)** — Explain, fix, and improve code from the editor context menu
 - **[Agents](/docs/code-with-ai/agents/using-agents)** — Code, Ask, Architect, Debug, Orchestrator, and Review modes
-- **[Custom Modes](/docs/customize/custom-modes)** — Define custom modes with `.kilocodemodes` YAML files
+- **[Custom Modes](/docs/customize/custom-modes)** — Define custom modes with `.kuma-codemodes` YAML files
 - **[MCP](/docs/automate/mcp/overview)** — Connect to MCP servers for extended capabilities
 - **[Agent Manager](/docs/automate/agent-manager)** — Multi-session orchestration with git worktree isolation
 - **[Git Commit Generation](/docs/code-with-ai/features/git-commit-generation)** — AI-powered commit messages from the Source Control panel

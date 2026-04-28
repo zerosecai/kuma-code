@@ -126,4 +126,4 @@ assistant: Clients are marked as failed in the `connectToServer` function in src
 
 If the user asks for help or wants to give feedback inform them of the following:
 - /help: Get help with using Kilo
-- To give feedback, users should report the issue at https://github.com/Kilo-Org/kilocode/issues
+- To give feedback, users should report the issue at https://github.com/Kilo-Org/kuma-code/issues

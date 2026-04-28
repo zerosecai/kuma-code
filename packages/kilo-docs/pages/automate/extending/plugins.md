@@ -58,7 +58,7 @@ Config files live in the same locations as the rest of your CLI configuration �
 Drop TypeScript or JavaScript files into a `plugin/` or `plugins/` folder inside any config directory:
 
 - Global: `~/.config/kilo/plugin/`
-- Project: `.kilo/plugin/`, `.kilocode/plugin/`, or `.opencode/plugin/`
+- Project: `.kilo/plugin/`, `.kuma-code/plugin/`, or `.opencode/plugin/`
 
 Every `.ts` or `.js` file in those directories is auto-registered at startup — no need to list them in the config file.
 
@@ -121,7 +121,7 @@ Create a file in your plugin directory:
 
 ```ts
 // .kilo/plugin/hello.ts
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kuma-code/plugin"
 
 const hello: Plugin = async ({ project, client, $, directory, worktree }) => {
   console.log("hello plugin loaded")
@@ -141,7 +141,7 @@ The plugin function receives a context object:
 | `project` | Current project metadata. |
 | `directory` | Current working directory for this session. |
 | `worktree` | Git worktree root for this session. |
-| `client` | A Kilo SDK client (`@kilocode/sdk`) for calling the local server. |
+| `client` | A Kilo SDK client (`@kuma-code/sdk`) for calling the local server. |
 | `$` | [Bun's shell API](https://bun.com/docs/runtime/shell). |
 | `serverUrl` | URL of the local Kilo server. |
 | `experimental_workspace` | Register workspace adaptors (used by Agent Manager). |
@@ -153,7 +153,7 @@ The function returns a `Hooks` object. Any second argument is the options object
 Plugins must default-export a module descriptor. `id` is required for local-file plugins and inferred from `package.json#name` for npm plugins.
 
 ```ts
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kuma-code/plugin"
 
 const server: Plugin = async (ctx) => ({
   /* hooks */
@@ -172,15 +172,15 @@ An npm plugin can also expose a TUI entry point (`tui`) for [TUI plugins](#tui-p
 Install the plugin package locally and import its types:
 
 ```bash
-bun add -d @kilocode/plugin
+bun add -d @kuma-code/plugin
 ```
 
 ```ts
-import type { Plugin } from "@kilocode/plugin"
-import { tool } from "@kilocode/plugin/tool"
+import type { Plugin } from "@kuma-code/plugin"
+import { tool } from "@kuma-code/plugin/tool"
 ```
 
-Kilo automatically creates a `package.json` in config directories that contain a `plugin/` folder and installs `@kilocode/plugin` so types resolve out of the box.
+Kilo automatically creates a `package.json` in config directories that contain a `plugin/` folder and installs `@kuma-code/plugin` so types resolve out of the box.
 
 ### Engine compatibility
 
@@ -213,7 +213,7 @@ Kilo runs `bun install` at startup so your plugins can import the packages:
 ```ts
 // .kilo/plugin/escape-bash.ts
 import { escape } from "shescape"
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kuma-code/plugin"
 
 const EscapeBash: Plugin = async () => ({
   "tool.execute.before": async (input, output) => {
@@ -312,8 +312,8 @@ Plugins can register tools the model can call alongside the built-in ones. Use t
 
 ```ts
 // .kilo/plugin/database.ts
-import type { Plugin } from "@kilocode/plugin"
-import { tool } from "@kilocode/plugin/tool"
+import type { Plugin } from "@kuma-code/plugin"
+import { tool } from "@kuma-code/plugin/tool"
 
 const DatabasePlugin: Plugin = async () => ({
   tool: {
@@ -345,7 +345,7 @@ If a custom tool uses the same name as a built-in tool, **the custom tool wins**
 
 ### Alternative: standalone tool files
 
-For tools that don't need the full plugin context, drop them in a `tool/` or `tools/` folder inside any config directory — for example `.kilo/tool/database.ts` or `~/.config/kilo/tool/database.ts`. The filename becomes the tool name, and each file exports a `tool()` definition directly. The layout is identical to the [OpenCode custom tools guide](https://opencode.ai/docs/custom-tools); substitute `.kilo/` (or `.kilocode/` / `.opencode/`) for `.opencode/`.
+For tools that don't need the full plugin context, drop them in a `tool/` or `tools/` folder inside any config directory — for example `.kilo/tool/database.ts` or `~/.config/kilo/tool/database.ts`. The filename becomes the tool name, and each file exports a `tool()` definition directly. The layout is identical to the [OpenCode custom tools guide](https://opencode.ai/docs/custom-tools); substitute `.kilo/` (or `.kuma-code/` / `.opencode/`) for `.opencode/`.
 
 ---
 
@@ -355,7 +355,7 @@ For tools that don't need the full plugin context, drop them in a `tool/` or `to
 
 ```ts
 // .kilo/plugin/notify.ts
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kuma-code/plugin"
 
 const Notify: Plugin = async ({ $ }) => ({
   event: async ({ event }) => {
@@ -376,7 +376,7 @@ The VS Code extension already emits system notifications when a session finishes
 
 ```ts
 // .kilo/plugin/env-guard.ts
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kuma-code/plugin"
 
 const EnvGuard: Plugin = async () => ({
   "tool.execute.before": async (input, output) => {
@@ -393,7 +393,7 @@ export default { id: "env-guard", server: EnvGuard }
 
 ```ts
 // .kilo/plugin/inject-env.ts
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kuma-code/plugin"
 
 const InjectEnv: Plugin = async () => ({
   "shell.env": async (input, output) => {
@@ -410,7 +410,7 @@ export default { id: "inject-env", server: InjectEnv }
 Prefer `client.app.log()` over `console.log` so entries land in Kilo's log pipeline:
 
 ```ts
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kuma-code/plugin"
 
 const Logger: Plugin = async ({ client }) => {
   await client.app.log({
@@ -433,7 +433,7 @@ Levels: `debug`, `info`, `warn`, `error`.
 
 ```ts
 // .kilo/plugin/compaction.ts
-import type { Plugin } from "@kilocode/plugin"
+import type { Plugin } from "@kuma-code/plugin"
 
 const Compaction: Plugin = async () => ({
   "experimental.session.compacting": async (input, output) => {
@@ -454,7 +454,7 @@ Set `output.prompt` to replace the default compaction prompt entirely — when p
 
 Plugins can also target the Kilo TUI itself — registering slash commands, routes, sidebar slots, dialogs, and keybinds. TUI plugins are SolidJS modules exported from `"./tui"` in your plugin package.
 
-TUI plugins live in a separate module namespace (`@kilocode/plugin/tui`) and have their own API surface (`TuiPluginApi`). Because the TUI API is larger and still evolving, this guide doesn't cover it exhaustively — use the types in `@kilocode/plugin/tui` as the reference, and look at the built-in TUI plugins under `packages/opencode/src/cli/cmd/tui/feature-plugins/` for working examples.
+TUI plugins live in a separate module namespace (`@kuma-code/plugin/tui`) and have their own API surface (`TuiPluginApi`). Because the TUI API is larger and still evolving, this guide doesn't cover it exhaustively — use the types in `@kuma-code/plugin/tui` as the reference, and look at the built-in TUI plugins under `packages/opencode/src/cli/cmd/tui/feature-plugins/` for working examples.
 
 ---
 
@@ -477,7 +477,7 @@ TUI plugins live in a separate module namespace (`@kilocode/plugin/tui`) and hav
 
 ## Reference
 
-- Types: [`@kilocode/plugin`](https://github.com/Kilo-Org/kilocode/tree/main/packages/plugin) — `Plugin`, `Hooks`, `PluginInput`, `ToolDefinition`, `AuthHook`, `ProviderHook`.
-- Example plugin: [`packages/plugin/src/example.ts`](https://github.com/Kilo-Org/kilocode/blob/main/packages/plugin/src/example.ts)
+- Types: [`@kuma-code/plugin`](https://github.com/Kilo-Org/kuma-code/tree/main/packages/plugin) — `Plugin`, `Hooks`, `PluginInput`, `ToolDefinition`, `AuthHook`, `ProviderHook`.
+- Example plugin: [`packages/plugin/src/example.ts`](https://github.com/Kilo-Org/kuma-code/blob/main/packages/plugin/src/example.ts)
 - CLI command: [`kilo plugin`](/docs/code-with-ai/platforms/cli-reference#kilo-plugin)
 - Upstream docs (behavior is identical to OpenCode): [opencode.ai/docs/plugins](https://opencode.ai/docs/plugins) and [opencode.ai/docs/custom-tools](https://opencode.ai/docs/custom-tools)

@@ -1,6 +1,6 @@
 # execute_command
 
-The `execute_command` tool runs CLI commands on the user's system. It allows Kilo Code to perform system operations, install dependencies, build projects, start servers, and execute other terminal-based tasks needed to accomplish user objectives.
+The `execute_command` tool runs CLI commands on the user's system. It allows Kuma Code to perform system operations, install dependencies, build projects, start servers, and execute other terminal-based tasks needed to accomplish user objectives.
 
 ## Parameters
 
@@ -37,12 +37,12 @@ This tool executes terminal commands directly on the user's system, enabling a w
 - Shows terminals during execution for transparency
 - Validates commands for security using shell-quote parsing
 - Blocks potentially dangerous subshell execution patterns
-- Integrates with KiloCodeIgnore system for file access control
+- Integrates with KumaCodeIgnore system for file access control
 - Handles terminal escape sequences for clean output
 
 ## Limitations
 
-- Command access may be restricted by KiloCodeIgnore rules and security validations
+- Command access may be restricted by KumaCodeIgnore rules and security validations
 - Commands with elevated permission requirements may need user configuration
 - Behavior may vary across operating systems for certain commands
 - Very long-running commands may require specific handling
@@ -56,7 +56,7 @@ When the `execute_command` tool is invoked, it follows this process:
 1. **Command Validation and Security Checks**:
    - Parses the command using shell-quote to identify components
    - Validates against security restrictions (subshell usage, restricted files)
-   - Checks against KiloCodeIgnore rules for file access permissions
+   - Checks against KumaCodeIgnore rules for file access permissions
    - Ensures the command meets system security requirements
 
 2. **Terminal Management**:
@@ -90,7 +90,7 @@ The tool uses a sophisticated terminal management system:
 2. **Second Priority: Security Validation**
    - Commands are parsed using shell-quote for component analysis
    - Dangerous patterns like `$(...)` and backticks are blocked
-   - Commands are checked against KiloCodeIgnore rules for file access control
+   - Commands are checked against KumaCodeIgnore rules for file access control
    - A prefix-based allowlist system validates command patterns
 
 3. **Performance Optimizations**
@@ -107,12 +107,12 @@ The tool uses a sophisticated terminal management system:
 
 ## Examples When Used
 
-- When setting up a new project, Kilo Code runs initialization commands like `npm init -y` followed by installing dependencies.
-- When building a web application, Kilo Code executes build commands like `npm run build` to compile assets.
-- When deploying code, Kilo Code runs git commands to commit and push changes to a repository.
-- When troubleshooting, Kilo Code executes diagnostic commands to gather system information.
-- When starting a development server, Kilo Code launches the appropriate server command (e.g., `npm start`).
-- When running tests, Kilo Code executes the test runner command for the project's testing framework.
+- When setting up a new project, Kuma Code runs initialization commands like `npm init -y` followed by installing dependencies.
+- When building a web application, Kuma Code executes build commands like `npm run build` to compile assets.
+- When deploying code, Kuma Code runs git commands to commit and push changes to a repository.
+- When troubleshooting, Kuma Code executes diagnostic commands to gather system information.
+- When starting a development server, Kuma Code launches the appropriate server command (e.g., `npm start`).
+- When running tests, Kuma Code executes the test runner command for the project's testing framework.
 
 ## Usage Examples
 

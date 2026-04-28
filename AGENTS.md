@@ -15,17 +15,17 @@ Kilo CLI is an open source AI coding agent that generates code from natural lang
 - **Typecheck**: `bun turbo typecheck` (uses `tsgo`, not `tsc`)
 - **Test**: `bun test` from `packages/opencode/` (NOT from root -- root blocks tests)
 - **Single test**: `bun test test/tool/tool.test.ts` from `packages/opencode/`
-- **CLI build artifact size check**: after `bun run script/build.ts --single --skip-install` in `packages/opencode/`, use `du -h dist/*/*/bin/kilo` (scoped package output lives under `dist/@kilocode/`)
+- **CLI build artifact size check**: after `bun run script/build.ts --single --skip-install` in `packages/opencode/`, use `du -h dist/*/*/bin/kilo` (scoped package output lives under `dist/@kuma-code/`)
 - **SDK regen**: After changing server endpoints in `packages/opencode/src/server/`, run `./script/generate.ts` from root to regenerate `packages/sdk/js/`
 - **Knip** (unused exports): `bun run knip` from `packages/kilo-vscode/`. CI runs this — all exported types/functions must be imported somewhere. Remove or unexport unused exports before pushing.
 - **Source links**: After adding or changing URLs in `packages/kilo-vscode/`, `packages/kilo-vscode/webview-ui/`, or `packages/opencode/src/`, run `bun run script/extract-source-links.ts` from the repo root and commit the updated `packages/kilo-docs/source-links.md`. CI runs this check — the build fails if the file is stale.
-- **kilocode_change check**: `bun run check-kilocode-change` from `packages/kilo-vscode/`. CI runs this — `kilocode_change` is a marker for upstream merge conflicts and must not appear in `packages/kilo-vscode/` or `packages/kilo-ui/` (these are entirely Kilo Code additions). Remove the markers before pushing.
-- **opencode annotation check**: `bun run script/check-opencode-annotations.ts` from repo root. CI runs this on PRs touching `packages/opencode/` — every Kilo-specific change in shared opencode files must be annotated with `kilocode_change` markers. Exempt paths (no markers needed): `packages/opencode/src/kilocode/`, `packages/opencode/test/kilocode/`, and any path containing `kilocode` in the name.
+- **kuma-code_change check**: `bun run check-kuma-code-change` from `packages/kilo-vscode/`. CI runs this — `kuma-code_change` is a marker for upstream merge conflicts and must not appear in `packages/kilo-vscode/` or `packages/kilo-ui/` (these are entirely Kuma Code additions). Remove the markers before pushing.
+- **opencode annotation check**: `bun run script/check-opencode-annotations.ts` from repo root. CI runs this on PRs touching `packages/opencode/` — every Kilo-specific change in shared opencode files must be annotated with `kuma-code_change` markers. Exempt paths (no markers needed): `packages/opencode/src/kuma-code/`, `packages/opencode/test/kuma-code/`, and any path containing `kuma-code` in the name.
 - **Backend/SDK programmatic testing**: see [TESTING.md](./TESTING.md) for spawning the local main-branch backend (`bun dev serve`) and driving it via `curl` — use this instead of `kilo serve` (prod binary) when testing backend fixes.
 
 ## Products
 
-All products are clients of the **CLI** (`packages/opencode/`), which contains the AI agent runtime, HTTP server, and session management. Each client spawns or connects to a `kilo serve` process and communicates via HTTP + SSE using `@kilocode/sdk`.
+All products are clients of the **CLI** (`packages/opencode/`), which contains the AI agent runtime, HTTP server, and session management. Each client spawns or connects to a `kilo serve` process and communicates via HTTP + SSE using `@kuma-code/sdk`.
 
 | Product | Package | Description |
 |---|---|---|
@@ -42,17 +42,17 @@ Turborepo + Bun workspaces. The packages you'll work with most:
 
 | Package | Name | Purpose |
 |---|---|---|
-| `packages/opencode/` | `@kilocode/cli` | Core CLI -- agents, tools, sessions, server, TUI. This is where most work happens. |
-| `packages/sdk/js/` | `@kilocode/sdk` | Auto-generated TypeScript SDK (client for the server API). Do not edit `src/gen/` by hand. |
+| `packages/opencode/` | `@kuma-code/cli` | Core CLI -- agents, tools, sessions, server, TUI. This is where most work happens. |
+| `packages/sdk/js/` | `@kuma-code/sdk` | Auto-generated TypeScript SDK (client for the server API). Do not edit `src/gen/` by hand. |
 | `packages/kilo-vscode/` | `kilo-code` | VS Code extension with sidebar chat + Agent Manager. See its own `AGENTS.md` for details. |
-| `packages/kilo-gateway/` | `@kilocode/kilo-gateway` | Kilo auth, provider routing, API integration |
-| `packages/kilo-telemetry/` | `@kilocode/kilo-telemetry` | PostHog analytics + OpenTelemetry |
-| `packages/kilo-i18n/` | `@kilocode/kilo-i18n` | Internationalization / translations |
-| `packages/kilo-ui/` | `@kilocode/kilo-ui` | SolidJS component library shared by the extension webview and `packages/app/` |
+| `packages/kilo-gateway/` | `@kuma-code/kilo-gateway` | Kilo auth, provider routing, API integration |
+| `packages/kilo-telemetry/` | `@kuma-code/kilo-telemetry` | PostHog analytics + OpenTelemetry |
+| `packages/kilo-i18n/` | `@kuma-code/kilo-i18n` | Internationalization / translations |
+| `packages/kilo-ui/` | `@kuma-code/kilo-ui` | SolidJS component library shared by the extension webview and `packages/app/` |
 | `packages/app/` | `@opencode-ai/app` | Shared SolidJS web UI for desktop app and `kilo web` |
 | `packages/desktop/` | `@opencode-ai/desktop` | Tauri desktop app shell |
 | `packages/util/` | `@opencode-ai/util` | Shared utilities (error, path, retry, slug, etc.) |
-| `packages/plugin/` | `@kilocode/plugin` | Plugin/tool interface definitions |
+| `packages/plugin/` | `@kuma-code/plugin` | Plugin/tool interface definitions |
 
 ## Style Guide
 
@@ -216,51 +216,51 @@ PR descriptions should be 2-3 lines covering **what** changed and **why**. Focus
 
 Kilo CLI is a fork of [opencode](https://github.com/anomalyco/opencode).
 
-**Very important**: when planning or coding, update shared files with OpenCode as last resort! Everything is shared code from OpenCode, except folders that contain `kilo` in the name or have a parent directory that contains `kilo` in the name. Example of kilo specific folders: `packages/opencode/src/kilocode/` and `packages/kilo-docs/`. Always look for ways to implement your feature or fix in a way that minimizes changes to shared code.
+**Very important**: when planning or coding, update shared files with OpenCode as last resort! Everything is shared code from OpenCode, except folders that contain `kilo` in the name or have a parent directory that contains `kilo` in the name. Example of kilo specific folders: `packages/opencode/src/kuma-code/` and `packages/kilo-docs/`. Always look for ways to implement your feature or fix in a way that minimizes changes to shared code.
 
 ### Minimizing Merge Conflicts
 
 We regularly merge upstream changes from opencode. To minimize merge conflicts and keep the sync process smooth:
 
-1. **Prefer `kilocode` directories** - Place Kilo-specific code in dedicated directories whenever possible:
-   - `packages/opencode/src/kilocode/` - Kilo-specific source code
-   - `packages/opencode/test/kilocode/` - Kilo-specific tests
+1. **Prefer `kuma-code` directories** - Place Kilo-specific code in dedicated directories whenever possible:
+   - `packages/opencode/src/kuma-code/` - Kilo-specific source code
+   - `packages/opencode/test/kuma-code/` - Kilo-specific tests
    - `packages/kilo-gateway/` - The Kilo Gateway package
 
 2. **Minimize changes to shared files** - When you must modify files that exist in upstream opencode, keep changes as small and isolated as possible.
 
-3. **Use `kilocode_change` markers** - When modifying shared code, mark your changes with `kilocode_change` comments so they can be easily identified during merges.
+3. **Use `kuma-code_change` markers** - When modifying shared code, mark your changes with `kuma-code_change` comments so they can be easily identified during merges.
    Do not use these markers in files within directories with kilo in the name
 
 4. **Avoid restructuring upstream code** - Don't refactor or reorganize code that comes from opencode unless absolutely necessary.
 
-5. **Mirror new config keys to the cloud schema** - When adding a `kilocode_change` key to `Config.Info` in `packages/opencode/src/config/config.ts`, also add the matching JSON Schema entry in `apps/web/src/app/config.json/extras.ts` in the [cloud repo](https://github.com/Kilo-Org/cloud). See [CLI Config Schema](packages/kilo-docs/pages/contributing/architecture/config-schema.md) for the step-by-step.
+5. **Mirror new config keys to the cloud schema** - When adding a `kuma-code_change` key to `Config.Info` in `packages/opencode/src/config/config.ts`, also add the matching JSON Schema entry in `apps/web/src/app/config.json/extras.ts` in the [cloud repo](https://github.com/Kilo-Org/cloud). See [CLI Config Schema](packages/kilo-docs/pages/contributing/architecture/config-schema.md) for the step-by-step.
 
 The goal is to keep our diff from upstream as small as possible, making regular merges straightforward and reducing the risk of conflicts.
 
 ### Kilocode Change Markers
 
-To minimize merge conflicts when syncing with upstream, mark Kilo Code-specific changes in shared code with `kilocode_change` comments.
+To minimize merge conflicts when syncing with upstream, mark Kuma Code-specific changes in shared code with `kuma-code_change` comments.
 
 **Single line:**
 
 ```typescript
-const value = 42 // kilocode_change
+const value = 42 // kuma-code_change
 ```
 
 **Multi-line:**
 
 ```typescript
-// kilocode_change start
+// kuma-code_change start
 const foo = 1
 const bar = 2
-// kilocode_change end
+// kuma-code_change end
 ```
 
 **New files:**
 
 ```typescript
-// kilocode_change - new file
+// kuma-code_change - new file
 ```
 
 <!-- prettier-ignore -->
@@ -268,22 +268,22 @@ const bar = 2
 
 <!-- prettier-ignore -->
 ```tsx
-{/* kilocode_change */}
+{/* kuma-code_change */}
 ```
 
 <!-- prettier-ignore -->
 ```tsx
-{/* kilocode_change start */}
+{/* kuma-code_change start */}
 <MyComponent />
-{/* kilocode_change end */}
+{/* kuma-code_change end */}
 ```
 
 #### When markers are NOT needed
 
-Code in these paths is Kilo Code-specific and does NOT need `kilocode_change` markers:
+Code in these paths is Kuma Code-specific and does NOT need `kuma-code_change` markers:
 
-- `packages/opencode/src/kilocode/` - All files in this directory
-- `packages/opencode/test/kilocode/` - All test files for kilocode
-- Any other path containing `kilocode` in filename or directory name
+- `packages/opencode/src/kuma-code/` - All files in this directory
+- `packages/opencode/test/kuma-code/` - All test files for kuma-code
+- Any other path containing `kuma-code` in filename or directory name
 
-These paths are entirely Kilo Code additions and won't conflict with upstream.
+These paths are entirely Kuma Code additions and won't conflict with upstream.

@@ -1,6 +1,6 @@
 {
   "name": "kilo-code",
-  "displayName": "Kilo Code: AI Coding Agent, Copilot, and Autocomplete",
+  "displayName": "Kuma Code: AI Coding Agent, Copilot, and Autocomplete",
   "description": "Open Source AI coding agent that generates code from natural language, automates tasks, and runs terminal commands. Features inline autocomplete, browser automation, automated refactoring, and custom modes for planning, coding, and debugging. Supports 500+ AI models including Claude (Anthropic), Gemini, Grok, GPT, Codex and GLM.",
   "version": "7.2.26",
   "icon": "assets/icons/logo-outline-black.png",
@@ -8,10 +8,10 @@
     "color": "#FFFFFF",
     "theme": "light"
   },
-  "publisher": "kilocode",
+  "publisher": "kuma-code",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kilo-Org/kilocode.git",
+    "url": "https://github.com/Kilo-Org/kuma-code.git",
     "directory": "packages/kilo-vscode"
   },
   "engines": {
@@ -19,7 +19,7 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Kilo Code"
+    "name": "Kuma Code"
   },
   "categories": [
     "AI",
@@ -42,8 +42,8 @@
     "sonnet",
     "ai",
     "llama",
-    "Kilo Code",
-    "kilocode"
+    "Kuma Code",
+    "kuma-code"
   ],
   "activationEvents": [
     "onStartupFinished"
@@ -63,7 +63,7 @@
     ],
     "icons": {
       "kilo-logo": {
-        "description": "Kilo Code logo",
+        "description": "Kuma Code logo",
         "default": {
           "fontPath": "assets/icons/kilo-icon-font.woff2",
           "fontCharacter": "\\F101"
@@ -74,7 +74,7 @@
       "activitybar": [
         {
           "id": "kilo-code-ActivityBar",
-          "title": "Kilo Code",
+          "title": "Kuma Code",
           "icon": "assets/icons/kilo-light.png",
           "darkIcon": "assets/icons/kilo-dark.png"
         }
@@ -85,7 +85,7 @@
         {
           "type": "webview",
           "id": "kilo-code.SidebarProvider",
-          "name": "Kilo Code"
+          "name": "Kuma Code"
         }
       ]
     },
@@ -127,7 +127,7 @@
       },
       {
         "command": "kilo-code.new.openInTab",
-        "title": "Kilo Code",
+        "title": "Kuma Code",
         "icon": {
           "light": "assets/icons/kilo-light.svg",
           "dark": "assets/icons/kilo-dark.svg"
@@ -136,151 +136,151 @@
       {
         "command": "kilo-code.new.showChanges",
         "title": "Show Changes",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.openMigrationWizard",
         "title": "Migrate Settings from Legacy Version",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.autocomplete.generateSuggestions",
         "title": "Generate Suggested Edits",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.autocomplete.cancelSuggestions",
         "title": "Cancel Suggested Edits",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.previousSession",
         "title": "Agent Manager: Previous Session",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.nextSession",
         "title": "Agent Manager: Next Session",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.previousTab",
         "title": "Agent Manager: Previous Tab",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.nextTab",
         "title": "Agent Manager: Next Tab",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.showTerminal",
         "title": "Agent Manager: Focus Terminal",
-        "category": "Kilo Code",
+        "category": "Kuma Code",
         "icon": "$(terminal)"
       },
       {
         "command": "kilo-code.new.agentManager.runScript",
         "title": "Agent Manager: Run Script",
-        "category": "Kilo Code",
+        "category": "Kuma Code",
         "icon": "$(play)"
       },
       {
         "command": "kilo-code.new.agentManager.toggleDiff",
         "title": "Agent Manager: Toggle Diff Panel",
-        "category": "Kilo Code",
+        "category": "Kuma Code",
         "icon": "$(diff)"
       },
       {
         "command": "kilo-code.new.agentManager.showShortcuts",
         "title": "Agent Manager: Show Keyboard Shortcuts",
-        "category": "Kilo Code",
+        "category": "Kuma Code",
         "icon": "$(keyboard)"
       },
       {
         "command": "kilo-code.new.agentManager.newTab",
         "title": "Agent Manager: New Tab",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.newTerminal",
         "title": "Agent Manager: New Terminal Tab (Experimental)",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.closeTab",
         "title": "Agent Manager: Close Tab",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.newWorktree",
         "title": "Agent Manager: New Worktree",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.openWorktree",
         "title": "Agent Manager: Open Worktree",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.closeWorktree",
         "title": "Agent Manager: Close Worktree",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.advancedWorktree",
         "title": "Agent Manager: Advanced New Worktree",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo1",
         "title": "Agent Manager: Jump to Item 1",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo2",
         "title": "Agent Manager: Jump to Item 2",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo3",
         "title": "Agent Manager: Jump to Item 3",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo4",
         "title": "Agent Manager: Jump to Item 4",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo5",
         "title": "Agent Manager: Jump to Item 5",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo6",
         "title": "Agent Manager: Jump to Item 6",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo7",
         "title": "Agent Manager: Jump to Item 7",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo8",
         "title": "Agent Manager: Jump to Item 8",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.agentManager.jumpTo9",
         "title": "Agent Manager: Jump to Item 9",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.generateCommitMessage",
         "title": "Generate Commit Message",
-        "category": "Kilo Code",
+        "category": "Kuma Code",
         "icon": {
           "light": "assets/icons/kilo-light.svg",
           "dark": "assets/icons/kilo-dark.svg"
@@ -289,77 +289,77 @@
       {
         "command": "kilo-code.new.explainCode",
         "title": "Explain Code",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.fixCode",
         "title": "Fix Code",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.improveCode",
         "title": "Improve Code",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.addToContext",
         "title": "Add to Context",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.terminalAddToContext",
         "title": "Add Terminal Content to Context",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.terminalFixCommand",
         "title": "Fix This Command",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.terminalExplainCommand",
         "title": "Explain This Command",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.focusChatInput",
         "title": "Focus Chat Input",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.cycleAgentMode",
         "title": "Cycle Agent Mode",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.cyclePreviousAgentMode",
         "title": "Cycle Previous Agent Mode",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.toggleAutoApprove",
         "title": "Toggle Auto-Approve",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.generateTerminalCommand",
         "title": "Generate Terminal Command",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       },
       {
         "command": "kilo-code.new.takeHeapSnapshot",
         "title": "Take Heap Snapshot",
-        "category": "Kilo Code"
+        "category": "Kuma Code"
       }
     ],
     "submenus": [
       {
         "id": "kilo-code.new.editorContextMenu",
-        "label": "Kilo Code"
+        "label": "Kuma Code"
       },
       {
         "id": "kilo-code.new.terminalContextMenu",
-        "label": "Kilo Code"
+        "label": "Kuma Code"
       }
     ],
     "menus": {
@@ -444,7 +444,7 @@
       "editor/context": [
         {
           "submenu": "kilo-code.new.editorContextMenu",
-          "group": "1_kilocode"
+          "group": "1_kuma-code"
         }
       ],
       "kilo-code.new.editorContextMenu": [
@@ -468,7 +468,7 @@
       "terminal/context": [
         {
           "submenu": "kilo-code.new.terminalContextMenu",
-          "group": "2_kilocode"
+          "group": "2_kuma-code"
         }
       ],
       "kilo-code.new.terminalContextMenu": [
@@ -678,22 +678,22 @@
         "command": "kilo-code.new.autocomplete.generateSuggestions",
         "key": "ctrl+l",
         "mac": "cmd+l",
-        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.enableSmartInlineTaskKeybinding && !github.copilot.completions.enabled"
+        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kuma-code.autocomplete.enableSmartInlineTaskKeybinding && !github.copilot.completions.enabled"
       },
       {
         "command": "kilo-code.new.autocomplete.showIncompatibilityExtensionPopup",
         "key": "ctrl+l",
         "mac": "cmd+l",
-        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kilocode.autocomplete.enableSmartInlineTaskKeybinding && github.copilot.completions.enabled"
+        "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode && kuma-code.autocomplete.enableSmartInlineTaskKeybinding && github.copilot.completions.enabled"
       }
     ],
     "configuration": {
-      "title": "Kilo Code",
+      "title": "Kuma Code",
       "properties": {
         "kilo-code.new.language": {
           "type": "string",
           "default": "",
-          "description": "Override the UI language for Kilo Code (e.g. en, de, ja). Empty means use VS Code's display language.",
+          "description": "Override the UI language for Kuma Code (e.g. en, de, ja). Empty means use VS Code's display language.",
           "enum": [
             "",
             "en",
@@ -864,7 +864,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "knip": "knip",
-    "check-kilocode-change": "! grep -rn 'kilocode_change' . ../kilo-ui/ --exclude='package.json' --exclude='*.md' --exclude-dir='node_modules' --exclude-dir='dist' | grep -v '`kilocode_change`'",
+    "check-kuma-code-change": "! grep -rn 'kuma-code_change' . ../kilo-ui/ --exclude='package.json' --exclude='*.md' --exclude-dir='node_modules' --exclude-dir='dist' | grep -v '`kuma-code_change`'",
     "lint": "eslint src webview-ui",
     "test": "vscode-test",
     "test:unit": "bun test tests/unit/",

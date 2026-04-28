@@ -70,8 +70,8 @@ Useful flags:
 
 Manual alternatives (equivalent, no CLI invocation needed):
 
-- Unix: add `alias kilodev='/path/to/kilocode/bin/kilodev'` to `~/.zshrc` / `~/.bashrc`, or `fish_add_path /path/to/kilocode/bin`.
-- Windows: add `C:\path\to\kilocode\bin` to PATH (System Environment Variables), or add `function kilodev { & "C:\path\to\kilocode\bin\kilodev.cmd" @args }` to `$PROFILE`.
+- Unix: add `alias kilodev='/path/to/kuma-code/bin/kilodev'` to `~/.zshrc` / `~/.bashrc`, or `fish_add_path /path/to/kuma-code/bin`.
+- Windows: add `C:\path\to\kuma-code\bin` to PATH (System Environment Variables), or add `function kilodev { & "C:\path\to\kuma-code\bin\kilodev.cmd" @args }` to `$PROFILE`.
 
 Then from anywhere:
 
@@ -93,7 +93,7 @@ To compile a standalone executable:
 Then run it with:
 
 ```bash
-./packages/opencode/dist/@kilocode/cli-<platform>/bin/kilo
+./packages/opencode/dist/@kuma-code/cli-<platform>/bin/kilo
 ```
 
 Replace `<platform>` with your platform (e.g., `darwin-arm64`, `linux-x64`).

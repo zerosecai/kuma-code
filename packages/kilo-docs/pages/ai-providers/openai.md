@@ -2,9 +2,9 @@
 sidebar_label: OpenAI
 ---
 
-# Using OpenAI With Kilo Code
+# Using OpenAI With Kuma Code
 
-Kilo Code supports accessing models directly through the official OpenAI API.
+Kuma Code supports accessing models directly through the official OpenAI API.
 
 **Website:** [https://openai.com/](https://openai.com/)
 
@@ -12,15 +12,15 @@ Kilo Code supports accessing models directly through the official OpenAI API.
 
 1.  **Sign Up/Sign In:** Go to the [OpenAI Platform](https://platform.openai.com/). Create an account or sign in.
 2.  **Navigate to API Keys:** Go to the [API keys](https://platform.openai.com/api-keys) page.
-3.  **Create a Key:** Click "Create new secret key". Give your key a descriptive name (e.g., "Kilo Code").
+3.  **Create a Key:** Click "Create new secret key". Give your key a descriptive name (e.g., "Kuma Code").
 4.  **Copy the Key:** **Important:** Copy the API key _immediately_. You will not be able to see it again. Store it securely.
 
-## Configuration in Kilo Code
+## Configuration in Kuma Code
 
 {% tabs %}
 {% tab label="VSCode (Legacy)" %}
 
-1.  **Open Kilo Code Settings:** Click the gear icon ({% codicon name="gear" /%}) in the Kilo Code panel.
+1.  **Open Kuma Code Settings:** Click the gear icon ({% codicon name="gear" /%}) in the Kuma Code panel.
 2.  **Select Provider:** Choose "OpenAI" from the "API Provider" dropdown.
 3.  **Enter API Key:** Paste your OpenAI API key into the "OpenAI API Key" field.
 4.  **Select Model:** Choose your desired model from the "Model" dropdown.

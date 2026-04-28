@@ -1,4 +1,4 @@
-# @kilocode/kilo-gateway
+# @kuma-code/kilo-gateway
 
 Unified Kilo Gateway package for OpenCode providing authentication, AI provider integration, and API access.
 
@@ -12,7 +12,7 @@ Unified Kilo Gateway package for OpenCode providing authentication, AI provider 
 ## Installation
 
 ```bash
-bun add @kilocode/kilo-gateway
+bun add @kuma-code/kilo-gateway
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ bun add @kilocode/kilo-gateway
 ### Plugin Registration
 
 ```typescript
-import { KiloAuthPlugin } from "@kilocode/kilo-gateway"
+import { KiloAuthPlugin } from "@kuma-code/kilo-gateway"
 
 // Register with OpenCode
 const plugins = [KiloAuthPlugin]
@@ -29,11 +29,11 @@ const plugins = [KiloAuthPlugin]
 ### Provider Usage
 
 ```typescript
-import { createKilo } from "@kilocode/kilo-gateway"
+import { createKilo } from "@kuma-code/kilo-gateway"
 
 const provider = createKilo({
-  kilocodeToken: process.env.KILOCODE_API_KEY,
-  kilocodeOrganizationId: "org-123",
+  kuma-codeToken: process.env.KILOCODE_API_KEY,
+  kuma-codeOrganizationId: "org-123",
 })
 
 const model = provider.languageModel("anthropic/claude-sonnet-4")
@@ -42,7 +42,7 @@ const model = provider.languageModel("anthropic/claude-sonnet-4")
 ### API Access
 
 ```typescript
-import { fetchProfile, fetchBalance } from "@kilocode/kilo-gateway"
+import { fetchProfile, fetchBalance } from "@kuma-code/kilo-gateway"
 
 const profile = await fetchProfile(token)
 const balance = await fetchBalance(token)

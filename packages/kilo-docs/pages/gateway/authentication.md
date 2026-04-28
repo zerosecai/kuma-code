@@ -61,7 +61,7 @@ curl -X POST "https://api.kilo.ai/api/gateway/chat/completions" \
 When making requests on behalf of an organization, include the organization ID in the request header:
 
 ```
-X-KiloCode-OrganizationId: your_org_id
+X-KumaCode-OrganizationId: your_org_id
 ```
 
 Organization tokens are scoped with a 15-minute expiry and enforce the organization's policies, including model allow lists, provider restrictions, and per-user spending limits.
@@ -97,7 +97,7 @@ BYOK lets you use your own provider API keys with the Kilo AI Gateway. When a BY
 
 ### How BYOK works
 
-1. Add your provider API key in the [Kilo dashboard](https://app.kilo.ai) or through your Kilo Code extension settings
+1. Add your provider API key in the [Kilo dashboard](https://app.kilo.ai) or through your Kuma Code extension settings
 2. Keys are encrypted at rest using AES-256 encryption
 3. When you make a request for a model from that provider, the gateway automatically uses your key
 4. Usage is tracked but not billed to your Kilo balance (cost is set to $0)
@@ -113,7 +113,7 @@ The gateway accepts the following headers:
 |---|---|---|
 | `Authorization` | Yes (unless free model) | `Bearer <api_key>` |
 | `Content-Type` | Yes | `application/json` |
-| `X-KiloCode-OrganizationId` | No | Organization context for org-scoped requests |
-| `X-KiloCode-TaskId` | No | Task identifier for prompt cache keying |
-| `X-KiloCode-Version` | No | Client version string |
-| `x-kilocode-mode` | No | Mode hint for `kilo-auto` model routing |
+| `X-KumaCode-OrganizationId` | No | Organization context for org-scoped requests |
+| `X-KumaCode-TaskId` | No | Task identifier for prompt cache keying |
+| `X-KumaCode-Version` | No | Client version string |
+| `x-kuma-code-mode` | No | Mode hint for `kilo-auto` model routing |

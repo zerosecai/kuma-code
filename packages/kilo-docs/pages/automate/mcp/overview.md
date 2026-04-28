@@ -5,13 +5,13 @@ description: "Overview of the Model Context Protocol"
 
 # Model Context Protocol (MCP)
 
-The Model Context Protocol (MCP) is a standard for extending Kilo Code's capabilities by connecting to external tools and services. MCP servers provide additional tools and resources that help Kilo Code accomplish tasks beyond its built-in capabilities, such as accessing databases, custom APIs, and specialized functionality.
+The Model Context Protocol (MCP) is a standard for extending Kuma Code's capabilities by connecting to external tools and services. MCP servers provide additional tools and resources that help Kuma Code accomplish tasks beyond its built-in capabilities, such as accessing databases, custom APIs, and specialized functionality.
 
 ## MCP Documentation
 
 This documentation is organized into several sections:
 
-- [**Using MCP in Kilo Code**](using-in-kilo-code) - Comprehensive guide to configuring, enabling, and managing MCP servers with Kilo Code. Includes server settings, tool approval, and troubleshooting.
+- [**Using MCP in Kuma Code**](using-in-kilo-code) - Comprehensive guide to configuring, enabling, and managing MCP servers with Kuma Code. Includes server settings, tool approval, and troubleshooting.
 
 - [**MCP Tool Permissions**](using-in-kilo-code#auto-approve-tools) - Control which MCP tools auto-approve, prompt, or are blocked entirely using the same `allow` / `ask` / `deny` permission system as built-in tools.
 
@@ -28,7 +28,7 @@ Have you created an MCP server that others might find useful? Share it with the 
 ### How to Submit Your MCP Server
 
 1. **Develop your server**: Create an MCP server following the [MCP specification](https://github.com/modelcontextprotocol/)
-2. **Test thoroughly**: Ensure your server works correctly with Kilo Code and handles edge cases gracefully
+2. **Test thoroughly**: Ensure your server works correctly with Kuma Code and handles edge cases gracefully
 3. **Fork the marketplace repository**: Visit [github.com/Kilo-Org/kilo-marketplace](https://github.com/Kilo-Org/kilo-marketplace) and create a fork
 4. **Add your server**: Include your server configuration and documentation following the repository's structure
 5. **Submit a pull request**: Create a PR with a clear description of what your server does and its requirements
@@ -41,4 +41,4 @@ Have you created an MCP server that others might find useful? Share it with the 
 - Note any platform-specific requirements (Windows, macOS, Linux)
 - Follow the [contribution guidelines](https://github.com/Kilo-Org/kilo-marketplace/blob/main/CONTRIBUTING.md) in the marketplace repository
 
-For more details on contributing to Kilo Code, see the [Contributing Guide](/docs/contributing).
+For more details on contributing to Kuma Code, see the [Contributing Guide](/docs/contributing).

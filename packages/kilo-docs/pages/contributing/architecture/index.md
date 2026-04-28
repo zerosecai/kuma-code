@@ -52,7 +52,7 @@ graph LR
 
 ## Kilo CLI — The Foundation
 
-The CLI (`packages/opencode/`) is the core engine that all products are built on. It contains the AI agent runtime, tool execution, session management, provider integrations, and an HTTP server. Each client spawns or connects to a `kilo serve` process and communicates via HTTP + SSE using the `@kilocode/sdk`.
+The CLI (`packages/opencode/`) is the core engine that all products are built on. It contains the AI agent runtime, tool execution, session management, provider integrations, and an HTTP server. Each client spawns or connects to a `kilo serve` process and communicates via HTTP + SSE using the `@kuma-code/sdk`.
 
 The CLI can run in several modes:
 
@@ -201,10 +201,10 @@ Git worktree isolation for parallel task execution:
 
 ### Client-Server Communication
 
-All clients communicate with the CLI via its HTTP + SSE API. The `@kilocode/sdk` package provides a TypeScript client:
+All clients communicate with the CLI via its HTTP + SSE API. The `@kuma-code/sdk` package provides a TypeScript client:
 
 ```typescript
-import { KiloClient } from "@kilocode/sdk"
+import { KiloClient } from "@kuma-code/sdk"
 
 const client = new KiloClient({ baseUrl: "http://localhost:3000" })
 const session = await client.session.create({ ... })
@@ -257,7 +257,7 @@ The project uses:
 
 | Repository | Contents |
 |---|---|
-| [Kilo-Org/kilocode](https://github.com/Kilo-Org/kilocode) | CLI engine, VS Code extension, SDK, gateway client, telemetry, docs, UI components |
+| [Kilo-Org/kuma-code](https://github.com/Kilo-Org/kuma-code) | CLI engine, VS Code extension, SDK, gateway client, telemetry, docs, UI components |
 | Cloud (private) | Web dashboard, Cloud Agent, Kilo Bot, KiloClaw, Gas Town, code review, auto triage, billing, and supporting Cloudflare Workers |
 
 ## Further Reading

@@ -11,9 +11,9 @@ Both **GitLab.com** and **self-hosted GitLab instances** are supported.
 
 ## Prerequisites
 
-- A Kilo Code account at [app.kilo.ai](https://app.kilo.ai)
+- A Kuma Code account at [app.kilo.ai](https://app.kilo.ai)
 - A GitLab account with **Maintainer** role (or higher) on the projects you want to review
-- Kilo Code credits for AI model usage
+- Kuma Code credits for AI model usage
 
 > **Why Maintainer role?** Kilo creates a bot account (Project Access Token) on each project so that review comments appear from a bot, not your personal account. This requires Maintainer access.
 
@@ -74,7 +74,7 @@ When a review triggers:
 
 ## How the Bot Identity Works
 
-Review comments are posted by a **Kilo Code Review Bot** — not by your personal GitLab account. This bot is created automatically as a Project Access Token on each project.
+Review comments are posted by a **Kuma Code Review Bot** — not by your personal GitLab account. This bot is created automatically as a Project Access Token on each project.
 
 - Created automatically the first time a project is reviewed
 - Valid for 365 days and rotated automatically before expiry
@@ -119,7 +119,7 @@ You need **Maintainer role** on the GitLab project. Both webhook creation and bo
 ### Reviews are failing
 
 - Check the Code Reviews page for error details
-- Ensure you have sufficient Kilo Code credits
+- Ensure you have sufficient Kuma Code credits
 - Large MRs may time out — increase the max review time setting
 
 ### No projects listed after connecting

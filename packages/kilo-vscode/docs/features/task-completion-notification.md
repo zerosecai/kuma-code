@@ -1,7 +1,7 @@
 # Task Completion Notification
 
 **Priority:** P2
-**Issue:** [#6084](https://github.com/Kilo-Org/kilocode/issues/6084)
+**Issue:** [#6084](https://github.com/Kilo-Org/kuma-code/issues/6084)
 
 ## Remaining Work
 

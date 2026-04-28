@@ -5,9 +5,9 @@ on:
     types: [opened, edited, synchronize]
 
 jobs:
-  # kilocode_change start
+  # kuma-code_change start
   check-author:
-    if: github.repository == 'Kilo-Org/kilocode' && false # kilocode_change - disabled: not needed in kilocode repo
+    if: github.repository == 'Kilo-Org/kuma-code' && false # kuma-code_change - disabled: not needed in kuma-code repo
     uses: ./.github/workflows/check-org-member.yml
     with:
       username: ${{ github.event.pull_request.user.login }}
@@ -17,8 +17,8 @@ jobs:
 
   check-standards:
     needs: check-author
-    if: github.repository == 'Kilo-Org/kilocode' && false # kilocode_change - disabled: not needed in kilocode repo
-    # kilocode_change end
+    if: github.repository == 'Kilo-Org/kuma-code' && false # kuma-code_change - disabled: not needed in kuma-code repo
+    # kuma-code_change end
     runs-on: blacksmith-4vcpu-ubuntu-2404
     permissions:
       pull-requests: write
@@ -141,7 +141,7 @@ jobs:
             console.log('PR meets all standards');
 
   check-compliance:
-    if: github.repository == 'Kilo-Org/kilocode' && false # kilocode_change - disabled: not needed in kilocode repo
+    if: github.repository == 'Kilo-Org/kuma-code' && false # kuma-code_change - disabled: not needed in kuma-code repo
     runs-on: ubuntu-latest
     permissions:
       contents: read

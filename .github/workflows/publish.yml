@@ -38,7 +38,7 @@ permissions:
 jobs:
   version:
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    if: github.repository == 'Kilo-Org/kilocode'
+    if: github.repository == 'Kilo-Org/kuma-code'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -46,14 +46,14 @@ jobs:
 
       - uses: ./.github/actions/setup-bun
 
-      # kilocode_change start - install deps for version script workspace resolution
+      # kuma-code_change start - install deps for version script workspace resolution
       - name: Install dependencies
         run: bun install
 
       - name: Install Kilo
         if: inputs.bump || inputs.version
-        run: bun i -g @kilocode/cli
-      # kilocode_change end
+        run: bun i -g @kuma-code/cli
+      # kuma-code_change end
 
       - id: version
         run: |
@@ -74,7 +74,7 @@ jobs:
   build-cli:
     needs: version
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    if: github.repository == 'Kilo-Org/kilocode'
+    if: github.repository == 'Kilo-Org/kuma-code'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -104,7 +104,7 @@ jobs:
   build-vscode:
     needs: build-cli
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    if: github.repository == 'Kilo-Org/kilocode'
+    if: github.repository == 'Kilo-Org/kuma-code'
     steps:
       - uses: actions/checkout@v3
 
@@ -253,7 +253,7 @@ jobs:
   #         APPLE_API_KEY: ${{ secrets.APPLE_API_KEY }}
   #         APPLE_API_KEY_PATH: ${{ runner.temp }}/apple-api-key.p8
 
-  # kilocode_change start
+  # kuma-code_change start
   # Run smoke tests against CLI assets uploaded to the draft GitHub release
   # before publishing the release and package artifacts.
   smoke-test:
@@ -261,12 +261,12 @@ jobs:
     needs:
       - version
       - build-cli
-    if: github.repository == 'Kilo-Org/kilocode'
+    if: github.repository == 'Kilo-Org/kuma-code'
     uses: ./.github/workflows/smoke-test.yml
     with:
       cli_version: ${{ needs.version.outputs.version }}
     secrets: inherit
-  # kilocode_change end
+  # kuma-code_change end
   publish:
     needs:
       - version
@@ -305,10 +305,10 @@ jobs:
         id: committer
         uses: ./.github/actions/setup-git-committer
         with:
-          # kilocode_change start
+          # kuma-code_change start
           kilo-maintainer-app-id: ${{ secrets.KILO_MAINTAINER_APP_ID }}
           kilo-maintainer-app-secret: ${{ secrets.KILO_MAINTAINER_APP_SECRET }}
-          # kilocode_change end
+          # kuma-code_change end
 
       - uses: actions/download-artifact@v4
         with:

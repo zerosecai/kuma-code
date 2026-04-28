@@ -1,11 +1,11 @@
 ---
 title: "Custom Instructions"
-description: "Provide custom instructions to guide Kilo Code"
+description: "Provide custom instructions to guide Kuma Code"
 ---
 
 # Custom Instructions
 
-Custom Instructions allow you to personalize how Kilo Code behaves, providing specific guidance that shapes responses, coding style, and decision-making processes. Both the **VSCode** and **CLI** versions support custom instructions, though the mechanisms differ.
+Custom Instructions allow you to personalize how Kuma Code behaves, providing specific guidance that shapes responses, coding style, and decision-making processes. Both the **VSCode** and **CLI** versions support custom instructions, though the mechanisms differ.
 
 ## What Are Custom Instructions?
 
@@ -68,9 +68,9 @@ instructions:
 URL-based instruction sources are fetched at session start with a 5-second timeout. If the URL is unreachable, the instruction source is silently skipped.
 {% /callout %}
 
-## Legacy `.kilocoderules` Support
+## Legacy `.kuma-coderules` Support
 
-If your project contains `.kilocoderules` files from the VSCode extension, these are still loaded via auto-migration. However, migrating to `AGENTS.md` is recommended for new projects.
+If your project contains `.kuma-coderules` files from the VSCode extension, these are still loaded via auto-migration. However, migrating to `AGENTS.md` is recommended for new projects.
 
 {% /tab %}
 {% tab label="CLI" %}
@@ -148,9 +148,9 @@ The `instructions` key in `kilo.jsonc` accepts an array of paths, globs, or URLs
 URL-based instruction sources are fetched at session start with a 5-second timeout. If the URL is unreachable, the instruction source is silently skipped.
 {% /callout %}
 
-## Legacy `.kilocoderules` Support
+## Legacy `.kuma-coderules` Support
 
-If your project contains `.kilocoderules` files from the VSCode extension, these are still loaded via auto-migration. However, migrating to `AGENTS.md` is recommended for new projects.
+If your project contains `.kuma-coderules` files from the VSCode extension, these are still loaded via auto-migration. However, migrating to `AGENTS.md` is recommended for new projects.
 
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
@@ -163,9 +163,9 @@ Custom Instructions are IDE-wide and are applied across all workspaces and maint
 
 **How to set them:**
 
-{% image src="/docs/img/custom-instructions/custom-instructions.png" alt="Kilo Code Modes tab showing global custom instructions interface" width="600" caption="Kilo Code Modes tab showing global custom instructions interface" /%}
+{% image src="/docs/img/custom-instructions/custom-instructions.png" alt="Kuma Code Modes tab showing global custom instructions interface" width="600" caption="Kuma Code Modes tab showing global custom instructions interface" /%}
 
-1.  **Open Modes Tab:** Click the <Codicon name="notebook" /> icon in the Kilo Code top menu bar
+1.  **Open Modes Tab:** Click the <Codicon name="notebook" /> icon in the Kuma Code top menu bar
 2.  **Find Section:** Find the "Custom Instructions for All Modes" section
 3.  **Enter Instructions:** Enter your instructions in the text area
 4.  **Save Changes:** Click "Done" to save your changes
@@ -174,8 +174,8 @@ Custom Instructions are IDE-wide and are applied across all workspaces and maint
 
 Mode-specific instructions can be set using the Modes Tab
 
-    {% image src="/docs/img/custom-instructions/custom-instructions-3.png" alt="Kilo Code Modes tab showing mode-specific custom instructions interface" width="600" caption="Kilo Code Modes tab showing mode-specific custom instructions interface" /%}
-    * **Open Tab:** Click the <Codicon name="notebook" /> icon in the Kilo Code top menu bar
+    {% image src="/docs/img/custom-instructions/custom-instructions-3.png" alt="Kuma Code Modes tab showing mode-specific custom instructions interface" width="600" caption="Kuma Code Modes tab showing mode-specific custom instructions interface" /%}
+    * **Open Tab:** Click the <Codicon name="notebook" /> icon in the Kuma Code top menu bar
     * **Select Mode:** Under the Modes heading, click the button for the mode you want to customize
     * **Enter Instructions:** Enter your instructions in the text area under "Mode-specific Custom Instructions (optional)"
     * **Save Changes:** Click "Done" to save your changes
@@ -190,10 +190,10 @@ If the mode itself is global (not workspace-specific), any custom instructions y
 For version-controlled mode instructions, use the mode rules file paths documented in [Custom Modes](/docs/customize/custom-modes#mode-specific-instructions-via-filesdirectories):
 
 - Preferred: `.kilo/rules-{mode-slug}/` (directory)
-- Fallback: `.kilocoderules-{mode-slug}` (single file)
+- Fallback: `.kuma-coderules-{mode-slug}` (single file)
 
 {% callout type="info" title="Legacy Naming Note" %}
-Only `.kilocoderules-{mode-slug}` is recognized as the legacy fallback. Older naming like `.clinerules-{mode-slug}` is not supported.
+Only `.kuma-coderules-{mode-slug}` is recognized as the legacy fallback. Older naming like `.clinerules-{mode-slug}` is not supported.
 {% /callout %}
 
 {% /tab %}

@@ -1,11 +1,11 @@
 ---
-title: "Using MCP in Kilo Code"
-description: "How to use MCP servers in Kilo Code"
+title: "Using MCP in Kuma Code"
+description: "How to use MCP servers in Kuma Code"
 ---
 
-# Using MCP in Kilo Code
+# Using MCP in Kuma Code
 
-Model Context Protocol (MCP) extends Kilo Code's capabilities by connecting to external tools and services. This guide covers everything you need to know about using MCP with Kilo Code.
+Model Context Protocol (MCP) extends Kuma Code's capabilities by connecting to external tools and services. This guide covers everything you need to know about using MCP with Kuma Code.
 
 ## Configuring MCP Servers
 
@@ -21,7 +21,7 @@ MCP server configurations are stored inside the main Kilo config file. There are
 
 ### Editing MCP Settings
 
-You can edit MCP settings from the Kilo Code settings UI:
+You can edit MCP settings from the Kuma Code settings UI:
 
 1. Click the {% codicon name="gear" /%} icon in the sidebar toolbar to open Settings.
 2. Click the `Agent Behaviour` tab on the left side.
@@ -69,7 +69,7 @@ MCP servers are configured under the `mcp` key in `kilo.jsonc`:
 }
 ```
 
-Remote servers support OAuth 2.0 authentication. If the server supports it, Kilo Code will automatically start the OAuth flow when you connect. You can also disable OAuth with `"oauth": false`.
+Remote servers support OAuth 2.0 authentication. If the server supports it, Kuma Code will automatically start the OAuth flow when you connect. You can also disable OAuth with `"oauth": false`.
 
 {% /tab %}
 {% tab label="CLI" %}
@@ -89,7 +89,7 @@ MCP server configurations can be managed at two levels: **global** (applies acro
 | Scope | Path | Description |
 |---|---|---|
 | **Global** | `mcp_settings.json` | Accessible via VS Code settings. Applies across all workspaces. |
-| **Project** | `.kilocode/mcp.json` | In your project root. Auto-detected by Kilo Code. |
+| **Project** | `.kuma-code/mcp.json` | In your project root. Auto-detected by Kuma Code. |
 
 Project-level configs can be committed to version control to share with your team.
 
@@ -143,7 +143,7 @@ Both global and project-level files use a JSON format with a `mcpServers` object
 }
 ```
 
-_Example of MCP Server config in Kilo Code (STDIO Transport)_
+_Example of MCP Server config in Kuma Code (STDIO Transport)_
 
 {% /tab %}
 {% /tabs %}
@@ -153,7 +153,7 @@ _Example of MCP Server config in Kilo Code (STDIO Transport)_
 MCP supports two main transport types:
 
 - **Local (STDIO)**: Servers run as a child process on your machine, communicating over stdin/stdout.
-- **Remote (HTTP/SSE)**: Servers hosted over HTTP/HTTPS. Kilo Code tries `StreamableHTTP` first, then falls back to `SSE` automatically.
+- **Remote (HTTP/SSE)**: Servers hosted over HTTP/HTTPS. Kuma Code tries `StreamableHTTP` first, then falls back to `SSE` automatically.
 
 For more details, see [STDIO & SSE Transports](server-transports).
 
@@ -390,14 +390,14 @@ Use `{env:VARIABLE_NAME}` syntax in config files to reference environment variab
 
 ### Editing MCP Settings Files
 
-You can edit both global and project-level MCP configuration files directly from the Kilo Code settings.
+You can edit both global and project-level MCP configuration files directly from the Kuma Code settings.
 
-1. Click the {% codicon name="gear" /%} icon in the top navigation of the Kilo Code pane to open `Settings`.
+1. Click the {% codicon name="gear" /%} icon in the top navigation of the Kuma Code pane to open `Settings`.
 2. Click the `Agent Behaviour` tab on the left side
 3. Select the `MCP Servers` sub-tab
 4. Click the appropriate button:
    - **`Edit Global MCP`**: Opens the global `mcp_settings.json` file.
-   - **`Edit Project MCP`**: Opens the project-specific `.kilocode/mcp.json` file. If this file doesn't exist, Kilo Code will create it for you.
+   - **`Edit Project MCP`**: Opens the project-specific `.kuma-code/mcp.json` file. If this file doesn't exist, Kuma Code will create it for you.
 
 {% image src="/docs/img/using-mcp-in-kilo-code/mcp-installed-config.png" alt="Edit Global MCP and Edit Project MCP buttons" width="600" caption="Edit Global MCP and Edit Project MCP buttons" /%}
 
@@ -495,7 +495,7 @@ MCP tool auto-approval works on a per-tool basis and is disabled by default. To 
 
 {% image src="/docs/img/using-mcp-in-kilo-code/using-mcp-in-kilo-code-7.png" alt="Always allow checkbox for MCP tools" width="120" caption="Always allow checkbox for MCP tools" /%}
 
-When enabled, Kilo Code will automatically approve this specific tool without prompting. Note that the global "Use MCP servers" setting takes precedence - if it's disabled, no MCP tools will be auto-approved.
+When enabled, Kuma Code will automatically approve this specific tool without prompting. Note that the global "Use MCP servers" setting takes precedence - if it's disabled, no MCP tools will be auto-approved.
 
 {% /tab %}
 {% /tabs %}
@@ -651,21 +651,21 @@ Add the test MCP server for development:
 
 ## Finding and Installing MCP Servers
 
-Kilo Code does not come with any pre-installed MCP servers. You'll need to find and install them separately.
+Kuma Code does not come with any pre-installed MCP servers. You'll need to find and install them separately.
 
 - **Kilo Marketplace:** Browse community-contributed MCP server configurations and agent skills in the [Kilo Marketplace](https://github.com/Kilo-Org/kilo-marketplace). The marketplace includes ready-to-use configs for popular tools like Figma, Sentry, and more.
 - **Community Repositories:** Check for community-maintained lists of MCP servers on GitHub
-- **Ask Kilo Code:** You can ask Kilo Code to help you find or even create MCP servers
-- **Build Your Own:** Create custom MCP servers using the SDK to extend Kilo Code with your own tools
+- **Ask Kuma Code:** You can ask Kuma Code to help you find or even create MCP servers
+- **Build Your Own:** Create custom MCP servers using the SDK to extend Kuma Code with your own tools
 
 For full SDK documentation, visit the [MCP GitHub repository](https://github.com/modelcontextprotocol/).
 
 ## Using MCP Tools in Your Workflow
 
-After configuring an MCP server, Kilo Code will automatically detect available tools and resources. To use them:
+After configuring an MCP server, Kuma Code will automatically detect available tools and resources. To use them:
 
-1. Type your request in the Kilo Code chat interface
-2. Kilo Code will identify when an MCP tool can help with your task
+1. Type your request in the Kuma Code chat interface
+2. Kuma Code will identify when an MCP tool can help with your task
 3. Approve the tool use when prompted (or use auto-approval)
 
 Example: "Analyze the performance of my API" might use an MCP tool that tests API endpoints.
@@ -692,7 +692,7 @@ Example: "Analyze the performance of my API" might use an MCP tool that tests AP
 {% tab label="VSCode (Legacy)" %}
 
 - **Server Not Responding:** Check if the server process is running and verify network connectivity
-- **Permission Errors:** Ensure proper API keys and credentials are configured in your `mcp_settings.json` (for global settings) or `.kilocode/mcp.json` (for project settings).
+- **Permission Errors:** Ensure proper API keys and credentials are configured in your `mcp_settings.json` (for global settings) or `.kuma-code/mcp.json` (for project settings).
 - **Tool Not Available:** Confirm the server is properly implementing the tool and it's not disabled in settings
 - **Slow Performance:** Try adjusting the network timeout value for the specific MCP server
 

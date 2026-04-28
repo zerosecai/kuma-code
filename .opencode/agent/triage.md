@@ -83,7 +83,7 @@ Use for issues about cloud agent behavior or infrastructure.
 Core (`packages/opencode/...`):
 
 - kevinvandijk
-- marius-kilocode
+- marius-kuma-code
 - catrielmuller
 
 VSCode Extension (`packages/kilo-vscode/...`):

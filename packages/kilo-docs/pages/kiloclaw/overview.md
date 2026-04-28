@@ -7,13 +7,13 @@ description: "One-click deployment of your personal AI agent with OpenClaw"
 
 KiloClaw is Kilo's hosted [OpenClaw](https://openclaw.ai) service — a one-click deployment that gives you a personal AI agent without the complexity of self-hosting. OpenClaw is a 24/7, open source AI agent that connects to chat platforms like Telegram, Discord, and Slack so it can take real actions automatically, not just chat.
 
-KiloClaw is powered by KiloCode. The API key is platform-managed, so you never need to bring your own. KiloClaw is currently in **Beta**.
+KiloClaw is powered by KumaCode. The API key is platform-managed, so you never need to bring your own. KiloClaw is currently in **Beta**.
 
 ## Why KiloClaw?
 
 - **No infrastructure setup** — Skip Docker, servers, and configuration files
 - **Instant provisioning** — Your agent is ready in seconds
-- **Powered by KiloCode** — API key is automatically generated and refreshed
+- **Powered by KumaCode** — API key is automatically generated and refreshed
 - **Uses existing credits** — Runs on your Kilo Gateway balance
 - **Multiple free models** — Choose from several models at no additional cost
 - **Web UI included** — Access your agent's web interface directly from the dashboard

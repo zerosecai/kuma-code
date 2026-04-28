@@ -401,7 +401,7 @@
       "version": "7.2.26",
       "bin": {
         "kilo": "./bin/kilo",
-        "kilocode": "./bin/kilo",
+        "kuma-code": "./bin/kilo",
       },
       "dependencies": {
         "@actions/core": "1.11.1",

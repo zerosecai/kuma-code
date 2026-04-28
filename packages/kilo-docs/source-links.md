@@ -9,12 +9,12 @@
 - <https://api.kilo.ai>
   <!-- packages/opencode/src/cli/cmd/github.ts -->
 - <https://app.kilo.ai>
-  <!-- packages/opencode/src/kilocode/kilo-commands.tsx -->
+  <!-- packages/opencode/src/kuma-code/kilo-commands.tsx -->
 - <https://app.kilo.ai/claw>
   <!-- packages/kilo-vscode/webview-ui/kiloclaw/components/SetupView.tsx -->
   <!-- packages/kilo-vscode/webview-ui/kiloclaw/components/UpgradeView.tsx -->
-  <!-- packages/opencode/src/kilocode/components/dialog-claw-setup.tsx -->
-  <!-- packages/opencode/src/kilocode/components/dialog-claw-upgrade.tsx -->
+  <!-- packages/opencode/src/kuma-code/components/dialog-claw-setup.tsx -->
+  <!-- packages/opencode/src/kuma-code/components/dialog-claw-upgrade.tsx -->
 - <https://app.kilo.ai/config.json>
   <!-- packages/kilo-vscode/src/kilo-provider/config-file.ts -->
   <!-- packages/opencode/src/config/config.ts -->
@@ -23,7 +23,7 @@
 - <https://app.kilo.ai/profile>
   <!-- packages/kilo-vscode/webview-ui/src/components/profile/ProfileView.tsx -->
 - <https://app.kilo.ai/usage>
-  <!-- packages/opencode/src/kilocode/components/dialog-kilo-profile.tsx -->
+  <!-- packages/opencode/src/kuma-code/components/dialog-kilo-profile.tsx -->
 - <https://blog.kilo.ai/p/new-kilo-for-vs-code-is-live>
   <!-- packages/kilo-vscode/webview-ui/src/components/migration/MigrationWizard.tsx -->
 - <https://chatgpt.com/explore/plus>
@@ -58,13 +58,13 @@
   <!-- packages/opencode/src/tool/edit.ts -->
 - <https://github.com/Kilo-Org/kilo-marketplace>
   <!-- packages/kilo-vscode/webview-ui/src/components/marketplace/MarketplaceContribute.tsx -->
-- <https://github.com/Kilo-Org/kilocode>
-  <!-- packages/kilo-vscode/webview-ui/src/components/settings/AboutKiloCodeTab.tsx -->
-- <https://github.com/Kilo-Org/kilocode/issues/6986>
+- <https://github.com/Kilo-Org/kuma-code>
+  <!-- packages/kilo-vscode/webview-ui/src/components/settings/AboutKumaCodeTab.tsx -->
+- <https://github.com/Kilo-Org/kuma-code/issues/6986>
   <!-- packages/kilo-vscode/src/agent-manager/constants.ts -->
-- <https://github.com/Kilo-Org/kilocode/issues/new?template=bug-report.yml>
+- <https://github.com/Kilo-Org/kuma-code/issues/new?template=bug-report.yml>
   <!-- packages/opencode/src/cli/cmd/tui/app.tsx -->
-- <https://github.com/Kilo-Org/kilocode/issues/new/choose>
+- <https://github.com/Kilo-Org/kuma-code/issues/new/choose>
   <!-- packages/kilo-vscode/webview-ui/src/components/chat/FeedbackDialog.tsx -->
 - <https://github.com/microsoft/vscode-eslint/archive/refs/heads/main.zip>
   <!-- packages/opencode/src/lsp/server.ts -->
@@ -83,26 +83,26 @@
   <!-- packages/opencode/src/cli/cmd/generate.ts -->
 - <https://kilo.ai/discord>
   <!-- packages/kilo-vscode/webview-ui/src/components/chat/FeedbackDialog.tsx -->
-  <!-- packages/kilo-vscode/webview-ui/src/components/settings/AboutKiloCodeTab.tsx -->
+  <!-- packages/kilo-vscode/webview-ui/src/components/settings/AboutKumaCodeTab.tsx -->
 - <https://kilo.ai/docs>
   <!-- packages/kilo-vscode/webview-ui/src/hooks/useSlashCommand.ts -->
-  <!-- packages/opencode/src/kilocode/cli/cmd/tui/app.tsx -->
+  <!-- packages/opencode/src/kuma-code/cli/cmd/tui/app.tsx -->
 - <https://kilo.ai/docs/code-with-ai/platforms/vscode/whats-new>
   <!-- packages/kilo-vscode/webview-ui/src/components/migration/MigrationWizard.tsx -->
 - <https://kilo.ai/docs/providers/#custom-provider>
   <!-- packages/kilo-vscode/webview-ui/src/components/settings/CustomProviderDialog.tsx -->
 - <https://kilo.ai/gateway>
-  <!-- packages/opencode/src/kilocode/cli/cmd/tui/component/dialog-provider.tsx -->
+  <!-- packages/opencode/src/kuma-code/cli/cmd/tui/component/dialog-provider.tsx -->
 - <https://kilo.ai/install>
   <!-- packages/opencode/src/installation/index.ts -->
 - <https://kilo.ai/kiloclaw>
   <!-- packages/kilo-vscode/webview-ui/kiloclaw/components/SetupView.tsx -->
-  <!-- packages/opencode/src/kilocode/components/dialog-claw-setup.tsx -->
+  <!-- packages/opencode/src/kuma-code/components/dialog-claw-setup.tsx -->
 - <https://kilo.ai/support>
   <!-- packages/kilo-vscode/webview-ui/src/components/chat/FeedbackDialog.tsx -->
-  <!-- packages/kilo-vscode/webview-ui/src/components/settings/AboutKiloCodeTab.tsx -->
-- <https://kilocode.ai>
-  <!-- packages/opencode/src/kilocode/const.ts -->
+  <!-- packages/kilo-vscode/webview-ui/src/components/settings/AboutKumaCodeTab.tsx -->
+- <https://kuma-code.ai>
+  <!-- packages/opencode/src/kuma-code/const.ts -->
 - <https://models.dev>
   <!-- packages/opencode/src/provider/models.ts -->
 - <https://models.dev/model-schema.json#/$defs/Model>
@@ -126,7 +126,7 @@
 - <https://opencode.ai/zen>
   <!-- packages/kilo-vscode/webview-ui/src/i18n/en.ts -->
 - <https://openrouter.ai/docs/use-cases/usage-accounting>
-  <!-- packages/opencode/src/kilocode/session/index.ts -->
+  <!-- packages/opencode/src/kuma-code/session/index.ts -->
 - <https://opentelemetry.io/blog/2025/how-to-name-your-span-attributes/>
   <!-- packages/opencode/src/server/routes/instance/trace.ts -->
 - <https://opncd.ai>
@@ -137,8 +137,8 @@
   <!-- packages/opencode/src/provider/sdk/copilot/responses/openai-responses-language-model.ts -->
 - <https://platform.openai.com/docs/guides/reasoning#limitations>
   <!-- packages/opencode/src/provider/sdk/copilot/responses/openai-responses-language-model.ts -->
-- <https://reddit.com/r/kilocode>
-  <!-- packages/kilo-vscode/webview-ui/src/components/settings/AboutKiloCodeTab.tsx -->
+- <https://reddit.com/r/kuma-code>
+  <!-- packages/kilo-vscode/webview-ui/src/components/settings/AboutKumaCodeTab.tsx -->
 - <https://v5.ai-sdk.dev/providers/ai-sdk-providers/amazon-bedrock>
   <!-- packages/opencode/src/provider/transform.ts -->
 - <https://v5.ai-sdk.dev/providers/ai-sdk-providers/anthropic>

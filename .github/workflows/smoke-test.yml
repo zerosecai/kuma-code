@@ -1,4 +1,4 @@
-# kilocode_change - new file
+# kuma-code_change - new file
 # Standalone smoke test — checks out kilo-bench and runs a small set of
 # Harbor eval tasks against the latest published CLI (or a specific version).
 #

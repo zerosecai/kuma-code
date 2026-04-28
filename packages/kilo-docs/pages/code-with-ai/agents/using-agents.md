@@ -1,11 +1,11 @@
 ---
 title: "Using Agents"
-description: "Understanding and using different agents in Kilo Code"
+description: "Understanding and using different agents in Kuma Code"
 ---
 
 # Using Agents
 
-Agents in Kilo Code are specialized personas that tailor the assistant's behavior to your current task. Each agent offers different capabilities, expertise, and access levels to help you accomplish specific goals.
+Agents in Kuma Code are specialized personas that tailor the assistant's behavior to your current task. Each agent offers different capabilities, expertise, and access levels to help you accomplish specific goals.
 
 {% callout type="info" %}
 The **VSCode (Legacy)** extension calls these **modes** instead of agents. The concept is the same — specialized personas with distinct tool access and behavior.
@@ -42,7 +42,7 @@ There are several ways to switch agents:
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-{% youtube url="https://youtu.be/cS4vQfX528w" caption="Explaining the different modes in Kilo Code" /%}
+{% youtube url="https://youtu.be/cS4vQfX528w" caption="Explaining the different modes in Kuma Code" /%}
 
 Four ways to switch modes:
 
@@ -73,9 +73,9 @@ Users often confuse `/newtask` and `/smol`. Here's the key difference:
 
 You can hold `shift` to move backwards through the list of modes, for example ⌘ + shift + on macOS.
 
-4. **Accept suggestions:** Click on mode switch suggestions that Kilo Code offers when appropriate
+4. **Accept suggestions:** Click on mode switch suggestions that Kuma Code offers when appropriate
 
-   {% image src="/docs/img/modes/modes-2.png" alt="Accepting a mode switch suggestion from Kilo Code" width="400" /%}
+   {% image src="/docs/img/modes/modes-2.png" alt="Accepting a mode switch suggestion from Kuma Code" width="400" /%}
 
 {% /tab %}
 {% /tabs %}

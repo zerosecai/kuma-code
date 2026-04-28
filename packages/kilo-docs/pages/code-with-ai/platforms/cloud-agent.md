@@ -1,15 +1,15 @@
 ---
 title: "Cloud Agent"
-description: "Using Kilo Code in the browser"
+description: "Using Kuma Code in the browser"
 ---
 
 # {% $markdoc.frontmatter.title %}
 
-Cloud Agents let you run Kilo Code in the cloud from any device, without relying on your local machine. They provide a remote development environment that can read and modify your GitHub and GitLab repositories, run commands, and auto-commit changes as work progresses.
+Cloud Agents let you run Kuma Code in the cloud from any device, without relying on your local machine. They provide a remote development environment that can read and modify your GitHub and GitLab repositories, run commands, and auto-commit changes as work progresses.
 
 ## What Cloud Agents Enable
 
-- Run Kilo Code remotely from a browser
+- Run Kuma Code remotely from a browser
 - Auto-create branches and push work continuously
 - Use env vars + startup commands to shape the workspace
 - Work from anywhere while keeping your repo in sync
@@ -25,14 +25,14 @@ Before using Cloud Agents:
 
 - **Compute is free during limited beta**
   - Please provide any feedback in our Cloud Agents beta Discord channel: [Kilo Discord](https://kilo.ai/discord)
-- **Kilo Code credits are still used** when the agent performs work (model usage, operations, etc.).
+- **Kuma Code credits are still used** when the agent performs work (model usage, operations, etc.).
 
 ## How to Use
 
 1. **Connect your GitHub or GitLab account** in the [Integrations](https://app.kilo.ai/integrations) tab of your personal or organization dashboard.
 2. **Select a repository** to use as your workspace.
 3. **Add environment variables** (secrets supported) and set optional startup commands.
-4. **Start chatting with Kilo Code.**
+4. **Start chatting with Kuma Code.**
 
 Your work is always pushed to GitHub, ensuring nothing is lost.
 
@@ -85,21 +85,21 @@ You can customize each Cloud Agent session by also defining env vars and startup
   - Bootstrapping tooling
   - Running setup scripts
 
-### Setup Commands vs `.kilocode/setup-script`
+### Setup Commands vs `.kuma-code/setup-script`
 
 - Cloud Agent executes **Setup Commands** configured in the Cloud UI/profile.
-- Cloud Agent does **not** automatically discover or run `.kilocode/setup-script`.
-- If you want to use `.kilocode/setup-script` in Cloud Agent, call it explicitly from Setup Commands, for example: `bash .kilocode/setup-script`.
+- Cloud Agent does **not** automatically discover or run `.kuma-code/setup-script`.
+- If you want to use `.kuma-code/setup-script` in Cloud Agent, call it explicitly from Setup Commands, for example: `bash .kuma-code/setup-script`.
 - If both are present, execution order is:
   1. Setup Commands (in the order you define them)
-  2. Anything those commands invoke (such as `.kilocode/setup-script`)
+  2. Anything those commands invoke (such as `.kuma-code/setup-script`)
 
 ## Skills
 
-Cloud Agents support project-level [skills](/docs/code-with-ai/platforms/cli#skills) stored in your repository. When your repo is cloned, any skills in `.kilocode/skills/` are automatically available.
+Cloud Agents support project-level [skills](/docs/code-with-ai/platforms/cli#skills) stored in your repository. When your repo is cloned, any skills in `.kuma-code/skills/` are automatically available.
 
 {% callout type="note" %}
-Global skills (`~/.kilocode/skills/`) are not available in Cloud Agents since there is no persistent user home directory.
+Global skills (`~/.kuma-code/skills/`) are not available in Cloud Agents since there is no persistent user home directory.
 {% /callout %}
 
 ## Remote Connections
@@ -133,10 +133,10 @@ Anyone with access to your Kilo account can send messages to your computer when 
 
 Cloud Agents are great for:
 
-- **Remote debugging** using Kilo Code debug mode
+- **Remote debugging** using Kuma Code debug mode
 - **Exploration of unfamiliar codebases** without touching your local machine
 - **Architect-mode brainstorming** while on the go
-- **Automated refactors or tech debt cleanup** driven by Kilo Code
+- **Automated refactors or tech debt cleanup** driven by Kuma Code
 - **Offloading CI-like tasks**, experiments, or batch updates
 
 ## Triggers
@@ -215,7 +215,7 @@ Care should be taken when deciding to use webhooks as they are susceptible to pr
 - Each message can run for **up to 15 minutes**.
   Break large tasks into smaller steps; use a `plan.md` or `todo.md` file to keep scope clear.
 - **Context is persistent across messages.**
-  Kilo Code remembers previous turns within the same session.
+  Kuma Code remembers previous turns within the same session.
 - **Auto/YOLO mode is always on.**
   The agent will modify code without prompting for confirmation.
 - **Sessions are restorable locally** and local sessions can be resumed in Cloud Agent.

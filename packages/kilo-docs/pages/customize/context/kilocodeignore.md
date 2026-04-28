@@ -1,15 +1,15 @@
 ---
-title: ".kilocodeignore"
-description: "Control which files Kilo Code can access"
+title: ".kuma-codeignore"
+description: "Control which files Kuma Code can access"
 ---
 
-# .kilocodeignore
+# .kuma-codeignore
 
 ## Overview
 
-`.kilocodeignore` is a root-level file that tells Kilo Code which files and folders it should not access. It uses standard `.gitignore` pattern syntax, but it only affects Kilo Code's file access, not Git.
+`.kuma-codeignore` is a root-level file that tells Kuma Code which files and folders it should not access. It uses standard `.gitignore` pattern syntax, but it only affects Kuma Code's file access, not Git.
 
-If no `.kilocodeignore` file exists, Kilo Code can access all files in the workspace.
+If no `.kuma-codeignore` file exists, Kuma Code can access all files in the workspace.
 
 ## Quick Start
 
@@ -27,7 +27,7 @@ The primary mechanism for controlling file access is the **permission system** i
 }
 ```
 
-If you have an existing `.kilocodeignore` file, it is still supported. The **IgnoreMigrator** automatically converts `.kilocodeignore` patterns into permission `deny` rules on `read` and `edit` tools, so your existing rules continue to work without manual changes.
+If you have an existing `.kuma-codeignore` file, it is still supported. The **IgnoreMigrator** automatically converts `.kuma-codeignore` patterns into permission `deny` rules on `read` and `edit` tools, so your existing rules continue to work without manual changes.
 
 You can also exclude paths from the file watcher separately using `watcher.ignore`:
 
@@ -53,7 +53,7 @@ The primary mechanism for controlling file access is the **permission system** i
 }
 ```
 
-If you have an existing `.kilocodeignore` file, it is still supported. The **IgnoreMigrator** automatically converts `.kilocodeignore` patterns into permission `deny` rules on `read` and `edit` tools, so your existing rules continue to work without manual changes.
+If you have an existing `.kuma-codeignore` file, it is still supported. The **IgnoreMigrator** automatically converts `.kuma-codeignore` patterns into permission `deny` rules on `read` and `edit` tools, so your existing rules continue to work without manual changes.
 
 You can also exclude paths from the file watcher separately using `watcher.ignore`:
 
@@ -68,9 +68,9 @@ You can also exclude paths from the file watcher separately using `watcher.ignor
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-1. Create a `.kilocodeignore` file at the root of your project.
-2. Add patterns for files or folders you want Kilo Code to avoid.
-3. Save the file. Kilo Code will pick up the changes automatically.
+1. Create a `.kuma-codeignore` file at the root of your project.
+2. Add patterns for files or folders you want Kuma Code to avoid.
+3. Save the file. Kuma Code will pick up the changes automatically.
 
 Example:
 
@@ -94,7 +94,7 @@ coverage/
 
 ## Pattern Rules
 
-`.kilocodeignore` follows the same rules as `.gitignore`:
+`.kuma-codeignore` follows the same rules as `.gitignore`:
 
 - `#` starts a comment
 - `*` and `**` match wildcards
@@ -134,7 +134,7 @@ If a file is denied by a permission rule, the tool will report that access was b
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-Kilo Code checks `.kilocodeignore` before accessing files in tools like:
+Kuma Code checks `.kuma-codeignore` before accessing files in tools like:
 
 - [`read_file`](/docs/automate/tools/read-file)
 - [`write_to_file`](/docs/automate/tools/write-to-file)
@@ -143,7 +143,7 @@ Kilo Code checks `.kilocodeignore` before accessing files in tools like:
 - [`execute_command`](/docs/automate/tools/execute-command)
 - [`list_files`](/docs/automate/tools/list-files)
 
-If a file is blocked, Kilo Code will return an "access denied" message and suggest updating your `.kilocodeignore` rules.
+If a file is blocked, Kuma Code will return an "access denied" message and suggest updating your `.kuma-codeignore` rules.
 
 {% /tab %}
 {% /tabs %}
@@ -174,9 +174,9 @@ Permission rules are defined per-tool in `kilo.jsonc`. Patterns are evaluated in
 }
 ```
 
-### Migrating from .kilocodeignore
+### Migrating from .kuma-codeignore
 
-If you already have a `.kilocodeignore` file, you don't need to do anything — the IgnoreMigrator reads your existing patterns and applies them as `deny` rules on `read` and `edit` tools automatically. You can optionally move your rules into `kilo.jsonc` for more granular control (e.g. denying edits but allowing reads).
+If you already have a `.kuma-codeignore` file, you don't need to do anything — the IgnoreMigrator reads your existing patterns and applies them as `deny` rules on `read` and `edit` tools automatically. You can optionally move your rules into `kilo.jsonc` for more granular control (e.g. denying edits but allowing reads).
 
 ### File Watcher Exclusions
 
@@ -214,9 +214,9 @@ Permission rules are defined per-tool in `kilo.jsonc`. Patterns are evaluated in
 }
 ```
 
-### Migrating from .kilocodeignore
+### Migrating from .kuma-codeignore
 
-If you already have a `.kilocodeignore` file, you don't need to do anything — the IgnoreMigrator reads your existing patterns and applies them as `deny` rules on `read` and `edit` tools automatically. You can optionally move your rules into `kilo.jsonc` for more granular control (e.g. denying edits but allowing reads).
+If you already have a `.kuma-codeignore` file, you don't need to do anything — the IgnoreMigrator reads your existing patterns and applies them as `deny` rules on `read` and `edit` tools automatically. You can optionally move your rules into `kilo.jsonc` for more granular control (e.g. denying edits but allowing reads).
 
 ### File Watcher Exclusions
 
@@ -237,17 +237,17 @@ The `watcher.ignore` setting controls which paths the file watcher skips. This i
 
 By default, ignored files are hidden from file lists. You can show them with a lock icon by enabling:
 
-Settings -> Context -> **Show .kilocodeignore'd files in lists and searches**
+Settings -> Context -> **Show .kuma-codeignore'd files in lists and searches**
 
 {% /tab %}
 {% /tabs %}
 
-## Checkpoints vs .kilocodeignore
+## Checkpoints vs .kuma-codeignore
 
-Checkpoint tracking is separate from file access rules. Files blocked by `.kilocodeignore` or permission rules can still be checkpointed if they are not excluded by `.gitignore`. See the [Checkpoints](/docs/code-with-ai/features/checkpoints) documentation for details.
+Checkpoint tracking is separate from file access rules. Files blocked by `.kuma-codeignore` or permission rules can still be checkpointed if they are not excluded by `.gitignore`. See the [Checkpoints](/docs/code-with-ai/features/checkpoints) documentation for details.
 
 ## Troubleshooting
 
-- **Kilo can't access a file you want:** Remove or narrow the matching rule in `.kilocodeignore` (legacy) or adjust the permission rules in `kilo.jsonc` (VSCode extension & CLI).
+- **Kilo can't access a file you want:** Remove or narrow the matching rule in `.kuma-codeignore` (legacy) or adjust the permission rules in `kilo.jsonc` (VSCode extension & CLI).
 - **A file still appears in lists:** In the legacy extension, check the setting that shows ignored files in lists and searches. In the extension & CLI, verify your permission and watcher ignore configuration.
-- **`.kilocodeignore` patterns not working in the new platform:** Ensure the file is at the workspace root. The IgnoreMigrator reads it automatically — check that your patterns use valid `.gitignore` syntax.
+- **`.kuma-codeignore` patterns not working in the new platform:** Ensure the file is at the workspace root. The IgnoreMigrator reads it automatically — check that your patterns use valid `.gitignore` syntax.

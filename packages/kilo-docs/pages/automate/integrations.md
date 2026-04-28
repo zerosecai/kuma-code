@@ -1,11 +1,11 @@
 ---
 title: "Integrations"
-description: "Overview of Kilo Code integrations"
+description: "Overview of Kuma Code integrations"
 ---
 
-# Kilo Code Integrations
+# Kuma Code Integrations
 
-Kilo Integrations lets you connect your GitHub or GitLab account (soon Bitbucket) to enable advanced features inside Kilo Code. Once connected, Kilo can access your repositories securely, enabling features like **Code Reviews**, **Cloud Agents**, and **Kilo Deploy**.
+Kilo Integrations lets you connect your GitHub or GitLab account (soon Bitbucket) to enable advanced features inside Kuma Code. Once connected, Kilo can access your repositories securely, enabling features like **Code Reviews**, **Cloud Agents**, and **Kilo Deploy**.
 
 ## Supported Platforms
 
@@ -16,7 +16,7 @@ Kilo Integrations lets you connect your GitHub or GitLab account (soon Bitbucket
 
 ## What You Can Do With Integrations
 
-- **Connect GitHub or GitLab to Kilo Code** in a few clicks
+- **Connect GitHub or GitLab to Kuma Code** in a few clicks
 - **Enable advanced features** like Cloud Agents, Code Reviews, and Kilo Deploy
 - **Authorize repository access** so Kilo can analyze and work with your code
 
@@ -83,7 +83,7 @@ For self-hosted GitLab instances using OAuth, you need to register an OAuth appl
 
 1. In your GitLab instance, go to **Admin Area → Applications** (or **User Settings → Applications**)
 2. Create a new application:
-   - **Name**: `Kilo Code`
+   - **Name**: `Kuma Code`
    - **Redirect URI**: `https://app.kilo.ai/api/integrations/gitlab/callback`
    - **Scopes**: `api`, `read_user`, `read_repository`, `write_repository`
    - **Confidential**: Yes
@@ -115,7 +115,7 @@ Once your Git provider is connected, the following features are enabled in Kilo:
 
 ### Cloud Agents
 
-- Run Kilo Code in the cloud from any device
+- Run Kuma Code in the cloud from any device
 - Auto-create branches and push work continuously
 - Work from anywhere while keeping your repo in sync
 

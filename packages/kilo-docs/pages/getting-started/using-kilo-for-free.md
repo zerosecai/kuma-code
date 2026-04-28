@@ -1,11 +1,11 @@
 ---
 title: "Using Kilo for Free"
-description: "How to use Kilo Code for free — Auto Model Free, finding free models, free autocomplete, and free background tasks"
+description: "How to use Kuma Code for free — Auto Model Free, finding free models, free autocomplete, and free background tasks"
 ---
 
 # Using Kilo for Free
 
-Kilo Code can be used completely free of charge. There are three places where Kilo uses AI model inference, and each can be configured to use free models.
+Kuma Code can be used completely free of charge. There are three places where Kilo uses AI model inference, and each can be configured to use free models.
 
 ## Where Kilo Uses Models
 

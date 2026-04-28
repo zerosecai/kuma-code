@@ -1,14 +1,14 @@
 ---
 title: "Workflows"
-description: "Create automated workflows with Kilo Code"
+description: "Create automated workflows with Kuma Code"
 platform: new
 ---
 
 # Workflows
 
-Workflows (also called **slash commands** in the new extension) automate repetitive tasks by defining step-by-step instructions for Kilo Code to execute.
+Workflows (also called **slash commands** in the new extension) automate repetitive tasks by defining step-by-step instructions for Kuma Code to execute.
 
-{% image src="/docs/img/screenshot-tests/kilo-vscode/visual-regression/settings/agent-behaviour-workflows-chromium-linux.png" alt="Workflows tab in Kilo Code" width="420" caption="Workflows tab in Kilo Code" /%}
+{% image src="/docs/img/screenshot-tests/kilo-vscode/visual-regression/settings/agent-behaviour-workflows-chromium-linux.png" alt="Workflows tab in Kuma Code" width="420" caption="Workflows tab in Kuma Code" /%}
 
 ## Creating Workflows
 
@@ -54,15 +54,15 @@ Workflows can leverage all built-in tools: `read`, `glob`, `grep`, `edit`, `writ
 
 ### Migration from Legacy Workflows
 
-The new extension automatically migrates legacy workflows from `.kilocode/workflows/` to the new command format on startup. You can also manually move files and remove the `.md` extension from invocations.
+The new extension automatically migrates legacy workflows from `.kuma-code/workflows/` to the new command format on startup. You can also manually move files and remove the `.md` extension from invocations.
 
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-Workflows are markdown files stored in `.kilocode/workflows/`:
+Workflows are markdown files stored in `.kuma-code/workflows/`:
 
-- **Global workflows**: `~/.kilocode/workflows/` (available in all projects)
-- **Project workflows**: `[project]/.kilocode/workflows/` (project-specific)
+- **Global workflows**: `~/.kuma-code/workflows/` (available in all projects)
+- **Project workflows**: `[project]/.kuma-code/workflows/` (project-specific)
 
 ### Basic Setup
 
@@ -148,7 +148,7 @@ Trigger this workflow by typing `/submit-pr` in the chat.
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-Create a file called `submit-pr.md` in your `.kilocode/workflows` directory:
+Create a file called `submit-pr.md` in your `.kuma-code/workflows` directory:
 
 ```markdown
 # Submit PR Workflow
@@ -172,7 +172,7 @@ Trigger this workflow by typing `/submit-pr.md` in the chat.
 {% /tab %}
 {% /tabs %}
 
-Kilo Code will:
+Kuma Code will:
 
 - Scan your code for common issues before committing
 - Run your test suite to catch problems early

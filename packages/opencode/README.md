@@ -1,17 +1,17 @@
-# Kilo Code CLI
+# Kuma Code CLI
 
 The AI coding agent built for the terminal. Generate code from natural language, automate tasks, and run terminal commands -- powered by 500+ AI models.
 
 ## Install
 
 ```bash
-npm install -g @kilocode/cli
+npm install -g @kuma-code/cli
 ```
 
 Or run directly with npx:
 
 ```bash
-npx --package @kilocode/cli kilo
+npx --package @kuma-code/cli kilo
 ```
 
 ## Getting Started
@@ -63,7 +63,7 @@ brew install Kilo-Org/tap/kilo
 
 ### GitHub Releases
 
-Download pre-built binaries from the [Releases page](https://github.com/Kilo-Org/kilocode/releases).
+Download pre-built binaries from the [Releases page](https://github.com/Kilo-Org/kuma-code/releases).
 
 ## Documentation
 
@@ -72,7 +72,7 @@ Download pre-built binaries from the [Releases page](https://github.com/Kilo-Org
 
 ## Links
 
-- [GitHub](https://github.com/Kilo-Org/kilocode)
+- [GitHub](https://github.com/Kilo-Org/kuma-code)
 - [Discord](https://kilo.ai/discord)
 - [VS Code Extension](https://kilo.ai/vscode-marketplace)
 - [Website](https://kilo.ai)

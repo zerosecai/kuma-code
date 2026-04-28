@@ -50,6 +50,6 @@ jobs:
         working-directory: packages/kilo-vscode
         run: bun run knip
 
-      - name: Check for kilocode_change markers
+      - name: Check for kuma-code_change markers
         working-directory: packages/kilo-vscode
-        run: bun run check-kilocode-change
+        run: bun run check-kuma-code-change

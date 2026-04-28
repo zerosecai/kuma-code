@@ -1,11 +1,11 @@
 ---
 title: Tool Use Details
-description: Learn how Kilo Code's tools automate your development workflow
+description: Learn how Kuma Code's tools automate your development workflow
 ---
 
 # Tool Use Overview
 
-Kilo Code implements a sophisticated tool system that allows AI models to interact with your development environment in a controlled and secure manner. This document explains how tools work, when they're called, and how they're managed.
+Kuma Code implements a sophisticated tool system that allows AI models to interact with your development environment in a controlled and secure manner. This document explains how tools work, when they're called, and how they're managed.
 
 ## Core Concepts
 
@@ -38,7 +38,7 @@ Certain tools are accessible regardless of the current agent:
 
 ### Read Tools
 
-These tools help Kilo Code understand your code and project:
+These tools help Kuma Code understand your code and project:
 
 - `read` - Reads file contents with line numbers
 - `glob` - Finds files matching a glob pattern
@@ -46,7 +46,7 @@ These tools help Kilo Code understand your code and project:
 
 ### Edit Tools
 
-These tools help Kilo Code make changes to your code:
+These tools help Kuma Code make changes to your code:
 
 - `edit` - Makes precise text replacements in a file
 - `multiedit` - Multiple edits in a single call
@@ -55,13 +55,13 @@ These tools help Kilo Code make changes to your code:
 
 ### Execute Tools
 
-These tools help Kilo Code run commands:
+These tools help Kuma Code run commands:
 
 - `bash` - Runs shell commands with configurable timeout and working directory
 
 ### Web Tools
 
-These tools help Kilo Code access web content:
+These tools help Kuma Code access web content:
 
 - `webfetch` - Fetches a URL and returns the content
 - `websearch` - Searches the web (available to Kilo/OpenRouter users)
@@ -122,7 +122,7 @@ Certain tools are accessible regardless of the current mode:
 
 ### Read Tools
 
-These tools help Kilo Code understand your code and project:
+These tools help Kuma Code understand your code and project:
 
 - [read_file](/docs/automate/tools/read-file) - Examines the contents of files
 - [search_files](/docs/automate/tools/search-files) - Finds patterns across multiple files
@@ -131,7 +131,7 @@ These tools help Kilo Code understand your code and project:
 
 ### Edit Tools
 
-These tools help Kilo Code make changes to your code:
+These tools help Kuma Code make changes to your code:
 
 - [apply_diff](/docs/automate/tools/apply-diff) - Makes precise, surgical changes to your code
 - [delete_file](/docs/automate/tools/delete-file) - Removes files from your workspace
@@ -139,19 +139,19 @@ These tools help Kilo Code make changes to your code:
 
 ### Browser Tools
 
-These tools help Kilo Code interact with web applications:
+These tools help Kuma Code interact with web applications:
 
 - [browser_action](/docs/automate/tools/browser-action) - Automates browser interactions
 
 ### Command Tools
 
-These tools help Kilo Code execute commands:
+These tools help Kuma Code execute commands:
 
 - [execute_command](/docs/automate/tools/execute-command) - Runs system commands and programs
 
 ### MCP Tools
 
-These tools help Kilo Code connect with external services:
+These tools help Kuma Code connect with external services:
 
 - [use_mcp_tool](/docs/automate/tools/use-mcp-tool) - Uses specialized external tools
 - [access_mcp_resource](/docs/automate/tools/access-mcp-resource) - Accesses external data sources

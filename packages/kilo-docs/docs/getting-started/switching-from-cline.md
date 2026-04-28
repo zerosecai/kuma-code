@@ -108,7 +108,7 @@ Select Orchestrator mode → autonomously define subtasks → intelligently dist
 ### VS Code / Cursor
 
 1. Open Extensions (`Cmd/Ctrl + Shift + X`)
-2. Search "Kilo Code"
+2. Search "Kuma Code"
 3. Click Install
 4. Find the Kilo icon in your sidebar
 
@@ -124,14 +124,14 @@ Supports IntelliJ, PyCharm, WebStorm, and all JetBrains IDEs.
 **Install:**
 
 1. Settings → Plugins → Marketplace
-2. Search "Kilo Code"
+2. Search "Kuma Code"
 3. Install and restart
 4. Find Kilo icon in right sidebar
 
 ### CLI
 
 ```shell
-npm install -g @kilocode/cli
+npm install -g @kuma-code/cli
 kilo
 ```
 
@@ -150,7 +150,7 @@ Visit [app.kilo.ai](https://app.kilo.ai/) and sign in. This gives you access to:
 
 ### Create account
 
-1. Click "Try Kilo Code for Free" in the Kilo panel
+1. Click "Try Kuma Code for Free" in the Kilo panel
 2. Sign in with OAuth at kilo.ai
 3. You'll be redirected back to your IDE
 
@@ -311,5 +311,5 @@ In-line ghost-text completions with tab to complete. Works alongside the agent m
    - **Architect:** "Design a logging system"
    - **Orchestrator:** "Build an app, end-to-end, that…"
 3. Try Cloud Agents at [app.kilo.ai](https://app.kilo.ai/)
-4. Install the Kilo CLI with `npm install -g @kilocode/cli`
+4. Install the Kilo CLI with `npm install -g @kuma-code/cli`
 5. Enable Autocomplete for inline suggestions

@@ -2,28 +2,28 @@
 sidebar_label: Groq
 ---
 
-# Using Groq With Kilo Code
+# Using Groq With Kuma Code
 
-Groq provides ultra-fast inference for various AI models through their high-performance infrastructure. Kilo Code supports accessing models through the Groq API.
+Groq provides ultra-fast inference for various AI models through their high-performance infrastructure. Kuma Code supports accessing models through the Groq API.
 
 **Website:** [https://groq.com/](https://groq.com/)
 
 ## Getting an API Key
 
-To use Groq with Kilo Code, you'll need an API key from the [GroqCloud Console](https://console.groq.com/). After signing up or logging in, navigate to the API Keys section of your dashboard to create and copy your key.
+To use Groq with Kuma Code, you'll need an API key from the [GroqCloud Console](https://console.groq.com/). After signing up or logging in, navigate to the API Keys section of your dashboard to create and copy your key.
 
 ## Supported Models
 
-Kilo Code will attempt to fetch the list of available models from the Groq API.
+Kuma Code will attempt to fetch the list of available models from the Groq API.
 
 **Note:** Model availability and specifications may change. Refer to the [Groq Documentation](https://console.groq.com/docs/models) for the most up-to-date list of supported models and their capabilities.
 
-## Configuration in Kilo Code
+## Configuration in Kuma Code
 
 {% tabs %}
 {% tab label="VSCode (Legacy)" %}
 
-1.  **Open Kilo Code Settings:** Click the gear icon ({% codicon name="gear" /%}) in the Kilo Code panel.
+1.  **Open Kuma Code Settings:** Click the gear icon ({% codicon name="gear" /%}) in the Kuma Code panel.
 2.  **Select Provider:** Choose "Groq" from the "API Provider" dropdown.
 3.  **Enter API Key:** Paste your Groq API key into the "Groq API Key" field.
 4.  **Select Model:** Choose your desired model from the "Model" dropdown.
@@ -71,7 +71,7 @@ Then set your default model:
 
 ## Supported Models
 
-Kilo Code supports the following models through Groq:
+Kuma Code supports the following models through Groq:
 
 | Model ID | Provider | Context Window | Notes |
 |---|---|---|---|

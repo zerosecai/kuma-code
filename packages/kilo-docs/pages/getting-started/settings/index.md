@@ -1,6 +1,6 @@
 ---
 title: "Settings"
-description: "Configure Kilo Code settings and preferences"
+description: "Configure Kuma Code settings and preferences"
 ---
 
 # Settings
@@ -47,7 +47,7 @@ If you check config files into version control, make sure they do not contain AP
 
 ### Export and Import
 
-You can export and import settings from the **About Kilo Code** tab in the Settings UI:
+You can export and import settings from the **About Kuma Code** tab in the Settings UI:
 
 - **Export**: Saves your global config as a `kilo-settings.json` file. Review it before sharing, because config values are exported as-is.
 - **Import**: Loads a previously exported JSON file into the settings draft. Changes are not applied immediately — you can review them and click Save or Discard, just like any manual edit.
@@ -103,15 +103,15 @@ For **session** export and import, use the CLI commands:
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-Kilo Code allows you to manage your configuration settings effectively through export, import, and reset options. These features are useful for backing up your setup, sharing configurations with others, or restoring default settings if needed.
+Kuma Code allows you to manage your configuration settings effectively through export, import, and reset options. These features are useful for backing up your setup, sharing configurations with others, or restoring default settings if needed.
 
-You can find these options at the bottom of the Kilo Code settings page, accessible via the gear icon ({% codicon name="gear" /%}) in the Kilo Code chat view.
+You can find these options at the bottom of the Kuma Code settings page, accessible via the gear icon ({% codicon name="gear" /%}) in the Kuma Code chat view.
 
-{% image src="/docs/img/settings-management/settings-management.png" alt="Export, Import, and Reset buttons in Kilo Code settings" width="800" caption="Export, Import, and Reset buttons" /%}
+{% image src="/docs/img/settings-management/settings-management.png" alt="Export, Import, and Reset buttons in Kuma Code settings" width="800" caption="Export, Import, and Reset buttons" /%}
 
 ### Export Settings
 
-Clicking the **Export** button saves your current Kilo Code settings to a JSON file.
+Clicking the **Export** button saves your current Kuma Code settings to a JSON file.
 
 - **What's Exported:** The file includes your configured API Provider Profiles and Global Settings (UI preferences, mode configurations, context settings, etc.).
 - **Security Warning:** The exported JSON file contains **all** your configured API Provider Profiles and Global Settings. Crucially, this includes **API keys in plaintext**. Treat this file as highly sensitive. Do not share it publicly or with untrusted individuals, as it grants access to your API accounts.
@@ -129,13 +129,13 @@ Clicking the **Import** button allows you to load settings from a previously exp
 - **Process:**
   1.  Click **Import**.
   2.  A file open dialog appears. Select the `kilo-code-settings.json` file (or similarly named file) you want to import.
-  3.  Kilo Code reads the file, validates its contents against the expected schema, and applies the settings.
+  3.  Kuma Code reads the file, validates its contents against the expected schema, and applies the settings.
 - **Merging:** Importing settings **merges** the configurations. It adds new API profiles and updates existing ones and global settings based on the file content. It does **not** delete configurations present in your current setup but missing from the imported file.
 - **Validation:** Only valid settings matching the internal schema can be imported, preventing configuration errors. A success notification appears upon completion.
 
 ### Reset Settings
 
-Clicking the **Reset** button completely clears all Kilo Code configuration data and returns the extension to its default state. This is a destructive action intended for troubleshooting or starting fresh.
+Clicking the **Reset** button completely clears all Kuma Code configuration data and returns the extension to its default state. This is a destructive action intended for troubleshooting or starting fresh.
 
 - **Warning:** This action is **irreversible**. It permanently deletes all API configurations (including keys stored in secret storage), custom modes, global settings, and task history.
 
@@ -148,12 +148,12 @@ Clicking the **Reset** button completely clears all Kilo Code configuration data
   - **API Provider Profiles:** All configurations are deleted from settings and secret storage.
   - **Global Settings:** All preferences (UI, modes, approvals, browser, etc.) are reset to defaults.
   - **Custom Modes:** All user-defined modes are deleted.
-  - **Secret Storage:** All API keys and other secrets managed by Kilo Code are cleared.
+  - **Secret Storage:** All API keys and other secrets managed by Kuma Code are cleared.
   - **Task History:** The current task stack is cleared.
 
-- **Result:** Kilo Code returns to its initial state, as if freshly installed, with default settings and no user configurations.
+- **Result:** Kuma Code returns to its initial state, as if freshly installed, with default settings and no user configurations.
 
-Use this option only if you are certain you want to remove all Kilo Code data or if instructed during troubleshooting. Consider exporting your settings first if you might want to restore them later.
+Use this option only if you are certain you want to remove all Kuma Code data or if instructed during troubleshooting. Consider exporting your settings first if you might want to restore them later.
 
 {% /tab %}
 {% /tabs %}
@@ -196,12 +196,12 @@ The CLI does not currently expose the same experimental feature toggles as the *
 {% tab label="VSCode (Legacy)" %}
 
 {% callout type="info" %}
-These features are experimental and may change in future releases. They provide advanced control over Kilo Code's behavior for specific use cases.
+These features are experimental and may change in future releases. They provide advanced control over Kuma Code's behavior for specific use cases.
 {% /callout %}
 
 ### Concurrent File Edits
 
-When enabled, Kilo Code can edit multiple files in a single request. When disabled, Kilo Code must edit one file at a time.
+When enabled, Kuma Code can edit multiple files in a single request. When disabled, Kuma Code must edit one file at a time.
 
 **When to disable:**
 
@@ -213,7 +213,7 @@ When enabled, Kilo Code can edit multiple files in a single request. When disabl
 
 ### Power Steering
 
-When enabled, Kilo Code will remind the model about the details of its current mode definition more frequently. This leads to stronger adherence to role definitions and custom instructions, but will use more tokens per message.
+When enabled, Kuma Code will remind the model about the details of its current mode definition more frequently. This leads to stronger adherence to role definitions and custom instructions, but will use more tokens per message.
 
 **When to enable:**
 
@@ -241,7 +241,7 @@ This setting controls the number of lines read from a file in one batch. To mana
 
 **Default:** Set in Advanced Settings
 
-You can find this setting in the Kilo Code settings under 'Advanced Settings'.
+You can find this setting in the Kuma Code settings under 'Advanced Settings'.
 
 {% /tab %}
 {% /tabs %}

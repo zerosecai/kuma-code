@@ -5,7 +5,7 @@ description: "Manage and orchestrate multiple AI agents"
 
 # Agent Manager
 
-The Agent Manager is a control panel for running and orchestrating multiple Kilo Code agents, with support for parallel worktree-isolated sessions.
+The Agent Manager is a control panel for running and orchestrating multiple Kuma Code agents, with support for parallel worktree-isolated sessions.
 
 {% tabs %}
 {% tab label="VSCode" %}
@@ -26,7 +26,7 @@ New to running multiple agents in parallel? The [Agent Manager Workflows](/docs/
 ## Opening the Agent Manager
 
 - Keyboard shortcut: `Cmd+Shift+M` (macOS) / `Ctrl+Shift+M` (Windows/Linux)
-- Command Palette: "Kilo Code: Open Agent Manager"
+- Command Palette: "Kuma Code: Open Agent Manager"
 - Click the Agent Manager icon in the sidebar toolbar
 
 The panel opens as an editor tab and stays active across focus changes.
@@ -251,7 +251,7 @@ Agent Manager state is persisted in `.kilo/agent-manager.json`. Sessions, worktr
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-The Agent Manager is a dedicated control panel for running and supervising Kilo Code agents as interactive CLI processes. It supports:
+The Agent Manager is a dedicated control panel for running and supervising Kuma Code agents as interactive CLI processes. It supports:
 
 - Local sessions
 - Resuming existing sessions
@@ -262,14 +262,14 @@ This page reflects the actual implementation in the extension.
 
 ## Prerequisites
 
-- Install/update the Kilo Code CLI (latest) — see [CLI setup](/docs/code-with-ai/platforms/cli)
+- Install/update the Kuma Code CLI (latest) — see [CLI setup](/docs/code-with-ai/platforms/cli)
 - Open a project in VS Code (workspace required)
-- Authentication: You must be logged in via the extension settings OR use CLI with kilocode as provider (see [Authentication Requirements](#authentication-requirements))
+- Authentication: You must be logged in via the extension settings OR use CLI with kuma-code as provider (see [Authentication Requirements](#authentication-requirements))
 
 ## Opening the Agent Manager
 
-- Command Palette: "Kilo Code: Open Agent Manager"
-- Or use the title/menu entry if available in your Kilo Code UI
+- Command Palette: "Kuma Code: Open Agent Manager"
+- Or use the title/menu entry if available in your Kuma Code UI
 
 The panel opens as a webview and stays active across focus changes.
 
@@ -300,14 +300,14 @@ Parallel Mode runs the agent in an isolated Git worktree branch, keeping your ma
 
 ### Worktree Location
 
-Worktrees are created in `.kilocode/worktrees/` within your project directory. This folder is automatically excluded from git via `.git/info/exclude` (a local-only ignore file that doesn't require a commit).
+Worktrees are created in `.kuma-code/worktrees/` within your project directory. This folder is automatically excluded from git via `.git/info/exclude` (a local-only ignore file that doesn't require a commit).
 
 ```
 your-project/
 ├── .git/
 │   └── info/
-│       └── exclude   # local ignore rules (includes .kilocode/worktrees/)
-├── .kilocode/
+│       └── exclude   # local ignore rules (includes .kuma-code/worktrees/)
+├── .kuma-code/
 │   └── worktrees/
 │       └── feature-branch-1234567890/   # isolated working directory
 └── ...
@@ -340,14 +340,14 @@ The Agent Manager requires proper authentication for full functionality, includi
 
 ### Supported Authentication Methods
 
-1. **Kilo Code Extension (Recommended)**
+1. **Kuma Code Extension (Recommended)**
    - Sign in through the extension settings
    - Provides seamless authentication for the Agent Manager
    - Enables session syncing and cloud features
 
-2. **CLI with Kilo Code Provider**
-   - Use the CLI configured with `kilocode` as the provider
-   - Run `kilocode config` to set up authentication
+2. **CLI with Kuma Code Provider**
+   - Use the CLI configured with `kuma-code` as the provider
+   - Run `kuma-code config` to set up authentication
    - See [CLI setup](/docs/code-with-ai/platforms/cli) for details
 
 ### BYOK Limitations
@@ -360,7 +360,7 @@ If you're using BYOK with providers like Anthropic, OpenAI, or OpenRouter:
 - Session syncing features will be unavailable
 - You must use one of the supported authentication methods above for full functionality
 
-To use the Agent Manager with all features enabled, switch to the Kilo Code provider or sign in through the extension.
+To use the Agent Manager with all features enabled, switch to the Kuma Code provider or sign in through the extension.
 
 ## Remote sessions (Cloud)
 
@@ -385,9 +385,9 @@ Message transcripts are fetched from a signed blob and exclude internal checkpoi
   - Open the main repository (where .git is a directory), not a worktree checkout
 - Remote sessions not visible
   - Ensure you're signed in and the repo's remote URL matches the sessions you expect to see
-  - If using BYOK, session syncing is not available — switch to Kilo Code provider or sign in through the extension
+  - If using BYOK, session syncing is not available — switch to Kuma Code provider or sign in through the extension
 - Authentication errors
-  - Verify you're logged in via extension settings or using CLI with kilocode provider
+  - Verify you're logged in via extension settings or using CLI with kuma-code provider
   - BYOK configurations do not support Agent Manager authentication
 
 {% /tab %}

@@ -2,7 +2,7 @@
 sidebar_label: xAI (Grok)
 ---
 
-# Using xAI (Grok) With Kilo Code
+# Using xAI (Grok) With Kuma Code
 
 xAI is the company behind Grok, a large language model known for its conversational abilities and large context window. Grok models are designed to provide helpful, informative, and contextually relevant responses.
 
@@ -12,15 +12,15 @@ xAI is the company behind Grok, a large language model known for its conversatio
 
 1.  **Sign Up/Sign In:** Go to the [xAI Console](https://console.x.ai/). Create an account or sign in.
 2.  **Navigate to API Keys:** Go to the API keys section in your dashboard.
-3.  **Create a Key:** Click to create a new API key. Give your key a descriptive name (e.g., "Kilo Code").
+3.  **Create a Key:** Click to create a new API key. Give your key a descriptive name (e.g., "Kuma Code").
 4.  **Copy the Key:** **Important:** Copy the API key _immediately_. You will not be able to see it again. Store it securely.
 
-## Configuration in Kilo Code
+## Configuration in Kuma Code
 
 {% tabs %}
 {% tab label="VSCode (Legacy)" %}
 
-1.  **Open Kilo Code Settings:** Click the gear icon ({% codicon name="gear" /%}) in the Kilo Code panel.
+1.  **Open Kuma Code Settings:** Click the gear icon ({% codicon name="gear" /%}) in the Kuma Code panel.
 2.  **Select Provider:** Choose "xAI" from the "API Provider" dropdown.
 3.  **Enter API Key:** Paste your xAI API key into the "xAI API Key" field.
 4.  **Select Model:** Choose your desired Grok model from the "Model" dropdown.

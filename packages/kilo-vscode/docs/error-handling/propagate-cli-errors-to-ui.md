@@ -1,7 +1,7 @@
 # Propagate All CLI Errors to the UI
 
 **Priority:** P1
-**Issue:** [#6146](https://github.com/Kilo-Org/kilocode/issues/6146)
+**Issue:** [#6146](https://github.com/Kilo-Org/kuma-code/issues/6146)
 
 ## Remaining Work
 

@@ -3,7 +3,7 @@
   "version": "7.2.26",
   "private": true,
   "type": "module",
-  "description": "Scripts for automating upstream opencode merges into Kilo",
+  "description": "Scripts for automating upstream opencode merges into Kuma",
   "scripts": {
     "merge": "bun run merge.ts",
     "merge:dry-run": "bun run merge.ts --dry-run",

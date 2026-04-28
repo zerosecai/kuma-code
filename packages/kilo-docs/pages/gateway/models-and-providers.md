@@ -74,7 +74,7 @@ Provided under the [NVIDIA API Trial Terms of Service](https://assets.ngc.nvidia
 
 ## Auto models
 
-Kilo Auto virtual models automatically select the best underlying model based on the task type. The selection is controlled by the `x-kilocode-mode` request header.
+Kilo Auto virtual models automatically select the best underlying model based on the task type. The selection is controlled by the `x-kuma-code-mode` request header.
 
 {% callout type="info" title="Underlying models can change" %}
 The mappings below reflect the current routing. The underlying models behind each `kilo-auto/*` tier are updated server-side as better options become available or as providers change pricing and availability — the tier IDs themselves remain stable.
@@ -127,7 +127,7 @@ With the mode header:
 ```bash
 curl -X POST "https://api.kilo.ai/api/gateway/chat/completions" \
   -H "Authorization: Bearer $KILO_API_KEY" \
-  -H "x-kilocode-mode: plan" \
+  -H "x-kuma-code-mode: plan" \
   -H "Content-Type: application/json" \
   -d '{"model": "kilo-auto/balanced", "messages": [{"role": "user", "content": "Design a database schema"}]}'
 ```

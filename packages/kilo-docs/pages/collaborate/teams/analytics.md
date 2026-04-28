@@ -12,7 +12,7 @@ Using Kilo seats with an Enterprise or Teams subscription provides detailed usag
 Access your organization’s usage analytics through the **Usage Details** section in your dashboard. The analytics show comprehensive data about your team's usage of the Kilo Gateway provider.
 
 {% callout type="info" title="Usage Scope" %}
-This usage overview includes all of your usage of the Kilo Gateway provider. It does **NOT** include any usage made via the Kilo Code extension to other, non-Kilo Code providers. You can choose which API provider to use from the extension's main settings page.
+This usage overview includes all of your usage of the Kilo Gateway provider. It does **NOT** include any usage made via the Kuma Code extension to other, non-Kuma Code providers. You can choose which API provider to use from the extension's main settings page.
 {% /callout %}
 
 ## Summary Metrics
@@ -88,9 +88,9 @@ For example, if the following were in your `.git/config`:
 
 The project name would be `example-repo`.
 
-You can also manually override the project name in the `.kilocode/config.json` file in your project.
+You can also manually override the project name in the `.kuma-code/config.json` file in your project.
 
-To set the project identifier to `my-project`, create a `.kilocode/config.json` file with the following contents:
+To set the project identifier to `my-project`, create a `.kuma-code/config.json` file with the following contents:
 
 ```json
 {

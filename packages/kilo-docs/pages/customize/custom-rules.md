@@ -1,11 +1,11 @@
 ---
 title: "Custom Rules"
-description: "Define custom rules for Kilo Code behavior"
+description: "Define custom rules for Kuma Code behavior"
 ---
 
 # Custom Rules
 
-Custom rules provide a powerful way to define project-specific and global behaviors and constraints for the Kilo Code AI agent. With custom rules, you can ensure consistent formatting, restrict access to sensitive files, enforce coding standards, and customize the AI's behavior for your specific project needs or across all projects.
+Custom rules provide a powerful way to define project-specific and global behaviors and constraints for the Kuma Code AI agent. With custom rules, you can ensure consistent formatting, restrict access to sensitive files, enforce coding standards, and customize the AI's behavior for your specific project needs or across all projects.
 
 ## Overview
 
@@ -21,7 +21,7 @@ Custom rules can be written in plain text, but Markdown format is recommended fo
 
 ## Rule Types
 
-Kilo Code supports two types of custom rules:
+Kuma Code supports two types of custom rules:
 
 - **Project Rules**: Apply only to the current project workspace
 - **Global Rules**: Apply across all projects and workspaces
@@ -61,7 +61,7 @@ project/
 Global rules are configured via the `instructions` key in your global `kilo.jsonc` config file (typically at `~/.config/kilo/kilo.jsonc`).
 
 {% callout type="note" title="Migration" %}
-The extension is backward compatible with `.kilocode/rules/` directories. Existing rules will continue to work, but migrating to `kilo.jsonc` is recommended.
+The extension is backward compatible with `.kuma-code/rules/` directories. Existing rules will continue to work, but migrating to `kilo.jsonc` is recommended.
 {% /callout %}
 
 {% /tab %}
@@ -97,7 +97,7 @@ project/
 Global rules are configured via the `instructions` key in your global `kilo.jsonc` config file (typically at `~/.config/kilo/kilo.jsonc`).
 
 {% callout type="note" title="Migration" %}
-The CLI is backward compatible with `.kilocode/rules/` directories. Existing rules will continue to work, but migrating to `kilo.jsonc` is recommended.
+The CLI is backward compatible with `.kuma-code/rules/` directories. Existing rules will continue to work, but migrating to `kilo.jsonc` is recommended.
 {% /callout %}
 
 {% /tab %}
@@ -105,11 +105,11 @@ The CLI is backward compatible with `.kilocode/rules/` directories. Existing rul
 
 ### Project Rules
 
-Custom rules are primarily loaded from the **`.kilocode/rules/` directory**. This is the recommended approach for organizing your project-specific rules. Each rule is typically placed in its own Markdown file with a descriptive name:
+Custom rules are primarily loaded from the **`.kuma-code/rules/` directory**. This is the recommended approach for organizing your project-specific rules. Each rule is typically placed in its own Markdown file with a descriptive name:
 
 ```
 project/
-├── .kilocode/
+├── .kuma-code/
 │   ├── rules/
 │   │   ├── formatting.md
 │   │   ├── restricted_files.md
@@ -123,7 +123,7 @@ project/
 Global rules are stored in your home directory and apply to all projects:
 
 ```
-~/.kilocode/
+~/.kuma-code/
 ├── rules/
 │   ├── coding_standards.md
 │   ├── security_guidelines.md
@@ -178,7 +178,7 @@ Rules are managed by editing the `instructions` array in your `kilo.jsonc` confi
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-Kilo Code provides a built-in interface for managing your custom rules without manually editing files in the `.kilocode/rules/` directories. To access the UI, click on the <Codicon name="law" /> icon in the **bottom right corner** of the Kilo Code window.
+Kuma Code provides a built-in interface for managing your custom rules without manually editing files in the `.kuma-code/rules/` directories. To access the UI, click on the <Codicon name="law" /> icon in the **bottom right corner** of the Kuma Code window.
 
 You can access the rules management UI to:
 
@@ -207,7 +207,7 @@ Rules are loaded in the order they appear in the `instructions` array in `kilo.j
 Files matched by glob patterns are loaded in filesystem order. Project-level instructions take precedence over global instructions for conflicting directives.
 
 {% callout type="note" title="Backward Compatibility" %}
-If `.kilocode/rules/` directories exist in your project, their contents are automatically included for backward compatibility. To fully migrate, move your rule files and reference them in `kilo.jsonc`.
+If `.kuma-code/rules/` directories exist in your project, their contents are automatically included for backward compatibility. To fully migrate, move your rule files and reference them in `kilo.jsonc`.
 {% /callout %}
 
 {% /tab %}
@@ -221,7 +221,7 @@ Rules are loaded in the order they appear in the `instructions` array in `kilo.j
 Files matched by glob patterns are loaded in filesystem order. Project-level instructions take precedence over global instructions for conflicting directives.
 
 {% callout type="note" title="Backward Compatibility" %}
-If `.kilocode/rules/` directories exist in your project, their contents are automatically included for backward compatibility. To fully migrate, move your rule files and reference them in `kilo.jsonc`.
+If `.kuma-code/rules/` directories exist in your project, their contents are automatically included for backward compatibility. To fully migrate, move your rule files and reference them in `kilo.jsonc`.
 {% /callout %}
 
 {% /tab %}
@@ -231,25 +231,25 @@ If `.kilocode/rules/` directories exist in your project, their contents are auto
 
 Rules are loaded in the following priority order:
 
-1. **Global rules** from `~/.kilocode/rules/` directory
-2. **Project rules** from `.kilocode/rules/` directory
+1. **Global rules** from `~/.kuma-code/rules/` directory
+2. **Project rules** from `.kuma-code/rules/` directory
 3. **Legacy fallback files** (for backward compatibility):
    - `.roorules`
    - `.clinerules`
-   - `.kilocoderules` (deprecated)
+   - `.kuma-coderules` (deprecated)
 
 When both global and project rules exist, they are combined with project rules taking precedence over global rules for conflicting directives.
 
 {% callout type="note" %}
-We strongly recommend keeping your rules in the `.kilocode/rules/` folder as it provides better organization and is the preferred approach for future versions. The legacy file-based approach is maintained for backward compatibility but may be subject to change in future releases.
+We strongly recommend keeping your rules in the `.kuma-code/rules/` folder as it provides better organization and is the preferred approach for future versions. The legacy file-based approach is maintained for backward compatibility but may be subject to change in future releases.
 {% /callout %}
 
 ### Mode-Specific Rules
 
 The system also supports mode-specific rules with their own priority order:
 
-1. First, it checks for `.kilocode/rules-${mode}/` directory
-2. If that doesn't exist or is empty, it falls back to `.kilocoderules-${mode}` file (deprecated)
+1. First, it checks for `.kuma-code/rules-${mode}/` directory
+2. If that doesn't exist or is empty, it falls back to `.kuma-coderules-${mode}` file (deprecated)
 
 Mode-specific rules are only supported at the project level. When both generic and mode-specific rules exist, mode-specific rules take priority.
 
@@ -301,11 +301,11 @@ Rules are applied on the next interaction.
 
 ### Using the UI Interface
 
-{% image src="/docs/img/custom-rules/rules-ui.png" alt="Rules tab in Kilo Code" width="400" /%}
+{% image src="/docs/img/custom-rules/rules-ui.png" alt="Rules tab in Kuma Code" width="400" /%}
 
 The easiest way to create and manage rules is through the built-in UI:
 
-1. Access the rules management interface from the Kilo Code panel
+1. Access the rules management interface from the Kuma Code panel
 2. Choose between creating project-specific or global rules
 3. Use the interface to create, edit, or toggle rules
 4. Rules are automatically saved and applied immediately
@@ -316,19 +316,19 @@ To create rules manually:
 
 **For Project Rules:**
 
-1. Create the `.kilocode/rules/` directory if it doesn't already exist
+1. Create the `.kuma-code/rules/` directory if it doesn't already exist
 2. Create a new Markdown file with a descriptive name in this directory
 3. Write your rule using Markdown formatting
 4. Save the file
 
 **For Global Rules:**
 
-1. Create the `~/.kilocode/rules/` directory if it doesn't already exist
+1. Create the `~/.kuma-code/rules/` directory if it doesn't already exist
 2. Create a new Markdown file with a descriptive name in this directory
 3. Write your rule using Markdown formatting
 4. Save the file
 
-Rules will be automatically applied to all future Kilo Code interactions. Any new changes will be applied immediately.
+Rules will be automatically applied to all future Kuma Code interactions. Any new changes will be applied immediately.
 
 {% /tab %}
 {% /tabs %}
@@ -359,7 +359,7 @@ Files in the list contain sensitive data, they MUST NOT be read
 
 This rule prevents the AI from reading or accessing sensitive files, even if explicitly requested to do so.
 
-{% image src="/docs/img/custom-rules/custom-rules.png" alt="Kilo Code ignores request to read sensitive file" width="600" /%}
+{% image src="/docs/img/custom-rules/custom-rules.png" alt="Kuma Code ignores request to read sensitive file" width="600" /%}
 
 ## Use Cases
 
@@ -430,9 +430,9 @@ If your custom rules aren't being properly followed:
 3. **Check rule locations**:
    - **Check rule status in the UI**: Use the rules management interface to verify that your rules are active and properly loaded
    - Ensure rules are in supported locations:
-     - Global rules: `~/.kilocode/rules/` directory
-     - Project rules: `.kilocode/rules/` directory
-     - Legacy files: `.kilocoderules`, `.roorules`, or `.clinerules`
+     - Global rules: `~/.kuma-code/rules/` directory
+     - Project rules: `.kuma-code/rules/` directory
+     - Legacy files: `.kuma-coderules`, `.roorules`, or `.clinerules`
    - **Restart VS Code** to ensure the rules are properly loaded
 
 {% /tab %}

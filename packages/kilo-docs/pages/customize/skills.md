@@ -1,11 +1,11 @@
 ---
 title: "Skills"
-description: "Extend Kilo Code capabilities with skills"
+description: "Extend Kuma Code capabilities with skills"
 ---
 
 # Skills
 
-Kilo Code implements [Agent Skills](https://agentskills.io/home), a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows.
+Kuma Code implements [Agent Skills](https://agentskills.io/home), a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows.
 
 ## What Are Agent Skills?
 
@@ -20,7 +20,7 @@ This approach keeps agents fast while giving them access to more context on dema
 - **Extensible**: Skills can range in complexity from simple text instructions to bundled scripts, templates, and reference materials
 - **Shareable**: Skills are portable and can be easily shared between projects and developers
 
-## How Skills Work in Kilo Code
+## How Skills Work in Kuma Code
 
 Skills can be:
 
@@ -29,7 +29,7 @@ Skills can be:
 
 The workflow is:
 
-1. **Discovery**: Skills are scanned from designated directories when Kilo Code initializes. Only the metadata (name, description, and file path) is read at this stage—not the full instructions.
+1. **Discovery**: Skills are scanned from designated directories when Kuma Code initializes. Only the metadata (name, description, and file path) is read at this stage—not the full instructions.
 2. **Prompt inclusion**: When a mode is active, the metadata for relevant skills is included in the system prompt. The agent sees a list of available skills with their descriptions.
 3. **On-demand loading**: When the agent determines that a task matches a skill's description, it reads the full `SKILL.md` file into context and follows the instructions.
 
@@ -158,13 +158,13 @@ The `skills.paths` key accepts absolute paths, `~/` home-relative paths, or path
 
 ### Global Skills (User-Level)
 
-Global skills are located in the `.kilocode` directory within your Home directory.
+Global skills are located in the `.kuma-code` directory within your Home directory.
 
-- Mac and Linux: `~/.kilocode/skills/`
-- Windows: `\Users\<yourUser>\.kilocode\`
+- Mac and Linux: `~/.kuma-code/skills/`
+- Windows: `\Users\<yourUser>\.kuma-code\`
 
 ```
-~/.kilocode/
+~/.kuma-code/
 ├── skills/                    # Generic skills (all modes)
 │   ├── my-skill/
 │   │   └── SKILL.md
@@ -180,11 +180,11 @@ Global skills are located in the `.kilocode` directory within your Home director
 
 ### Project Skills (Workspace-Level)
 
-Located in `.kilocode/skills/` within your project:
+Located in `.kuma-code/skills/` within your project:
 
 ```
 your-project/
-└── .kilocode/
+└── .kuma-code/
     ├── skills/               # Generic skills for this project
     │   └── project-conventions/
     │       └── SKILL.md
@@ -219,10 +219,10 @@ To create a skill that only appears in a specific mode, place it in a `skills-{m
 
 ```bash
 # For Code mode only
-mkdir -p ~/.kilocode/skills-code/typescript-patterns
+mkdir -p ~/.kuma-code/skills-code/typescript-patterns
 
 # For Architect mode only
-mkdir -p ~/.kilocode/skills-architect/microservices
+mkdir -p ~/.kuma-code/skills-architect/microservices
 ```
 
 The directory naming pattern is `skills-{mode-slug}` where `{mode-slug}` matches the mode's identifier (e.g., `code`, `architect`, `ask`, `debug`).
@@ -245,7 +245,7 @@ When multiple skills share the same name, project-level skills (`.kilo/skills/`)
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-When multiple skills share the same name, Kilo Code uses these priority rules:
+When multiple skills share the same name, Kuma Code uses these priority rules:
 
 1. **Project skills override global skills** - A project skill with the same name takes precedence
 2. **Mode-specific skills override generic skills** - A skill in `skills-code/` overrides the same skill in `skills/` when in Code mode
@@ -284,12 +284,12 @@ Skills are re-scanned at the start of each new session. To pick up newly added o
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-Skills are discovered when Kilo Code initializes:
+Skills are discovered when Kuma Code initializes:
 
 - When VSCode starts
 - When you reload the VSCode window (`Cmd+Shift+P` → "Developer: Reload Window")
 
-Skills directories are monitored for changes to `SKILL.md` files. However, the most reliable way to pick up new skills is to reload VS or the Kilo Code extension.
+Skills directories are monitored for changes to `SKILL.md` files. However, the most reliable way to pick up new skills is to reload VS or the Kuma Code extension.
 
 **Adding or modifying skills requires reloading VSCode for changes to take effect.**
 
@@ -357,7 +357,7 @@ metadata:
 
 ### Name Matching Rule
 
-In Kilo Code, the `name` field **must match** the parent directory name:
+In Kuma Code, the `name` field **must match** the parent directory name:
 
 ```
 ✅ Correct:
@@ -419,7 +419,7 @@ These additional files can be referenced from your skill's instructions, allowin
 1. Create the skill directory:
 
    ```bash
-   mkdir -p ~/.kilocode/skills/api-design
+   mkdir -p ~/.kuma-code/skills/api-design
    ```
 
 2. Create `SKILL.md` (see content below)
@@ -491,7 +491,7 @@ The new platform does not have a marketplace UI yet. You can find and share skil
 
 You can discover and install community-created skills through:
 
-- **Kilo Marketplace** — Browse skills directly in the Kilo Code extension via the Marketplace tab, or explore the [Kilo Marketplace repository](https://github.com/Kilo-Org/kilo-marketplace) on GitHub
+- **Kilo Marketplace** — Browse skills directly in the Kuma Code extension via the Marketplace tab, or explore the [Kilo Marketplace repository](https://github.com/Kilo-Org/kilo-marketplace) on GitHub
 - [Agent Skills Specification](https://agentskills.io/home) — The open specification that skills follow, enabling interoperability across different AI agents
 
 {% /tab %}
@@ -526,7 +526,7 @@ You can discover and install community-created skills through:
 {% /tab %}
 {% tab label="VSCode (Legacy)" %}
 
-1. **Check the Output panel**: Open `View` → `Output` → Select "Kilo Code" from dropdown. Look for skill-related errors.
+1. **Check the Output panel**: Open `View` → `Output` → Select "Kuma Code" from dropdown. Look for skill-related errors.
 
 2. **Verify frontmatter**: Ensure `name` exactly matches the directory name and `description` is present.
 
@@ -617,7 +617,7 @@ Skills submitted to the marketplace are browsable and installable directly from 
 - If your skill includes bundled resources (scripts, templates), ensure they are well-documented
 - Follow the [contribution guidelines](https://github.com/Kilo-Org/kilo-marketplace/blob/main/CONTRIBUTING.md) in the marketplace repository
 
-For more details on contributing to Kilo Code, see the [Contributing Guide](/docs/contributing).
+For more details on contributing to Kuma Code, see the [Contributing Guide](/docs/contributing).
 
 ## Related
 

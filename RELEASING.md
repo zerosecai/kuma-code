@@ -1,10 +1,10 @@
-# Releasing Kilo Code
+# Releasing Kuma Code
 
-Kilo Code uses a fully automated CI pipeline triggered via GitHub Actions `workflow_dispatch`. A single workflow handles version bumping, building all artifacts, publishing to every distribution channel, and updating package registries.
+Kuma Code uses a fully automated CI pipeline triggered via GitHub Actions `workflow_dispatch`. A single workflow handles version bumping, building all artifacts, publishing to every distribution channel, and updating package registries.
 
 ## How to Trigger a Release
 
-1. Go to the [`publish` workflow](https://github.com/Kilo-Org/kilocode/actions/workflows/publish.yml) in GitHub Actions.
+1. Go to the [`publish` workflow](https://github.com/Kilo-Org/kuma-code/actions/workflows/publish.yml) in GitHub Actions.
 2. Click **"Run workflow"**.
 3. Select the branch (typically `main`).
 4. Fill in the inputs:
@@ -59,17 +59,17 @@ Downloads all build artifacts and publishes to every distribution channel:
 - Commits the version bump, tags the commit, and pushes to the repo.
 - Promotes the draft GitHub Release to a published release.
 
-#### CLI (`@kilocode/cli`)
+#### CLI (`@kuma-code/cli`)
 
-- Publishes platform-specific binary packages to **npm** (e.g. `@kilocode/cli-linux-x64`, `@kilocode/cli-darwin-arm64`, etc.).
-- Publishes the main `@kilocode/cli` package to **npm** with optional dependencies on the binary packages.
+- Publishes platform-specific binary packages to **npm** (e.g. `@kuma-code/cli-linux-x64`, `@kuma-code/cli-darwin-arm64`, etc.).
+- Publishes the main `@kuma-code/cli` package to **npm** with optional dependencies on the binary packages.
 - Builds and pushes a multi-arch **Docker image** (`ghcr.io/kilo-org/kilo`) to GitHub Container Registry (linux/amd64 + linux/arm64).
 
-#### SDK (`@kilocode/sdk`)
+#### SDK (`@kuma-code/sdk`)
 
 - Builds and publishes the TypeScript SDK to **npm**.
 
-#### Plugin (`@kilocode/plugin`)
+#### Plugin (`@kuma-code/plugin`)
 
 - Builds and publishes the plugin interface package to **npm**.
 
@@ -87,7 +87,7 @@ Downloads all build artifacts and publishes to every distribution channel:
 
 ### Repository Access
 
-- The workflow only runs in the `Kilo-Org/kilocode` repository (guarded by `if: github.repository == 'Kilo-Org/kilocode'`).
+- The workflow only runs in the `Kilo-Org/kuma-code` repository (guarded by `if: github.repository == 'Kilo-Org/kuma-code'`).
 - You must have **write access** to the repository to trigger a `workflow_dispatch` event.
 
 ### Workflow Permissions

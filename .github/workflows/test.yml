@@ -89,7 +89,7 @@ jobs:
           path: packages/*/.artifacts/unit/junit.xml
 
   e2e:
-    # kilocode_change - disabled: packages/app is not actively maintained
+    # kuma-code_change - disabled: packages/app is not actively maintained
     if: false
     name: e2e (${{ matrix.settings.name }})
     strategy:
@@ -147,13 +147,13 @@ jobs:
         run: bun --cwd packages/app test:e2e:local
         env:
           CI: true
-          # kilocode_change start
+          # kuma-code_change start
           KILO_API_KEY: ${{ secrets.KILO_API_KEY }}
           KILO_ORG_ID: ${{ secrets.KILO_ORG_ID }}
           KILO_DISABLE_SHARE: "true"
           KILO_DISABLE_SESSION_INGEST: "true"
           KILO_E2E_REQUIRE_PAID: "true"
-          # kilocode_change end
+          # kuma-code_change end
           PLAYWRIGHT_JUNIT_OUTPUT: e2e/junit-${{ matrix.settings.name }}.xml
         timeout-minutes: 30
 

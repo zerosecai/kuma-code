@@ -6,7 +6,7 @@
   "publisher": "sst-dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kilo-Org/kilocode"
+    "url": "https://github.com/Kilo-Org/kuma-code"
   },
   "license": "MIT",
   "icon": "images/icon.png",

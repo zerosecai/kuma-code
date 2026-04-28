@@ -28,7 +28,7 @@ rm -f /tmp/kilo-serve.pid /tmp/kilo-serve.log
 
 Testing local backend fixes against a real running server, talking to it over HTTP the same way the VS Code extension, TUI, and `kilo run --attach` do — but without any of those clients. Every request is a `curl` the agent can copy-paste.
 
-For in-process tests (no socket, fastest loop) see `packages/opencode/test/kilocode/server/permission-allow-everything.test.ts` for the `Server.Default().app.request(...)` pattern. That's the right tool inside the `packages/opencode/` test suite; this doc is for out-of-process HTTP testing.
+For in-process tests (no socket, fastest loop) see `packages/opencode/test/kuma-code/server/permission-allow-everything.test.ts` for the `Server.Default().app.request(...)` pattern. That's the right tool inside the `packages/opencode/` test suite; this doc is for out-of-process HTTP testing.
 
 ## 2. `kilo serve` vs `bun dev serve` — important
 
@@ -42,7 +42,7 @@ Root `package.json` defines `"dev"` as the full `bun run --cwd packages/opencode
 
 `bun dev` imports the source directly — no rebuild is needed between code edits. Just kill the running server and relaunch.
 
-Do **not** use `createKiloServer()` from `@kilocode/sdk/v2` to test local code: it spawns the PATH `kilo` binary (`packages/sdk/js/src/v2/server.ts:38-136`), which is the wrong tool here.
+Do **not** use `createKiloServer()` from `@kuma-code/sdk/v2` to test local code: it spawns the PATH `kilo` binary (`packages/sdk/js/src/v2/server.ts:38-136`), which is the wrong tool here.
 
 ## 3. Starting the backend (background)
 
@@ -205,7 +205,7 @@ Use this only when `curl` can't express what you need — typed request/response
 
 ```ts
 // /tmp/probe.ts — delete after use. Talks to an already-running backend.
-import { createKiloClient } from "@kilocode/sdk/v2"
+import { createKiloClient } from "@kuma-code/sdk/v2"
 
 const port = process.env.PORT!
 const pass = process.env.KILO_SERVER_PASSWORD

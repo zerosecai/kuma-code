@@ -34,7 +34,7 @@
   "peerDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kilo-Org/kilocode",
+    "url": "https://github.com/Kilo-Org/kuma-code",
     "directory": "packages/sdk/js"
   }
 }

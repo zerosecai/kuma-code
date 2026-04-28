@@ -1,15 +1,15 @@
 ---
 title: "AI Providers"
-description: "Configure and connect different AI model providers to Kilo Code"
+description: "Configure and connect different AI model providers to Kuma Code"
 ---
 
 # AI Providers
 
-Kilo Code supports a wide variety of AI providers, giving you flexibility in how you power your AI-assisted development workflow. Choose from cloud providers, local models, or AI gateways based on your needs.
+Kuma Code supports a wide variety of AI providers, giving you flexibility in how you power your AI-assisted development workflow. Choose from cloud providers, local models, or AI gateways based on your needs.
 
 ## Getting Started
 
-The fastest way to get started is with **Kilo Code's built-in provider**, which requires no configuration. Simply sign in and start coding.
+The fastest way to get started is with **Kuma Code's built-in provider**, which requires no configuration. Simply sign in and start coding.
 
 For users who want to use their own API keys or need specific models, we support over 30 providers.
 
@@ -45,7 +45,7 @@ Route requests through unified APIs with additional features:
 
 | Priority | Recommended Provider |
 |---|---|
-| Ease of use | [Kilo Code (built-in)](/docs/ai-providers/kilocode) |
+| Ease of use | [Kuma Code (built-in)](/docs/ai-providers/kuma-code) |
 | Best value | Zhipu AI or Mistral |
 | Privacy/Offline | Ollama or LM Studio |
 | Enterprise | AWS Bedrock or Google Vertex |
@@ -85,6 +85,6 @@ Both fields accept provider IDs — the lowercase identifier used in the `provid
 
 ## Next Steps
 
-- **New to Kilo Code?** Start with the [Kilo Code provider](/docs/ai-providers/kilocode) - no setup required
+- **New to Kuma Code?** Start with the [Kuma Code provider](/docs/ai-providers/kuma-code) - no setup required
 - **Have an API key?** Jump to your provider's page for configuration instructions
 - **Want to compare?** Check out [Model Selection](/docs/code-with-ai/agents/model-selection) for guidance on choosing models

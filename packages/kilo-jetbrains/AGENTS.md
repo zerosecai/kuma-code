@@ -6,7 +6,7 @@
 - Reference template for the split-mode structure: https://github.com/JetBrains/intellij-platform-modular-plugin-template
 - Official docs: https://plugins.jetbrains.com/docs/intellij/split-mode-for-remote-development.html
 - The JetBrains reference template mirrors our overall structure well: root project assembles the final plugin, `shared` holds contracts, `frontend` holds UI, and `backend` holds project-local logic. Copy its split-mode wiring and RPC layout, but **do not** copy its Compose UI approach.
-- Kotlin source goes under `{module}/src/main/kotlin/ai/kilocode/jetbrains/`. Package name is `ai.kilocode.jetbrains` (matches `group` in root `build.gradle.kts`).
+- Kotlin source goes under `{module}/src/main/kotlin/ai/kuma-code/jetbrains/`. Package name is `ai.kuma-code.jetbrains` (matches `group` in root `build.gradle.kts`).
 - **Module placement rules**: backend modules host project model, indexing, analysis, execution, and CLI process management. Frontend modules host UI, typing assistance, and latency-sensitive features. Shared modules define RPC interfaces and data types used by both sides.
 - In monolithic IDE mode (non-remote), all three modules load in one process — split plugins work fine without remote dev.
 - Frontend ↔ backend communication uses RPC interfaces defined in `shared/`. Data sent over RPC must use `kotlinx.serialization`. In monolithic mode RPC is just an in-process suspend call.
@@ -65,7 +65,7 @@
 
 - **Full build**: `bun run build` from `packages/kilo-jetbrains/` (builds CLI + Gradle plugin).
 - **Gradle only**: `./gradlew buildPlugin` from `packages/kilo-jetbrains/` (requires CLI binaries already present).
-- **Via Turbo**: `bun turbo build --filter=@kilocode/kilo-jetbrains` from repo root.
+- **Via Turbo**: `bun turbo build --filter=@kuma-code/kilo-jetbrains` from repo root.
 - **Run in sandbox**: `./gradlew runIde` — launches sandboxed IntelliJ with the plugin. Does NOT build CLI binaries.
 
 ## Files That Must Change Together
@@ -77,7 +77,7 @@
 ## Session Component
 
 The chat session feature uses a three-layer Model / Controller / View architecture. All files live under
-`frontend/src/main/kotlin/ai/kilocode/client/session/`.
+`frontend/src/main/kotlin/ai/kuma-code/client/session/`.
 
 ### Layers
 
@@ -721,11 +721,11 @@ Inspection `Plugin DevKit | Code | Undesirable class usage` highlights when you 
 
 ### Notifications
 
-- Declare in module XML: `<notificationGroup id="Kilo Code" displayType="BALLOON"/>`.
-- Show: `Notification("Kilo Code", "message", NotificationType.INFORMATION).notify(project)`.
+- Declare in module XML: `<notificationGroup id="Kuma Code" displayType="BALLOON"/>`.
+- Show: `Notification("Kuma Code", "message", NotificationType.INFORMATION).notify(project)`.
 - Add actions: `.addAction(NotificationAction.createSimpleExpiring("Label") { ... })`.
 - Sticky (user must dismiss): `displayType="STICKY_BALLOON"` + `.setSuggestionType(true)`.
-- Tool-window-bound: `displayType="TOOL_WINDOW" toolWindowId="Kilo Code"`.
+- Tool-window-bound: `displayType="TOOL_WINDOW" toolWindowId="Kuma Code"`.
 - Prefer non-modal notifications over `Messages.show*()` dialogs.
 
 ### Popups
