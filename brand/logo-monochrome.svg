@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="24" height="24">
+  <!-- Kuma Code Logo — Monochrome -->
+  <!-- For VS Code activity bar (must be single color, follows theme) -->
+  <!-- Uses currentColor so it picks up VS Code's icon-foreground theme -->
+  
+  <g fill="currentColor">
+    <!-- Ears -->
+    <circle cx="48" cy="50" r="24"/>
+    <circle cx="152" cy="50" r="24"/>
+    
+    <!-- Head -->
+    <ellipse cx="100" cy="115" rx="70" ry="64"/>
+  </g>
+  
+  <!-- Eyes (knockout — transparent through head) -->
+  <g fill="#000000" style="mix-blend-mode: destination-out;">
+    <circle cx="72" cy="105" r="11"/>
+    <circle cx="128" cy="105" r="11"/>
+    <ellipse cx="100" cy="138" rx="12" ry="10"/>
+  </g>
+</svg>

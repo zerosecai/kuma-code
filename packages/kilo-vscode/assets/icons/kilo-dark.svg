@@ -1,4 +1,21 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M512 0H0V512H512V0Z" fill="black"/>
-<path d="M512 512H0V0H512V512ZM322.783 322.784H278.261V392.747L308.472 422.958H378.435V378.437H322.782L322.783 322.784ZM422.957 308.474L392.746 278.263H322.783V322.784H378.435L378.435 378.437H422.957L422.957 308.474ZM233.739 278.263H189.217V322.784H233.739V278.263ZM89.0435 392.747L119.254 422.958H233.739V378.437H133.565V278.263H89.043L89.0435 392.747ZM372.538 189.217V119.254L342.327 89.0435H278.261V133.565H328.017V189.217H278.261V233.739H422.957V189.217H372.538ZM133.565 89.0435H89.0435V233.739H133.565V183.652H189.218V233.739H233.74V183.652L189.218 139.13H133.565V89.0435ZM233.739 89.0435H189.217L189.218 139.13H233.739V89.0435Z" fill="#FAF74F"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="32" height="32">
+  <!-- Kuma Code Logo — V6 Simplified Mark -->
+  <!-- Use this version at 16px-32px sizes (favicon, tiny icons) -->
+  <!-- Effects removed; only essential shape retained for readability -->
+  
+  <!-- Ears -->
+  <circle cx="48" cy="50" r="24" fill="#0A0A0A" stroke="#00E5FF" stroke-width="5"/>
+  <circle cx="152" cy="50" r="24" fill="#0A0A0A" stroke="#00E5FF" stroke-width="5"/>
+  <circle cx="48" cy="52" r="11" fill="#00E5FF"/>
+  <circle cx="152" cy="52" r="11" fill="#00E5FF"/>
+  
+  <!-- Head (slightly larger, simpler) -->
+  <ellipse cx="100" cy="115" rx="70" ry="64" fill="#0A0A0A" stroke="#00E5FF" stroke-width="6"/>
+  
+  <!-- Eyes (solid cyan, no rings — readable at 16px) -->
+  <circle cx="72" cy="105" r="11" fill="#00E5FF"/>
+  <circle cx="128" cy="105" r="11" fill="#00E5FF"/>
+  
+  <!-- Nose -->
+  <ellipse cx="100" cy="138" rx="12" ry="10" fill="#00E5FF"/>
 </svg>

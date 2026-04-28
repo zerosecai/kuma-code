@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="1200" height="400">
+  <!-- Kuma Code Wordmark — full version with logo + text -->
+  <!-- For landing pages, README headers, social profile banners -->
+  
+  <!-- Logo (left side) -->
+  <g transform="translate(0, 0)">
+    <!-- Ears -->
+    <circle cx="48" cy="50" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="3"/>
+    <circle cx="152" cy="50" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="3"/>
+    <circle cx="48" cy="52" r="10" fill="#00E5FF" opacity="0.7"/>
+    <circle cx="152" cy="52" r="10" fill="#00E5FF" opacity="0.7"/>
+    
+    <!-- Head -->
+    <ellipse cx="100" cy="115" rx="68" ry="62" fill="#0A0A0A" stroke="#00E5FF" stroke-width="4"/>
+    
+    <!-- Circuit lines -->
+    <path d="M 40 100 L 50 100 L 50 90 L 65 90" stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M 160 100 L 150 100 L 150 90 L 135 90" stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M 100 60 L 100 70 L 110 70 L 110 80" stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <circle cx="50" cy="100" r="2" fill="#00E5FF"/>
+    <circle cx="65" cy="90" r="2" fill="#00E5FF"/>
+    <circle cx="150" cy="100" r="2" fill="#00E5FF"/>
+    <circle cx="135" cy="90" r="2" fill="#00E5FF"/>
+    <circle cx="100" cy="70" r="2" fill="#00E5FF"/>
+    
+    <!-- Face -->
+    <ellipse cx="100" cy="130" rx="48" ry="38" fill="#1A1A1A"/>
+    
+    <!-- Cheeks -->
+    <circle cx="55" cy="135" r="12" fill="#00E5FF" opacity="0.3"/>
+    <circle cx="55" cy="135" r="8" fill="#00E5FF" opacity="0.5"/>
+    <circle cx="55" cy="135" r="4" fill="#00E5FF"/>
+    <circle cx="145" cy="135" r="12" fill="#00E5FF" opacity="0.3"/>
+    <circle cx="145" cy="135" r="8" fill="#00E5FF" opacity="0.5"/>
+    <circle cx="145" cy="135" r="4" fill="#00E5FF"/>
+    
+    <!-- Eyes -->
+    <circle cx="72" cy="105" r="13" fill="#0A0A0A" stroke="#00E5FF" stroke-width="2.5"/>
+    <circle cx="128" cy="105" r="13" fill="#0A0A0A" stroke="#00E5FF" stroke-width="2.5"/>
+    <circle cx="72" cy="105" r="7" fill="#00E5FF"/>
+    <circle cx="128" cy="105" r="7" fill="#00E5FF"/>
+    <circle cx="72" cy="105" r="3" fill="#FFFFFF"/>
+    <circle cx="128" cy="105" r="3" fill="#FFFFFF"/>
+    
+    <!-- Nose -->
+    <ellipse cx="100" cy="135" rx="10" ry="8" fill="#00E5FF" stroke="#0A0A0A" stroke-width="1.5"/>
+    
+    <!-- Mouth -->
+    <path d="M 88 152 Q 100 158 112 152" stroke="#00E5FF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Wordmark (right side) -->
+  <text x="220" y="115" 
+        font-family="-apple-system, BlinkMacSystemFont, 'JetBrains Mono', 'Fira Code', monospace" 
+        font-size="68" 
+        font-weight="700" 
+        fill="#0A0A0A" 
+        letter-spacing="-2">KUMA</text>
+  <text x="220" y="175" 
+        font-family="-apple-system, BlinkMacSystemFont, 'JetBrains Mono', 'Fira Code', monospace" 
+        font-size="68" 
+        font-weight="400" 
+        fill="#00E5FF" 
+        letter-spacing="-2">CODE</text>
+</svg>

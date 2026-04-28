@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="brand/png/logo-wordmark-1200.png" alt="Kuma Code" width="600" />
+</p>
+
+<p align="center">
   <a href="https://marketplace.visualstudio.com/items?itemName=kuma-code.Kuma-Code"><img src="https://raster.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace" height="20"></a>
   <a href="https://x.com/kuma-code"><img src="https://raster.shields.io/badge/kuma-code-000000?style=flat&logo=x&logoColor=white" alt="X (Twitter)" height="20"></a>
   <a href="https://blog.kilo.ai"><img src="https://raster.shields.io/badge/Blog-555?style=flat&logo=substack&logoColor=white" alt="Substack Blog" height="20"></a>
