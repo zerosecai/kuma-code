@@ -34,3 +34,18 @@ Fix options for Phase 2 cleanup:
 
 Used --no-verify ONCE on commit b1f2cd069 to push the rebrand-recovery
 branch. All subsequent pushes should pass the hook.
+
+## Phase 5 / Provider — Replace Kilo Cloud Gateway
+
+In Phase 2.5 F5 test, Extension Dev Host showed:
+"Connection failed. Check the output panel or restart the extension."
+
+Cause: extension auto-connects to Kilo Code's cloud gateway (kilo.ai)
+which we don't have credentials for — and won't, since we'll be using
+Ollama Cloud instead.
+
+Phase 5 fix:
+- Replace gateway URL configuration with Ollama Cloud
+  (https://ollama.com/v1, OpenAI-compatible)
+- Disable auto-connect on first launch; show provider picker instead
+- Update onboarding flow
