@@ -93,3 +93,25 @@ When the source-code logo components are updated in Phase 3.5:
   # or whichever package owns the visual regression
 This regenerates snapshots and is the correct way to update them
 (don't manually overwrite the PNG).
+
+## Phase 5 / VS Code Extension — CLI binary path resolution
+
+F5 dev host on Windows fails with:
+"CLI binary not found at expected path:
+ c:\Users\zero\Downloads\Kuma code\kuma-code\packages\kilo-vscode\bin\kilo.exe"
+
+Despite kilo.exe existing at that exact path (178 MB, executable).
+
+Likely causes:
+- Windows path case-sensitivity (lowercase c: vs uppercase C:)
+- Space in folder name "Kuma code" (parent dir)
+- esbuild __dirname issue in bundled dist/extension.js
+- Hardcoded Unix path in upstream Kilo source
+
+Investigation deferred to Phase 5 when we rewrite the provider/server
+layer to replace kilo.ai gateway with Ollama Cloud. The CLI binary
+flow is part of that rewrite.
+
+For local dev workaround, may need to:
+- Move repo to path without spaces (e.g. C:\dev\kuma-code\)
+- OR patch local-bin.ts to normalize path case
