@@ -26,17 +26,19 @@ When Kuma Code's hybrid router decides whether to use a local or cloud model for
 
 ## Telemetry
 
-Kuma Code currently inherits its runtime from upstream Kilo Code, which includes PostHog-based telemetry that is **on by default** (opt-out). Events tracked include login, logout, CLI start/exit, and agent generations.
+Kuma Code's runtime is forked from upstream Kilo Code, which ships PostHog-based telemetry that upstream enables by default (events: login, logout, CLI start/exit, agent generations).
 
-To opt out today, set `openTelemetry: false` in your Kuma config file.
+**This Kuma build flips that default off.** The toggle in `packages/opencode/src/config/config.ts` ships with `openTelemetry: false`, so a fresh Kuma install sends no PostHog telemetry until you explicitly opt in.
 
-This is being addressed in Phase 5 of our roadmap, where we will:
+To opt in (or check your current state), set `openTelemetry: true` in your Kuma config file. Setting `false` re-asserts the off default — useful only if you've previously opted in.
+
+This is a stop-gap. Phase 5 of our roadmap will:
 
 - Remove the inherited PostHog client entirely
 - Replace it with our own opt-in telemetry layer (off by default by design, with every field documented in this file)
 - Update this section to reflect the new behavior
 
-We chose to flag this honestly rather than hide it. If you're evaluating Kuma in a regulated context, see the "Air-gapped operation" section below.
+We chose to flag the upstream history honestly rather than hide it. If you're evaluating Kuma in a regulated context, see the "Air-gapped operation" section below.
 
 ## Data residency
 
