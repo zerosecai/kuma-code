@@ -135,3 +135,39 @@ PRIVACY audit revealed (commit 749116cbb era):
    - Phase 5 task: replace docs URL with kumacode.dev/docs
 
 Until Phase 5 completes, PRIVACY.md flags these honestly.
+
+## Phase 3.6 / Trademark — Complete (deferred items)
+
+**Status:** ✅ Initial check done (April 2026)
+
+**Findings:**
+- "Kuma Code" exact match: NOT registered at USPTO
+- "Kuma" alone: registered by Kong Inc. (CNCF) for service mesh — different IC class
+- No conflict in AI coding / VS Code extension space
+- Logo and branding distinct (cyber-bear vs Kong's logo)
+
+**Decision:** Continue with "Kuma Code" name. Defer USPTO filing until traction (1000+ users).
+
+**Mitigations applied:**
+- Use "Kuma Code" (never "Kuma" alone) in marketing
+- README/landing pages mention forks honestly
+
+**Future tasks (Phase 8+):**
+- USPTO trademark filing (~$250-500)
+- EU TM via EUIPO if international users emerge
+- Add formal disclaimer in README and landing page
+
+## Phase 3 / Defensive — Register social handles
+
+**Why:** Prevent name-squatting before Phase 8 launch.
+
+**Tasks:**
+- [ ] Twitter/X: @kumacode (claim, even if not active)
+- [ ] npm: kuma-code package placeholder
+- [ ] Docker Hub: kumacode org
+- [ ] Discord: server name reservation
+- [ ] LinkedIn: company page (defer to Phase 8+)
+
+**Cost:** $0 — all free
+**Time:** 30 minutes total
+**Priority:** Medium — do before any public launch
