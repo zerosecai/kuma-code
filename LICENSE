@@ -1,7 +1,12 @@
 MIT License
 
-Copyright (c) 2025 Kilo Code
-Copyright (c) 2025 opencode
+Copyright (c) 2026 Kuma Code contributors (zerosec-ai)
+Copyright (c) 2025 Kilo Code (original work)
+Copyright (c) 2025 opencode (original work)
+
+Kuma Code is a derivative work of Kilo Code, which itself derives from
+Roo Code and Cline. The above copyright notices are preserved as the
+MIT license requires. See ATTRIBUTION.md for the full lineage.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

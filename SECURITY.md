@@ -1,45 +1,62 @@
-# Security
+# Security Policy
 
-## IMPORTANT
+## Reporting a vulnerability
 
-We do not accept AI generated security reports. We receive a large number of
-these and we absolutely do not have the resources to review them all. If you
-submit one that will be an automatic ban from the project.
+If you've found a security issue in Kuma Code, please report it privately so we can fix it before it's public.
 
-## Threat Model
+**Preferred contact (interim):** sam@zerosec-ai.com
+**Permanent address (when domain registration completes):** security@kumacode.dev — *not yet active; use the interim address until further notice*
 
-### Overview
+When you report, please include:
 
-Kilo CLI is an AI-powered coding assistant that runs locally on your machine. It provides an agent system with access to powerful tools including shell execution, file operations, and web access.
+- A clear description of the issue and where it lives in the codebase.
+- Reproduction steps (the smaller the repro, the faster the fix).
+- The version of Kuma Code, the OS, and the LLM provider configuration you were running.
+- Any proof-of-concept code or output (sanitized if it leaks anything sensitive).
 
-### No Sandbox
+Please **do not** open a public GitHub Issue for security vulnerabilities. Private email first.
 
-Kilo CLI does **not** sandbox the agent. The permission system exists as a UX feature to help users stay aware of what actions the agent is taking - it prompts for confirmation before executing commands, writing files, etc. However, it is not designed to provide security isolation.
+## What we will do
 
-If you need true isolation, run Kilo CLI inside a Docker container or VM.
-
-### Server Mode
-
-Server mode is opt-in only. When enabled, set `KILO_SERVER_PASSWORD` to require HTTP Basic Auth. Without this, the server runs unauthenticated (with a warning). It is the end user's responsibility to secure the server - any functionality it provides is not a vulnerability.
-
-### Out of Scope
-
-| Category | Rationale |
+| When | What |
 |---|---|
-| **Server access when opted-in** | If you enable server mode, API access is expected behavior |
-| **Sandbox escapes** | The permission system is not a sandbox (see above) |
-| **LLM provider data handling** | Data sent to your configured LLM provider is governed by their policies |
-| **MCP server behavior** | External MCP servers you configure are outside our trust boundary |
-| **Malicious config files** | Users control their own config; modifying it is not an attack vector |
+| Within 24 hours | Acknowledge receipt of your report. |
+| Within 7 days | Initial assessment: confirm or disprove, classify severity, give you our intended timeline. |
+| Throughout | Keep you updated as the fix progresses. |
+| At fix release | Credit you in the release notes (unless you prefer to stay anonymous). |
 
----
+We follow a **coordinated disclosure** model. We ask that you give us a reasonable window to ship a fix before publishing details. In return we won't sit on the issue.
 
-# Reporting Security Issues
+## AI-generated reports
 
-We value the contributions of the security research community and recognize the importance of a coordinated approach to vulnerability disclosure. If you have discovered a security vulnerability, we encourage you to let us know immediately. We welcome the opportunity to work with you to resolve the issue promptly.
+We do not accept AI-generated security reports. The signal-to-noise ratio is poor and we don't have the bandwidth to triage them. A report that looks like an LLM output (vague phrasing, hallucinated CVE numbers, unverified PoCs) will be closed without response. A report from a human who used AI as one of many tools and verified the issue themselves is welcome.
 
-Please email your findings to [security@kilo.ai](mailto:security@kilo.ai). We will acknowledge your report and work with you to resolve the issue.
+## Scope
 
-After the initial reply to your report, the security team will keep you informed of the progress towards a fix and full announcement, and may ask for additional information or guidance.
+The following are **in scope** for vulnerability reports:
 
-For more details, see our [Security Disclosure](https://kilo.ai/security) page.
+- The Kuma Code VS Code extension (`packages/kilo-vscode`).
+- The agent runtime (`packages/opencode`).
+- The skill system (`packages/skill-system`) — loader, retriever, marketplace client.
+- Any official Kuma Code distribution artifact (`.vsix`, signed binaries, brand-domain downloads).
+
+## Out of scope
+
+The following are **not** vulnerabilities in Kuma Code itself:
+
+| Category | Why |
+|---|---|
+| Third-party model providers | Data sent to Ollama Cloud, OpenAI, Anthropic, OpenRouter, etc. is governed by their security and privacy policies. Report to them. |
+| External MCP servers | MCP servers you configure are outside our trust boundary. |
+| Self-configured server mode | If you start Kuma's CLI server mode without a password and expose it, that's expected behavior, not a Kuma vulnerability. |
+| User configuration files | A user editing their own config to do dangerous things is not an attack vector. |
+| Sandbox escapes | Kuma Code does not sandbox the agent. The permission system is a UX safeguard, not an isolation boundary. If you need true isolation, run Kuma inside a Docker container or VM. |
+| Upstream Kilo / Roo / Cline issues | Report those to the respective project. We will pick up the fix on the next upstream sync. |
+
+## A note on the agent's permissions
+
+Kuma Code can read and write files, run shell commands, and (when configured) execute network requests. The permission-prompt UX exists to keep you aware of what the agent is doing, **not** to sandbox it. Don't run Kuma against a code path you wouldn't trust a human dev with.
+
+## Past advisories
+
+There are no published advisories yet. When we ship one it will appear here and in the GitHub Security Advisories tab.

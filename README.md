@@ -3,120 +3,85 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=kuma-code.Kuma-Code"><img src="https://raster.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white" alt="VS Code Marketplace" height="20"></a>
-  <a href="https://x.com/kuma-code"><img src="https://raster.shields.io/badge/kuma-code-000000?style=flat&logo=x&logoColor=white" alt="X (Twitter)" height="20"></a>
-  <a href="https://blog.kilo.ai"><img src="https://raster.shields.io/badge/Blog-555?style=flat&logo=substack&logoColor=white" alt="Substack Blog" height="20"></a>
-  <a href="https://kilo.ai/discord"><img src="https://raster.shields.io/badge/Join%20Discord-5865F2?style=flat&logo=discord&logoColor=white" alt="Discord" height="20"></a>
-  <a href="https://www.reddit.com/r/kuma-code/"><img src="https://raster.shields.io/badge/Join%20r%2Fkuma-code-D84315?style=flat&logo=reddit&logoColor=white" alt="Reddit" height="20"></a>
+  <b>Multi-agent AI coding for developers who want privacy and control</b>
 </p>
 
 <p align="center">
- <img width="250" alt="kilo-code-logo" src="https://github.com/user-attachments/assets/bdb0c174-b9fd-40ad-a47b-f3aab9b54e8d" />
+  <a href="https://github.com/zerosecai/kuma-code/discussions">Discussions</a>
+  ·
+  <a href="https://github.com/zerosecai/kuma-code/issues">Issues</a>
+  ·
+  <a href="ATTRIBUTION.md">Lineage</a>
+  ·
+  <a href="SECURITY.md">Security</a>
 </p>
 
-> Kilo is the all-in-one agentic engineering platform. Build, ship, and iterate faster with the most popular open source coding agent.
+---
 
-- ✨ Generate code from natural language
-- ✅ Checks its own work
-- 🧪 Run terminal commands
-- 🌐 Automate the browser
-- ⚡ Inline autocomplete suggestions
-- 🤖 Latest AI models
-- 🎁 API keys optional
+Kuma Code is a multi-agent coding IDE that runs on your hardware. Plan, write, and review with three AI agents working in parallel — using local models for the daily grind and bursting to the cloud only when a problem actually needs it. Your code stays on your machine unless you choose otherwise.
 
-## Quick Links
+## ✨ Why Kuma Code?
 
-- [VS Code Marketplace](https://kilo.ai/vscode-marketplace?utm_source=Readme) (download)
-- Install CLI: `npm install -g @kuma-code/cli`
-- [Official Kilo.ai Home page](https://kilo.ai) (learn more)
+### Hybrid LLM — local first, cloud when needed
 
-## Key Features
+Kuma Code routes each request between Ollama Cloud, a local Ollama instance, or LM Studio depending on the task. Easy refactors and code lookups run on a 1.5B local model; complex planning bursts to the cloud. You set the policy, the router enforces it. No code leaves your machine unless you wire up a cloud provider yourself.
 
-- **Code Generation:** Kilo can generate code using natural language.
-- **Inline Autocomplete:** Get intelligent code completions as you type, powered by AI.
-- **Task Automation:** Kilo can automate repetitive coding tasks to save time.
-- **Automated Refactoring:** Kilo can refactor and improve existing code efficiently.
-- **MCP Server Marketplace**: Kilo can easily find, and use MCP servers to extend the agent capabilities.
-- **Multi Mode**: Plan with Architect, Code with Coder, and Debug with Debugger, and make your own custom modes.
+### 1 GB modular skill packs
 
-## Get Started in Visual Studio Code
+Each skill pack ships about 1 GB of structured domain knowledge — TypeScript + React, Python + Django, Go stdlib — indexed by a two-level table-of-contents lookup. The skill retriever pulls the right paragraph into the prompt before the model runs, so a 1.5B model with the right pack performs comparably to a 70B-class model on its specialty. Install only the packs you need; nothing else takes disk.
 
-1. Install the Kuma Code extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kuma-code.Kuma-Code).
-2. Create your account to access 500+ cutting-edge AI models including Gemini 3.1 Pro, Claude 4.6 Sonnet & Opus, and GPT-5.4 – with transparent pricing that matches provider rates exactly.
-3. Start coding with AI that adapts to your workflow. Watch our quick-start guide to see Kilo in action:
+### Three-agent pipeline
 
-<a href="https://youtu.be/pqGfYXgrhig"><img src="https://img.youtube.com/vi/pqGfYXgrhig/maxresdefault.jpg" alt="Watch the video" width="640" height="360"></a>
+Every task flows through Planner → Coder → Reviewer. Each agent runs the model best suited to its job: a small fast model for routine plans, a larger model for tricky code, and a thorough model for review. Stages are checkpointed, parallelizable up to ten coders, and replayable from any point if something goes sideways.
 
-## Get Started with the CLI
+### Built for the developer workstation, not the data center
 
-```bash
-# npm
-npm install -g @kuma-code/cli
+Kuma Code targets a 32 GB RAM / 4 TB SSD developer machine — the kind of hardware a serious engineer already owns. No GPU cluster required. No "self-host means k8s" pretence. Skill packs sit on disk, models load on demand, and the runtime stays out of your way.
 
-# Or run directly with npx
-npx @kuma-code/cli
-```
+### TypeScript + React + Vite as a first-class citizen
 
-Then run `kilo` in any project directory to start.
+The MVP skill pack is the TS+React+Vite stack with Vitest integration, Vite-aware HMR awareness, and type-aware refactoring. Other stacks are coming, but this is the one we use to dogfood every commit, so it gets the most love.
 
-<!-- kuma-code_change start -->
+## Quick start
 
-### npm Install Note: Hidden `.kilo` File
+The marketplace listing is on the way. Until then, the extension can be installed from a local `.vsix` build (see [CONTRIBUTING.md](CONTRIBUTING.md) for the dev-host workflow).
 
-On some systems and npm versions, installing `@kuma-code/cli` can create a hidden `.kilo` file near the installed `kilo` command (for example in a global npm bin directory). This file is an npm-generated launcher helper, not project data.
+After install, point Kuma at your provider of choice:
 
-- Why it exists: npm may create helper artifacts while wiring CLI executables.
-- Size caveat: size can vary by platform, npm version, and install mode (symlink vs copied launcher), so a strict fixed size is not guaranteed.
-- Safety: it is safe to leave in place. Do not edit it manually. Use your package manager's uninstall (`npm uninstall -g @kuma-code/cli`) to remove install artifacts cleanly.
-<!-- kuma-code_change end -->
+- **Ollama Cloud** — get an API key from [ollama.com](https://ollama.com), paste into settings.
+- **Local Ollama** — `ollama serve` running on `localhost:11434` is auto-detected.
+- **LM Studio** — `localhost:1234/v1` is auto-detected too.
 
-### Install from GitHub Releases (Optional)
+A quickstart video and full docs site land alongside the marketplace publish.
 
-Download the latest binary or source code from the [Releases page](https://github.com/Kilo-Org/kuma-code/releases), use this quick guide:
+## For teams
 
-- `kilo-<os>-<arch>.zip` is the CLI binary for your OS and CPU architecture on Windows and macOS. (`kilo-linux-<arch>.tar.gz` for Linux)
-- `darwin` means macOS.
-- `x64` is standard 64-bit Intel/AMD CPUs.
-- `x64-baseline` is a compatibility build for older x64 CPUs(do not support AVX Instruction).
-- `arm64` is ARM-based Linux/MacOS.
-- `musl` is statically linked Linux build for Alpine/minimal Docker without glibc. Alpine/minimal Docker users should prefer the matching \*-musl asset.
-- `kilo-vscode-*.vsix` is the VS Code extension package and not the CLI binary.
-- `Source code` releases are for building from source, not normal installation.
+Kuma Code is built so engineering teams with real compliance requirements can adopt it without their security team raising eyebrows.
 
-For most users:
+- **Air-gapped operation.** Configure the provider list to local-only (Ollama or LM Studio). The agent runtime, skill index, and tool execution all run on the workstation. There are no required outbound connections.
+- **Data residency.** Code, prompts, and edits stay on the developer's machine unless an explicitly-configured cloud provider is selected. There is no Kuma-operated gateway between you and your model — the router talks straight to the provider you point it at.
+- **Hardware footprint.** A reference workstation of 32 GB RAM and 4 TB SSD comfortably holds the runtime, the model cache, and a working set of skill packs. We don't require a GPU cluster, but a workstation GPU helps with larger local models.
+- **Audit logs and SOC 2 posture.** Detailed audit logging and formal compliance attestations are on the roadmap. If you're evaluating Kuma for a regulated environment and need a specific control mapped out today, open a Discussion or email the contact below — we'll be straight with you about what's done and what isn't.
 
-- **Windows (most PCs):** `kilo-windows-x64.zip`
-- **macOS Apple Silicon:** `kilo-darwin-arm64.zip`
-- **macOS Intel:** `kilo-darwin-x64.zip`
-- **Linux x64:** `kilo-linux-x64.tar.gz`
-- **Linux on ARM:** `kilo-linux-arm64.tar.gz`
+## Built on giants
 
-### Autonomous Mode (CI/CD)
+Kuma Code is a fork chain. We didn't start from scratch and we don't pretend we did. See [ATTRIBUTION.md](ATTRIBUTION.md) for the full lineage and what each ancestor contributed:
 
-Use the `--auto` flag with `kilo run` to enable fully autonomous operation without user interaction. This is ideal for CI/CD pipelines and automated workflows:
+- **[Kilo Code](https://github.com/Kilo-Org/kilocode)** — direct upstream. The multi-platform IDE foundation, agent runtime, tool ecosystem.
+- **[Roo Code](https://github.com/RooVetGit/Roo-Code)** — Kilo's parent. Custom modes and orchestration patterns.
+- **[Cline](https://github.com/cline/cline)** — the original. The agentic coding loop and tool execution model.
 
-```bash
-kilo run --auto "run tests and fix any failures"
-```
-
-**Important:** The `--auto` flag disables all permission prompts and allows the agent to execute any action without confirmation. Only use this in trusted environments like CI/CD pipelines.
+All three are MIT-licensed, and so is Kuma Code.
 
 ## Contributing
 
-We welcome contributions from developers, writers, and enthusiasts!
-To get started, please read our [Contributing Guide](/CONTRIBUTING.md). It includes details on setting up your environment, coding standards, types of contribution and how to submit pull requests.
-
-See [RELEASING.md](RELEASING.md) for the release process.
-
-## Code of Conduct
-
-Our community is built on respect, inclusivity, and collaboration. Please review our [Code of Conduct](/CODE_OF_CONDUCT.md) to understand the expectations for all contributors and community members.
+Contributions are welcome — whether code, skill packs, docs, or bug reports. See [CONTRIBUTING.md](CONTRIBUTING.md) for the dev-environment setup, PR conventions, and commit message format. The fastest way to get involved is to open a [Discussion](https://github.com/zerosecai/kuma-code/discussions) or file an [Issue](https://github.com/zerosecai/kuma-code/issues).
 
 ## License
 
-This project is licensed under the MIT License.
-You’re free to use, modify, and distribute this code, including for commercial purposes as long as you include proper attribution and license notices. See [License](/LICENSE).
+[MIT](LICENSE). Use it, fork it, ship it. The upstream Kilo Code copyright is preserved alongside ours, as the MIT terms require.
 
-### Where did Kilo CLI come from?
+## Contact
 
-Kilo CLI is a fork of [OpenCode](https://github.com/anomalyco/opencode), enhanced to work within the Kilo agentic engineering platform.
+- **General questions and inquiries:** sam@zerosec-ai.com
+- **Security vulnerabilities:** see [SECURITY.md](SECURITY.md) for our coordinated-disclosure process and contact.

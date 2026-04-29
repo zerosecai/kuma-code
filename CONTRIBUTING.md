@@ -1,154 +1,134 @@
-# Contributing to Kilo CLI
+# Contributing to Kuma Code
 
-See [the Documentation for details on contributing](https://kilo.ai/docs/contributing).
+Thanks for thinking about contributing — this project is small enough that every PR matters.
 
-## TL;DR
+## How to help
 
-There are lots of ways to contribute to the project:
+- **Code:** fix a bug, ship a feature, refine the agent runtime.
+- **Skill packs:** the differentiator only works if the skill packs are good. Building a skill pack for a stack we don't cover yet is high-leverage.
+- **Docs:** if a step in this file or the README is unclear, fix it. Doc PRs are reviewed quickly.
+- **Bug reports:** open a [GitHub Issue](https://github.com/zerosecai/kuma-code/issues) with a minimal repro.
+- **Discussion:** open a [Discussion](https://github.com/zerosecai/kuma-code/discussions) for ideas, design questions, or "is this a bug" triage.
 
-- **Code Contributions:** Implement new features or fix bugs
-- **Documentation:** Improve existing docs or create new guides
-- **Bug Reports:** Report issues you encounter
-- **Feature Requests:** Suggest new features or improvements
-- **Community Support:** Help other users in the community
+## A note on naming during the rebrand
 
-The Kilo Community is [on Discord](https://kilo.ai/discord).
+Kuma Code is a fork of [Kilo Code](https://github.com/Kilo-Org/kilocode). The visual identity and metadata have moved over to Kuma, but the **internal package and folder names** (`kilo-vscode`, `kilo-gateway`, `@kilocode/cli`, etc.) are still the upstream names. That's intentional and tracked — see `BACKLOG.md` for the deferred source-code rebrand. If you see a `kilo-` reference in source, that's the right name for now. Don't rename it in your PR unless your PR is specifically the rebrand task.
 
-## Developing Kilo CLI
+## Dev environment
 
-- **Requirements:** Bun 1.3.10+
-- Install dependencies and start the dev server from the repo root:
+**Requirements:**
 
-  ```bash
-  bun install
-  bun dev
-  ```
+- [Bun](https://bun.sh) 1.3.10 or later
+- Node.js 20 or later (some upstream native modules call out to it)
+- Python 3.10+ (for `node-gyp` to build the one native dep on Windows)
+- VS Code (for the extension dev host)
 
-### Developing the VS Code Extension
-
-Build and launch the extension in an isolated VS Code instance:
+**Setup:**
 
 ```bash
-bun run extension        # Build + launch in dev mode
+git clone git@github.com:zerosecai/kuma-code.git
+cd kuma-code
+bun install        # 5–10 min first time
 ```
 
-This auto-detects VS Code on macOS, Linux, and Windows. Override with `--app-path PATH` or `VSCODE_EXEC_PATH`. Use `--insiders` to prefer Insiders, `--workspace PATH` to open a specific folder, or `--clean` to reset cached state.
+If `bun install` fails on Windows during the `tree-sitter-powershell` post-install, set the `PYTHON` env var to point at a real Python interpreter (Microsoft Store stubs don't count). See the troubleshooting note in `BACKLOG.md`.
 
-### Running against a different directory
-
-By default, `bun dev` runs Kilo CLI in the `packages/opencode` directory. To run it against a different directory or repository:
+## Building the VS Code extension
 
 ```bash
-bun dev <directory>
+bun run --cwd packages/kilo-vscode compile
 ```
 
-To run Kilo CLI in the root of the repo itself:
+This runs the full pipeline: CLI binary copy, SDK rebuild, typecheck, lint, esbuild bundle. Output lands in `packages/kilo-vscode/dist/`.
+
+To launch the dev host:
+
+1. Open the repo in VS Code: `code .`
+2. Press **F5**.
+3. A new VS Code window opens with the extension loaded.
+
+The "Kuma Code" panel should appear in the activity bar.
+
+## Running the CLI
 
 ```bash
-bun dev .
+bun dev               # runs the CLI in TUI mode against the current repo
+bun dev <directory>   # runs against a specific directory
 ```
 
-### Running Kilo CLI from any folder
+`bun dev` is the local equivalent of the bundled `kilo` CLI.
 
-`bin/kilodev` is a self-locating launcher that runs this checkout from wherever you invoke it. Running it with no arguments launches the TUI pointed at the caller's directory; any arguments are forwarded to the CLI unchanged.
-
-One-shot install (recommended). From the repo root:
-
-```bash
-./bin/kilodev dev-setup
-```
-
-This detects your shell, shows exactly what it will add, asks for confirmation, writes an idempotent block to your rc file, and saves a timestamped backup of the original. Re-running is safe — it only rewrites when the snippet has changed.
-
-Useful flags:
-
-- `--yes` — skip the confirmation prompt (good for CI/containers).
-- `--print` — just print the snippet, don't touch any file (pipe-friendly).
-- `--dry-run` — show what would change without writing.
-- `--shell <zsh|bash|fish|powershell>` — override shell detection.
-- `--rc <path>` — override the rc file.
-
-Manual alternatives (equivalent, no CLI invocation needed):
-
-- Unix: add `alias kilodev='/path/to/kuma-code/bin/kilodev'` to `~/.zshrc` / `~/.bashrc`, or `fish_add_path /path/to/kuma-code/bin`.
-- Windows: add `C:\path\to\kuma-code\bin` to PATH (System Environment Variables), or add `function kilodev { & "C:\path\to\kuma-code\bin\kilodev.cmd" @args }` to `$PROFILE`.
-
-Then from anywhere:
-
-```bash
-cd ~/some/project
-kilodev                      # opens TUI with project = ~/some/project
-kilodev dev-setup --print    # prints the alias line (scripting)
-kilodev run --dir "$PWD" "…" # subcommands pass through; use --dir for run/serve
-```
-
-### Building a "local" binary
-
-To compile a standalone executable:
+## Building a standalone CLI binary
 
 ```bash
 ./packages/opencode/script/build.ts --single
+./packages/opencode/dist/@kilocode/cli-<platform>/bin/kilo
 ```
 
-Then run it with:
+Replace `<platform>` with `darwin-arm64`, `linux-x64`, `windows-x64`, etc.
+
+## Pull request expectations
+
+- **Issue first.** All PRs should reference an existing issue or discussion. If one doesn't exist, open it — that's where design feedback happens before code is wasted.
+- **One logical change per PR.** Don't bundle a refactor with a feature; they get reviewed differently.
+- **PR title** uses [conventional commits](https://www.conventionalcommits.org/) prefix: `feat:`, `fix:`, `docs:`, `refactor:`, etc.
+- **UI changes** include a screenshot or short clip in the PR body.
+- **Logic changes** explain how you tested it. Manual smoke tests are fine for small UI tweaks; logic changes need a test added or one updated.
+
+## Commit message format
+
+See `CONVENTIONS.md` for the full style. The short version:
+
+```
+phase<N>: <imperative verb> <what>
+
+<optional body>
+```
+
+Subject line in imperative mood, max 72 chars. One logical change per commit.
+
+## Test requirements
 
 ```bash
-./packages/opencode/dist/@kuma-code/cli-<platform>/bin/kilo
+bun run test                          # all tests
+bun run test --filter <package>       # one package
+bun run typecheck                     # type-check only (fast)
+bun run lint                          # eslint
 ```
 
-Replace `<platform>` with your platform (e.g., `darwin-arm64`, `linux-x64`).
+Every public function should have at least one test. Bug fixes should include a regression test that would have failed before the fix.
 
-### Understanding bun dev vs kilo
-
-During development, `bun dev` is the local equivalent of the built `kilo` command. Both run the same CLI interface:
+For the VS Code extension specifically:
 
 ```bash
-# Development (from project root)
-bun dev --help           # Show all available commands
-bun dev serve            # Start headless API server
-
-# Production
-kilo --help          # Show all available commands
-kilo serve           # Start headless API server
+bun run --cwd packages/kilo-vscode compile     # full build pipeline
 ```
 
-### Testing with a local backend
+This is the same gate the pre-push hook runs. If this passes, your PR will pass CI.
 
-To point the CLI at a local backend (e.g., a locally running Kilo API server on port 3000), set the `KILO_API_URL` environment variable:
+## Pre-push hook
 
-```bash
-KILO_API_URL=http://localhost:3000 bun dev
-```
+There is a husky pre-push hook that runs `bun typecheck` across the monorepo. On Windows, an upstream symlink quirk (`packages/app/src/custom-elements.d.ts`) currently makes this fail; see `BACKLOG.md` for status. If you need to push around it temporarily, use `--no-verify`, but please call it out in the PR description so the reviewer knows.
 
-This redirects all gateway traffic (auth, model listing, provider routing, profile, etc.) to your local server. The default is `https://api.kilo.ai`.
+## Issue and PR lifecycle
 
-There are also optional overrides for other services:
+Inactive issues and PRs are auto-closed after a long quiet period. That's not a judgement on quality — older items lose context, and we'd rather restart fresh than try to revive a stale thread. Reopening or re-filing is fine.
 
-| Variable | Default | Purpose |
-|---|---|---|
-| `KILO_API_URL` | `https://api.kilo.ai` | Kilo API (gateway, auth, models, profile) |
-| `KILO_SESSION_INGEST_URL` | `https://ingest.kilosessions.ai` | Session export / cloud sync |
-| `KILO_MODELS_URL` | `https://models.dev` | Model metadata |
+## Style preferences
 
-> **VS Code:** The repo includes a "VSCode - Run Extension (Local Backend)" launch config in `.vscode/launch.json` that sets `KILO_API_URL=http://localhost:3000` automatically.
+These are conventions we try to follow in **new** code. Forked code from Kilo / Roo / Cline keeps its own style — match the file you're editing.
 
-### Pull Request Expectations
+- **Functions:** keep logic in one function unless splitting buys obvious reuse.
+- **Control flow:** prefer early returns over nested `else`.
+- **Types:** no `any` without a `// reason: ...` comment on the same line.
+- **Variables:** `const` by default.
+- **Naming:** short single-word identifiers when descriptive (`cfg`, `err`, `opts`); multi-word when ambiguous.
+- **Errors:** typed errors (`throw new SkillNotFoundError(...)`), not bare `Error`.
+- **Runtime APIs:** prefer Bun helpers (`Bun.file`, `Bun.write`) over Node's `fs` in new code.
 
-- **Issue First Policy:** All PRs must reference an existing issue.
-- **UI Changes:** Include screenshots or videos (before/after).
-- **Logic Changes:** Explain how you verified it works.
-- **PR Titles:** Follow conventional commit standards (`feat:`, `fix:`, `docs:`, etc.).
+See `CONVENTIONS.md` for the full guide.
 
-### Issue and PR Lifecycle
+## Contact
 
-To keep our backlog manageable, we automatically close inactive issues and PRs after a period of inactivity. This isn't a judgment on quality — older items tend to lose context over time and we'd rather start fresh if they're still relevant. Feel free to reopen or create a new issue/PR if you're still working on something!
-
-### Style Preferences
-
-- **Functions:** Keep logic within a single function unless breaking it out adds clear reuse.
-- **Destructuring:** Avoid unnecessary destructuring.
-- **Control flow:** Avoid `else` statements; prefer early returns.
-- **Types:** Avoid `any`.
-- **Variables:** Prefer `const`.
-- **Naming:** Concise single-word identifiers when descriptive.
-- **Runtime APIs:** Use Bun helpers (e.g., `Bun.file()`).
+- General: open a [Discussion](https://github.com/zerosecai/kuma-code/discussions) or email **sam@zerosec-ai.com**.
+- Security vulnerabilities: see [SECURITY.md](SECURITY.md).
