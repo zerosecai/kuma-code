@@ -3,17 +3,27 @@
 </p>
 
 <p align="center">
-  <b>Multi-agent AI coding for developers who want privacy and control</b>
+  <b>The only AI coding workspace where agents work in parallel on YOUR machine — not in someone else's cloud.</b>
 </p>
 
 <p align="center">
+  <a href="https://zerosec-ai.com">Website</a>
+  ·
   <a href="https://github.com/zerosecai/kuma-code/discussions">Discussions</a>
   ·
   <a href="https://github.com/zerosecai/kuma-code/issues">Issues</a>
   ·
   <a href="ATTRIBUTION.md">Lineage</a>
   ·
+  <a href="PRIVACY.md">Privacy</a>
+  ·
   <a href="SECURITY.md">Security</a>
+</p>
+
+<p align="center">
+  <a href="https://zerosec-ai.com"><img src="https://img.shields.io/badge/Website-zerosec--ai.com-00E5FF?style=flat-square" alt="Website" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-00E5FF?style=flat-square" alt="License" /></a>
+  <img src="https://img.shields.io/badge/Status-Active%20Development-FFB300?style=flat-square" alt="Status" />
 </p>
 
 ---
@@ -83,5 +93,5 @@ Contributions are welcome — whether code, skill packs, docs, or bug reports. S
 
 ## Contact
 
-- **General questions and inquiries:** sam@zerosec-ai.com
+- **General questions and inquiries:** kuma@zerosec-ai.com
 - **Security vulnerabilities:** see [SECURITY.md](SECURITY.md) for our coordinated-disclosure process and contact.
