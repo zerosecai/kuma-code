@@ -4,7 +4,7 @@
 
 If you've found a security issue in Kuma Code, please report it privately so we can fix it before it's public.
 
-**Preferred contact (interim):** sam@zerosec-ai.com
+**Preferred contact (interim):** kuma@zerosec-ai.com
 **Permanent address (when domain registration completes):** security@kumacode.dev — *not yet active; use the interim address until further notice*
 
 When you report, please include:

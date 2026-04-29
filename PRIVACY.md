@@ -60,4 +60,4 @@ If we change how data flows in Kuma Code, this document is updated and the chang
 
 ## Contact
 
-For privacy-related questions, contact: **sam@zerosec-ai.com**
+For privacy-related questions, contact: **kuma@zerosec-ai.com**

@@ -130,5 +130,5 @@ See `CONVENTIONS.md` for the full guide.
 
 ## Contact
 
-- General: open a [Discussion](https://github.com/zerosecai/kuma-code/discussions) or email **sam@zerosec-ai.com**.
+- General: open a [Discussion](https://github.com/zerosecai/kuma-code/discussions) or email **kuma@zerosec-ai.com**.
 - Security vulnerabilities: see [SECURITY.md](SECURITY.md).
