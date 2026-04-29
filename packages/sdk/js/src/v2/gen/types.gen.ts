@@ -2018,7 +2018,7 @@ export type Config = {
      */
     semantic_indexing?: boolean
     /**
-     * Enable telemetry. Set to false to opt-out.
+     * Enable telemetry. Disabled by default; set to true to opt in.
      */
     openTelemetry?: boolean
     /**

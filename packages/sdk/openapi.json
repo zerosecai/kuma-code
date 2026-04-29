@@ -15922,8 +15922,8 @@
                 "type": "boolean"
               },
               "openTelemetry": {
-                "description": "Enable telemetry. Set to false to opt-out.",
-                "default": true,
+                "description": "Enable telemetry. Disabled by default; set to true to opt in.",
+                "default": false,
                 "type": "boolean"
               },
               "primary_tools": {
