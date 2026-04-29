@@ -26,19 +26,23 @@ When Kuma Code's hybrid router decides whether to use a local or cloud model for
 
 ## Telemetry
 
-Kuma Code does not send usage telemetry to us by default. There is no crash-report uploader, no analytics ping, no model-of-the-week reporter.
+Kuma Code currently inherits its runtime from upstream Kilo Code, which includes PostHog-based telemetry that is **on by default** (opt-out). Events tracked include login, logout, CLI start/exit, and agent generations.
 
-If we ever add opt-in telemetry, it will be:
+To opt out today, set `openTelemetry: false` in your Kuma config file.
 
-- **Off by default.** A clear toggle, not a buried setting.
-- **Documented.** Every field that gets sent listed here.
-- **Coarse.** No code, no prompts, no file paths.
+This is being addressed in Phase 5 of our roadmap, where we will:
 
-We will note the change in the release notes and update this document.
+- Remove the inherited PostHog client entirely
+- Replace it with our own opt-in telemetry layer (off by default by design, with every field documented in this file)
+- Update this section to reflect the new behavior
+
+We chose to flag this honestly rather than hide it. If you're evaluating Kuma in a regulated context, see the "Air-gapped operation" section below.
 
 ## Data residency
 
 Your code lives on your machine. Your machine = your data. If you want a Kuma Code installation that has no possible path to leave a defined network, configure the provider list to local-only and disable cloud providers in settings.
+
+Note: even with all cloud providers disabled, the current runtime (inherited from Kilo) makes outbound calls to `api.kilo.ai` and `app.kilo.ai` for legacy authentication and config-schema resolution. Phase 5 will remove these endpoints. To block them today, configure your firewall/hosts file to deny those domains — Kuma Code's local-first features will continue to work.
 
 ## For enterprise
 

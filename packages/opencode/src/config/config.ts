@@ -286,8 +286,12 @@ export const Info = Schema.Struct({
       }),
       // kilocode_change end
       // kilocode_change start - enable telemetry by default
-      openTelemetry: Schema.Boolean.pipe(Schema.optional, Schema.withDecodingDefault(Effect.succeed(true))).annotate({
-        description: "Enable telemetry. Set to false to opt-out.",
+      // kuma-code: flipped default from true to false in Phase 3.2 fix.
+      // Privacy posture: opt-in only. Phase 5 will remove the upstream
+      // PostHog client entirely and replace with a Kuma-native telemetry
+      // layer (also off by default). See BACKLOG.md.
+      openTelemetry: Schema.Boolean.pipe(Schema.optional, Schema.withDecodingDefault(Effect.succeed(false))).annotate({
+        description: "Enable telemetry. Set to true to opt-in.",
       }),
       // kilocode_change end
       primary_tools: Schema.optional(Schema.mutable(Schema.Array(Schema.String))).annotate({

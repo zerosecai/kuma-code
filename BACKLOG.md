@@ -115,3 +115,23 @@ flow is part of that rewrite.
 For local dev workaround, may need to:
 - Move repo to path without spaces (e.g. C:\dev\kuma-code\)
 - OR patch local-bin.ts to normalize path case
+
+## Phase 5 / Privacy & telemetry cleanup
+
+PRIVACY audit revealed (commit 749116cbb era):
+
+1. PostHog telemetry inherited from Kilo upstream
+   - File: packages/opencode/src/config/config.ts:288-296
+   - Phase 3.2 fix: changed default to false (telemetry off)
+   - Phase 5 task: remove @kilocode/kilo-telemetry package entirely,
+     replace with opt-in Kuma telemetry layer
+
+2. 40 kilo.ai / app.kilo.ai endpoints in source
+   - Categories: gateway API, default API base, share/cloud sync,
+     profile/usage, kiloclaw, config $schema URL writer, docs URL,
+     gateway setup help, install update check
+   - Phase 5 task: replace api.kilo.ai → Ollama Cloud
+   - Phase 5 task: remove $schema URL auto-write into user configs
+   - Phase 5 task: replace docs URL with kumacode.dev/docs
+
+Until Phase 5 completes, PRIVACY.md flags these honestly.
