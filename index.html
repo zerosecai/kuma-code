@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The only AI coding workspace where agents work in parallel on YOUR machine — not in someone else's cloud. Open source, VS Code native, privacy-first.">
+<meta name="theme-color" content="#0A0A0A">
+
+<meta property="og:title" content="Kuma Code — Multi-agent AI coding on your machine, not someone else's cloud">
+<meta property="og:description" content="The only AI coding workspace where agents work in parallel locally. Three agents now, ten architected. Privacy-first. Open source.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zerosec-ai.tech">
+<meta property="og:image" content="https://zerosec-ai.tech/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<title>Kuma Code — Multi-agent AI coding on your machine</title>
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.ico">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --kuma-black: #0A0A0A;
+    --kuma-soft: #1A1A1A;
+    --kuma-cyan: #00E5FF;
+    --kuma-cyan-mid: #26C6DA;
+    --kuma-cyan-dark: #0097A7;
+    --kuma-white: #FFFFFF;
+    --kuma-text: #E8E8E8;
+    --kuma-text-dim: #A0A0A0;
+    --kuma-text-faint: #6A6A6A;
+    --kuma-border: #2A2A2A;
+    --kuma-border-bright: #3A3A3A;
+    --kuma-bg: #0F0F0F;
+    --kuma-surface: #1A1A1A;
+    --kuma-success: #00E676;
+    --kuma-warning: #FFB300;
+    --kuma-error: #FF5252;
+  }
+
+  html, body {
+    background: var(--kuma-bg);
+    color: var(--kuma-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(0, 229, 255, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  header {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--kuma-border);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo-mark { width: 36px; height: 36px; }
+  .nav-logo-text { color: var(--kuma-white); }
+  .nav-logo-text .accent { color: var(--kuma-cyan); }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--kuma-text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--kuma-cyan); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 60px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: var(--kuma-cyan);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .hero-logo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 32px;
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: var(--kuma-white);
+    margin-bottom: 24px;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 .accent {
+    color: var(--kuma-cyan);
+    text-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+  }
+
+  .hero h1 .strike {
+    color: var(--kuma-text-faint);
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--kuma-error);
+  }
+
+  .hero p.subtitle {
+    font-size: clamp(15px, 2vw, 18px);
+    color: var(--kuma-text-dim);
+    margin-bottom: 36px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--kuma-cyan);
+    color: var(--kuma-black);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--kuma-cyan-mid);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--kuma-text);
+    border-color: var(--kuma-border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--kuma-cyan);
+    color: var(--kuma-cyan);
+  }
+
+  .hero-status {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--kuma-text-dim);
+  }
+
+  .hero-status .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--kuma-cyan);
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--kuma-cyan); }
+    50% { opacity: 0.5; box-shadow: 0 0 4px var(--kuma-cyan); }
+  }
+
+  /* PILLARS section */
+  .pillars {
+    padding: 60px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-eyebrow {
+    color: var(--kuma-cyan);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--kuma-white);
+    letter-spacing: -1px;
+  }
+
+  .section-subtitle {
+    color: var(--kuma-text-dim);
+    margin-top: 12px;
+    font-size: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .pillar {
+    background: var(--kuma-surface);
+    border: 1px solid var(--kuma-border);
+    border-radius: 12px;
+    padding: 32px;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .pillar:hover {
+    border-color: var(--kuma-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 229, 255, 0.1);
+  }
+
+  .pillar-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .pillar h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--kuma-white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .pillar p {
+    font-size: 14px;
+    color: var(--kuma-text-dim);
+    line-height: 1.6;
+  }
+
+  .pillar .pillar-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: var(--kuma-cyan);
+    background: rgba(0, 229, 255, 0.08);
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* FOR TEAMS */
+  .teams {
+    padding: 80px 0;
+  }
+
+  .teams-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .teams-content h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+    color: var(--kuma-white);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .teams-content p {
+    color: var(--kuma-text-dim);
+    margin-bottom: 16px;
+    font-size: 15px;
+  }
+
+  .teams-features {
+    list-style: none;
+  }
+
+  .teams-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--kuma-border);
+    color: var(--kuma-text);
+    font-size: 14px;
+  }
+
+  .teams-features li:last-child { border-bottom: none; }
+
+  .teams-features li::before {
+    content: '→';
+    color: var(--kuma-cyan);
+    margin-right: 12px;
+    font-weight: 700;
+  }
+
+  .teams-cta {
+    background: var(--kuma-surface);
+    border: 1px solid var(--kuma-border);
+    border-radius: 12px;
+    padding: 32px;
+  }
+
+  .teams-cta h3 {
+    color: var(--kuma-white);
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .teams-cta p {
+    color: var(--kuma-text-dim);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .teams-cta a {
+    color: var(--kuma-cyan);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .teams-cta a:hover { text-decoration: underline; }
+
+  /* LINEAGE */
+  .lineage {
+    padding: 80px 0;
+    text-align: center;
+    border-top: 1px solid var(--kuma-border);
+  }
+
+  .lineage-chain {
+    font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+    font-size: clamp(14px, 2.5vw, 20px);
+    color: var(--kuma-text-dim);
+    margin: 32px 0;
+    letter-spacing: 1px;
+  }
+
+  .lineage-chain .arrow {
+    color: var(--kuma-cyan);
+    margin: 0 12px;
+  }
+
+  .lineage-chain .current {
+    color: var(--kuma-cyan);
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+  }
+
+  .lineage p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: var(--kuma-text-dim);
+    font-size: 15px;
+  }
+
+  .lineage a { color: var(--kuma-cyan); text-decoration: none; }
+  .lineage a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--kuma-border);
+    padding: 40px 0 32px;
+    margin-top: 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+
+  .footer-brand p {
+    color: var(--kuma-text-dim);
+    font-size: 13px;
+    margin-top: 12px;
+    max-width: 320px;
+  }
+
+  .footer-col h4 {
+    color: var(--kuma-white);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--kuma-text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--kuma-cyan); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--kuma-border);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--kuma-text-dim);
+  }
+
+  .footer-bottom a {
+    color: var(--kuma-text-dim);
+    text-decoration: none;
+  }
+
+  .footer-bottom a:hover { color: var(--kuma-cyan); }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { gap: 16px; font-size: 13px; }
+    .hero { padding: 50px 0 40px; }
+    .hero-logo { width: 130px; height: 130px; }
+    .pillars, .teams, .lineage { padding: 60px 0; }
+    .teams-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    .pillar-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-links a:not(:last-child) { display: none; }
+    .pillar { padding: 24px; }
+    .hero h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-logo">
+        <svg class="nav-logo-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="48" cy="50" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="3"/>
+          <circle cx="152" cy="50" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="3"/>
+          <circle cx="48" cy="52" r="10" fill="#00E5FF" opacity="0.7"/>
+          <circle cx="152" cy="52" r="10" fill="#00E5FF" opacity="0.7"/>
+          <ellipse cx="100" cy="115" rx="68" ry="62" fill="#0A0A0A" stroke="#00E5FF" stroke-width="4"/>
+          <ellipse cx="100" cy="130" rx="48" ry="38" fill="#1A1A1A"/>
+          <circle cx="55" cy="135" r="8" fill="#00E5FF" opacity="0.5"/>
+          <circle cx="55" cy="135" r="4" fill="#00E5FF"/>
+          <circle cx="145" cy="135" r="8" fill="#00E5FF" opacity="0.5"/>
+          <circle cx="145" cy="135" r="4" fill="#00E5FF"/>
+          <circle cx="72" cy="105" r="13" fill="#0A0A0A" stroke="#00E5FF" stroke-width="2.5"/>
+          <circle cx="128" cy="105" r="13" fill="#0A0A0A" stroke="#00E5FF" stroke-width="2.5"/>
+          <circle cx="72" cy="105" r="7" fill="#00E5FF"/>
+          <circle cx="128" cy="105" r="7" fill="#00E5FF"/>
+          <circle cx="72" cy="105" r="3" fill="#FFFFFF"/>
+          <circle cx="128" cy="105" r="3" fill="#FFFFFF"/>
+          <ellipse cx="100" cy="135" rx="10" ry="8" fill="#00E5FF"/>
+          <path d="M 88 152 Q 100 158 112 152" stroke="#00E5FF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">KUMA <span class="accent">CODE</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#pillars">Why Kuma</a>
+        <a href="#teams">For Teams</a>
+        <a href="#lineage">Lineage</a>
+        <a href="https://github.com/zerosecai/kuma-code" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🛡️ Privacy-first AI coding</div>
+
+    <svg class="hero-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="48" cy="50" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="3"/>
+      <circle cx="152" cy="50" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="3"/>
+      <circle cx="48" cy="52" r="10" fill="#00E5FF" opacity="0.7"/>
+      <circle cx="152" cy="52" r="10" fill="#00E5FF" opacity="0.7"/>
+      <ellipse cx="100" cy="115" rx="68" ry="62" fill="#0A0A0A" stroke="#00E5FF" stroke-width="4"/>
+      <path d="M 40 100 L 50 100 L 50 90 L 65 90" stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M 160 100 L 150 100 L 150 90 L 135 90" stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M 100 60 L 100 70 L 110 70 L 110 80" stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <circle cx="50" cy="100" r="2" fill="#00E5FF"/>
+      <circle cx="65" cy="90" r="2" fill="#00E5FF"/>
+      <circle cx="150" cy="100" r="2" fill="#00E5FF"/>
+      <circle cx="135" cy="90" r="2" fill="#00E5FF"/>
+      <circle cx="100" cy="70" r="2" fill="#00E5FF"/>
+      <ellipse cx="100" cy="130" rx="48" ry="38" fill="#1A1A1A"/>
+      <circle cx="55" cy="135" r="12" fill="#00E5FF" opacity="0.3"/>
+      <circle cx="55" cy="135" r="8" fill="#00E5FF" opacity="0.5"/>
+      <circle cx="55" cy="135" r="4" fill="#00E5FF"/>
+      <circle cx="145" cy="135" r="12" fill="#00E5FF" opacity="0.3"/>
+      <circle cx="145" cy="135" r="8" fill="#00E5FF" opacity="0.5"/>
+      <circle cx="145" cy="135" r="4" fill="#00E5FF"/>
+      <circle cx="72" cy="105" r="13" fill="#0A0A0A" stroke="#00E5FF" stroke-width="2.5"/>
+      <circle cx="128" cy="105" r="13" fill="#0A0A0A" stroke="#00E5FF" stroke-width="2.5"/>
+      <circle cx="72" cy="105" r="7" fill="#00E5FF"/>
+      <circle cx="128" cy="105" r="7" fill="#00E5FF"/>
+      <circle cx="72" cy="105" r="3" fill="#FFFFFF"/>
+      <circle cx="128" cy="105" r="3" fill="#FFFFFF"/>
+      <ellipse cx="100" cy="135" rx="10" ry="8" fill="#00E5FF" stroke="#0A0A0A" stroke-width="1.5"/>
+      <path d="M 88 152 Q 100 158 112 152" stroke="#00E5FF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <h1>The only AI coding workspace where agents work in parallel on <span class="accent">YOUR machine</span> — not <span class="strike">someone else's cloud</span></h1>
+
+    <p class="subtitle">
+      Three agents now. Ten agents architected. Run entirely on local Ollama, or burst to cloud when you choose. Open source, VS Code-native, no vendor lock-in.
+    </p>
+
+    <div class="hero-cta">
+      <a href="https://github.com/zerosecai/kuma-code" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
+      <a href="#pillars" class="btn btn-secondary">Why Kuma</a>
+    </div>
+
+    <div class="hero-status">
+      <span class="dot"></span>
+      Active development · MVP coming soon · Foundation: Kilo Code (17K stars)
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars" id="pillars">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Four pillars</div>
+      <h2 class="section-title">Why Kuma is different</h2>
+      <p class="section-subtitle">Most AI coding tools force a trade-off: power vs. privacy. Kuma refuses that trade.</p>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar">
+        <span class="pillar-icon">🛡️</span>
+        <h3>Local-first by default</h3>
+        <p>
+          Run agents on your local Ollama or LM Studio. Your code, your prompts, your context — none of it leaves your network unless you opt in.
+        </p>
+        <span class="pillar-tag">$ kuma --local-only</span>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-icon">🤖</span>
+        <h3>Multi-agent in parallel — locally</h3>
+        <p>
+          Planner, Coder, and Reviewer agents work simultaneously on your task. Each picks the right model for its job. Architecture supports scaling to 10 agents.
+        </p>
+        <span class="pillar-tag">3 agents → 10 agents</span>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-icon">📦</span>
+        <h3>Skill packs that punch above their weight</h3>
+        <p>
+          1GB modular skill packs make a 3B local model perform like a 70B-class model on TypeScript, React, and Vite. Two-level lookup keeps inference fast.
+        </p>
+        <span class="pillar-tag">3B model → 70B output</span>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-icon">🔄</span>
+        <h3>Learning loop, anywhere</h3>
+        <p>
+          Your agents learn from your patterns whether you're running local Ollama or bursting to Ollama Cloud. Switch providers; the loop persists.
+        </p>
+        <span class="pillar-tag">Local + Cloud</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR TEAMS -->
+<section class="teams" id="teams">
+  <div class="container">
+    <div class="teams-grid">
+      <div class="teams-content">
+        <h2>Built for teams that can't ship code to a third-party cloud</h2>
+        <p>
+          Kuma is designed for teams in regulated industries — finance, healthcare, defense, government — where source code can't leave the corporate network. A local-only configuration has zero required outbound connections.
+        </p>
+        <ul class="teams-features">
+          <li>Air-gapped operation with local Ollama / LM Studio</li>
+          <li>Open source code — auditable in a security review</li>
+          <li>No telemetry by default — verifiable in <code>config.ts</code></li>
+          <li>Provider routing decisions surfaced in the UI before sending</li>
+          <li>SOC 2 controls and audit logging on the roadmap</li>
+        </ul>
+      </div>
+      <div class="teams-cta">
+        <h3>Evaluating Kuma in a regulated context?</h3>
+        <p>
+          We provide data-flow diagrams and control mappings on request. Reach out and tell us about your environment — we'll work through the specifics with you.
+        </p>
+        <a href="mailto:kuma@zerosec-ai.tech">Contact us → kuma@zerosec-ai.tech</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINEAGE -->
+<section class="lineage" id="lineage">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Built on giants</div>
+      <h2 class="section-title">An honest fork chain</h2>
+    </div>
+
+    <div class="lineage-chain">
+      <span class="current">Kuma Code</span>
+      <span class="arrow">←</span>
+      <a href="https://github.com/Kilo-Org/kilocode" target="_blank" rel="noopener">Kilo Code</a>
+      <span class="arrow">←</span>
+      <a href="https://github.com/RooVetGit/Roo-Code" target="_blank" rel="noopener">Roo Code</a>
+      <span class="arrow">←</span>
+      <a href="https://github.com/cline/cline" target="_blank" rel="noopener">Cline</a>
+    </div>
+
+    <p>
+      Kuma Code stands on the shoulders of three open-source projects with 57K+ combined GitHub stars. Each ancestor contributed something we kept and built on. Read the
+      <a href="https://github.com/zerosecai/kuma-code/blob/main/ATTRIBUTION.md" target="_blank" rel="noopener">full ATTRIBUTION</a>
+      for technical detail and credit.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <svg class="nav-logo-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="48" cy="50" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="3"/>
+            <circle cx="152" cy="50" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="3"/>
+            <ellipse cx="100" cy="115" rx="68" ry="62" fill="#0A0A0A" stroke="#00E5FF" stroke-width="4"/>
+            <circle cx="72" cy="105" r="7" fill="#00E5FF"/>
+            <circle cx="128" cy="105" r="7" fill="#00E5FF"/>
+            <ellipse cx="100" cy="135" rx="10" ry="8" fill="#00E5FF"/>
+          </svg>
+          <span class="nav-logo-text">KUMA <span class="accent">CODE</span></span>
+        </div>
+        <p>
+          The only AI coding workspace where agents work in parallel on your machine. Built by ZeroSec AI.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="https://github.com/zerosecai/kuma-code" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/zerosecai/kuma-code/blob/main/README.md" target="_blank" rel="noopener">Documentation</a>
+        <a href="https://github.com/zerosecai/kuma-code/issues" target="_blank" rel="noopener">Issues</a>
+        <a href="https://github.com/zerosecai/kuma-code/discussions" target="_blank" rel="noopener">Discussions</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Trust</h4>
+        <a href="https://github.com/zerosecai/kuma-code/blob/main/PRIVACY.md" target="_blank" rel="noopener">Privacy</a>
+        <a href="https://github.com/zerosecai/kuma-code/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+        <a href="https://github.com/zerosecai/kuma-code/blob/main/ATTRIBUTION.md" target="_blank" rel="noopener">Attribution</a>
+        <a href="https://github.com/zerosecai/kuma-code/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 ZeroSec AI · MIT-licensed open source · Forked from Kilo Code</span>
+      <span><a href="mailto:kuma@zerosec-ai.tech">kuma@zerosec-ai.tech</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
