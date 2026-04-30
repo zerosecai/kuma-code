@@ -40,7 +40,7 @@ Kuma Code routes each request between Ollama Cloud, a local Ollama instance, or 
 
 Each skill pack ships about 1 GB of structured domain knowledge — TypeScript + React, Python + Django, Go stdlib — indexed by a two-level table-of-contents lookup. The skill retriever pulls the right paragraph into the prompt before the model runs, so a 1.5B model with the right pack performs comparably to a 70B-class model on its specialty. Install only the packs you need; nothing else takes disk.
 
-The first pack — TypeScript + React + Vite — is being built in the open at [kuma-pack-tsreact](https://github.com/zerosecai/kuma-pack-tsreact). M1 (build pipeline) complete; Day 3+ scales content to production size.
+The first pack — TypeScript + React + Vite — is being built in the open at [kuma-pack-tsreact](https://github.com/zerosecai/kuma-pack-tsreact). [v0.1.0-alpha](https://github.com/zerosecai/kuma-pack-tsreact/releases/tag/v0.1.0-alpha) contains 216 chunks from real TypeScript / React / Vite docs, with semantic search validated against 5/5 test queries. Scaling toward production size continues; extension integration follows.
 
 ### Three-agent pipeline
 
